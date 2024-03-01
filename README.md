@@ -1,1 +1,1 @@
-#Application for searching recipes with react and redux
+# Application for searching recipes with react and redux

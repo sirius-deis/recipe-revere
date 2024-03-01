@@ -14,6 +14,14 @@ const startLoading = ({ value }: { value: userState }) => {
   value.error = null;
 };
 
+const actionFailure = (
+  { value }: { value: userState },
+  action: { payload: Error }
+) => {
+  value.isLoading = false;
+  value.error = action.payload;
+};
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -33,6 +41,11 @@ const userSlice = createSlice({
       state.value.error = null;
       state.value.token = null;
     },
+    signInSuccess(state) {},
+    signOutSuccess(state) {},
+    signUpFailure: actionFailure,
+    signInFailure: actionFailure,
+    signOutFailure: actionFailure,
   },
 });
 

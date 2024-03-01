@@ -11,6 +11,7 @@ interface userState {
 
 const startLoading = ({ value }: { value: userState }) => {
   value.isLoading = true;
+  value.error = null;
 };
 
 const userSlice = createSlice({
@@ -27,6 +28,11 @@ const userSlice = createSlice({
     signUpStart: startLoading,
     signInStart: startLoading,
     signOutStart: startLoading,
+    signUpSuccess(state) {
+      state.value.isLoading = false;
+      state.value.error = null;
+      state.value.token = null;
+    },
   },
 });
 

@@ -82,4 +82,31 @@ describe("tests for user slice", () => {
       token: null,
     });
   });
+  it("should check if during failure in sign up state is changed properly", () => {
+    const error = new Error("Sign up failed");
+    expect(reducer(undefined, signUpFailure(error))).toEqual({
+      user: null,
+      isLoading: false,
+      error,
+      token: null,
+    });
+  });
+  it("should check if during failure in sign in state is changed properly", () => {
+    const error = new Error("Sign up failed");
+    expect(reducer(undefined, signInFailure(error))).toEqual({
+      user: null,
+      isLoading: false,
+      error,
+      token: null,
+    });
+  });
+  it("should check if during failure in sign out state is changed properly", () => {
+    const error = new Error("Sign up failed");
+    expect(reducer(undefined, signOutFailure(error))).toEqual({
+      user: null,
+      isLoading: false,
+      error,
+      token: null,
+    });
+  });
 });

@@ -1,0 +1,12 @@
+.btn {
+  background-color: var(--main-medium);
+  color: var(--main-light);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.btn-main {
+  background-color: var(--main-medium);
+}

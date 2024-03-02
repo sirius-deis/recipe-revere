@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface IUser {
+export interface IUser {
   _id: string;
   name: string;
   email: string;
   password: string;
   isActive: boolean;
   isBlocked: boolean;
-  role: "string";
+  role: string;
   passwordChangedAt: number;
-  pictures: [string];
+  pictures: [string] | [];
 }
 
-export interface IUserState {
+interface IUserState {
   user: IUser | null;
   isLoading: boolean;
   error: Error | null;

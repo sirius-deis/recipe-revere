@@ -6,4 +6,8 @@ describe("Button component", () => {
     const { container } = render(<Button>Get Starter</Button>);
     expect(container).toMatchSnapshot();
   });
+  it("should render component with proper text", () => {
+    render(<Button>Get Starter</Button>);
+    expect(screen.getByText("Get Starter")).toBeInTheDocument();
+  });
 });

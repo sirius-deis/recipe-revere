@@ -74,4 +74,12 @@ describe("tests for user slice", () => {
       token,
     });
   });
+  it("should check if user sign out successfully when action if fired", () => {
+    expect(reducer(undefined, signOutSuccess())).toEqual({
+      user: null,
+      isLoading: false,
+      error: null,
+      token: null,
+    });
+  });
 });

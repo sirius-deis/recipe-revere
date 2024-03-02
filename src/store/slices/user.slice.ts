@@ -47,7 +47,9 @@ const userSlice = createSlice({
       state.user = payload.data.user;
       state.token = payload.token;
     },
-    signOutSuccess(state) {},
+    signOutSuccess(state) {
+      state = initialState;
+    },
     signUpFailure: actionFailure,
     signInFailure: actionFailure,
     signOutFailure: actionFailure,

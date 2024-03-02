@@ -12,7 +12,7 @@ interface IUser {
   pictures: [string];
 }
 
-interface IUserState {
+export interface IUserState {
   user: IUser | null;
   isLoading: boolean;
   error: Error | null;
@@ -65,6 +65,7 @@ const userSlice = createSlice({
     signOutFailure: actionFailure,
   },
 });
+export const reducer = userSlice.reducer;
 
 export const {
   signInFailure,

@@ -66,4 +66,16 @@ const userSlice = createSlice({
   },
 });
 
+export const {
+  signInFailure,
+  signInStart,
+  signInSuccess,
+  signOutFailure,
+  signOutStart,
+  signOutSuccess,
+  signUpFailure,
+  signUpStart,
+  signUpSuccess,
+} = userSlice.actions;
+
 export default userSlice;

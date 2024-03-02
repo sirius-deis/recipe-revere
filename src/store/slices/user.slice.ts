@@ -1,6 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface IUser {}
+interface IUser {
+  _id: string;
+  name: string;
+  email: string;
+  password: string;
+  isActive: boolean;
+  isBlocked: boolean;
+  role: "string";
+  passwordChangedAt: number;
+  pictures: [string];
+}
 
 interface IUserState {
   user: IUser | null;

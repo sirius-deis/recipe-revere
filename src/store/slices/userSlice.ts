@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IUser {
   _id: string;
@@ -24,9 +24,9 @@ const startLoading = (state: IUserState) => {
   state.error = null;
 };
 
-const actionFailure = (state: IUserState, { payload }: { payload: Error }) => {
+const actionFailure = (state: IUserState, action: PayloadAction<Error>) => {
   state.isLoading = false;
-  state.error = payload;
+  state.error = action.payload;
 };
 
 const initialState: IUserState = {

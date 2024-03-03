@@ -4,3 +4,5 @@ import Button from "../components/button/Button";
 const StartPage: FC = () => {
   return <></>;
 };
+
+export default StartPage;

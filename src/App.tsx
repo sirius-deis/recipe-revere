@@ -6,6 +6,7 @@ import EmptyLayout from "./layouts/emptyLayout";
 import RootLayout from "./layouts/rootLayout";
 
 const StartPage = lazy(() => import("./pages/startPage/startPage"));
+const NotFoundPage = lazy(() => import("./pages/notFoundPage/NotFoundPage"));
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
           />
         </Route>
         <Route path="/" element={<RootLayout />}></Route>
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<Loader />}>
+              <NotFoundPage />
+            </Suspense>
+          }
+        />
       </Routes>
     </div>
   );

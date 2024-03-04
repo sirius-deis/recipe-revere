@@ -1,0 +1,32 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.error {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 4rem;
+  border-radius: 5px;
+  color: var(--main-dark);
+  text-align: center;
+}
+
+.error h1 {
+  font-size: 10rem;
+  margin-bottom: 2rem;
+}
+
+.error h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.error p {
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}

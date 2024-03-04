@@ -1,9 +1,18 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 
-const Button: FC<PropsWithChildren> = ({ children }) => {
+interface ButtonProps {
+  type?: "error";
+}
+
+const Button: FC<PropsWithChildren<ButtonProps>> = ({
+  children,
+  type,
+}): JSX.Element => {
   return (
-    <button className={`${styles.btn} ${styles["btn-main"]}`}>
+    <button
+      className={`${styles.btn} ${type ? `${styles[`btn-${type}`]}` : ""}`}
+    >
       {children}
     </button>
   );

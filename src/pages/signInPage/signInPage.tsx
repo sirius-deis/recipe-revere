@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const SignInPage: FC = () => {
-  return <div></div>;
+  return <div>SignInPage</div>;
 };
 
 export default SignInPage;

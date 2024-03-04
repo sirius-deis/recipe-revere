@@ -14,7 +14,7 @@ const StartPage: FC = () => {
           alt="A person that enjoy cooking"
         />
       </div>
-      <h1 className={styles.heading}>CookUp!</h1>
+      <h1 className={styles.heading}>RecipeRevere</h1>
       <p className={styles.text}>
         3000+ easy and delicious recipes from the best chefs from around the
         world

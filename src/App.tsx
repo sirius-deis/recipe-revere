@@ -2,12 +2,12 @@ import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Loader from "./components/loader/Loader";
-import EmptyLayout from "./layouts/emptyLayout";
-import RootLayout from "./layouts/rootLayout";
+import EmptyLayout from "./layouts/EmptyLayout";
+import RootLayout from "./layouts/RootLayout";
 
-const StartPage = lazy(() => import("./pages/startPage/startPage"));
-const SignInPage = lazy(() => import("./pages/signInPage/signInPage"));
-const SignUpPage = lazy(() => import("./pages/signUpPage/signUpPage"));
+const StartPage = lazy(() => import("./pages/startPage/StartPage"));
+const SignInPage = lazy(() => import("./pages/signInPage/SignInPage"));
+const SignUpPage = lazy(() => import("./pages/signUpPage/SignUpPage"));
 const NotFoundPage = lazy(() => import("./pages/notFoundPage/NotFoundPage"));
 
 function App() {

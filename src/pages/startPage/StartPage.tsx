@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import styles from "./startPage.module.css";
+import styles from "./StartPage.module.css";
 import StarterImg from "../../assets/starterImg.png";
 import Button from "../../components/button/Button";
 

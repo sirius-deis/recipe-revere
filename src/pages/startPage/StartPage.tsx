@@ -19,9 +19,9 @@ const StartPage: FC = () => {
         3000+ easy and delicious recipes from the best chefs from around the
         world
       </p>
-      <Button>
-        <Link to="/login">Get Started</Link>
-      </Button>
+      <Link to="/register">
+        <Button>Get Started</Button>
+      </Link>
     </div>
   );
 };

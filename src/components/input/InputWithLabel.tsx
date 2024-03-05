@@ -27,7 +27,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
       break;
   }
   return (
-    <>
+    <div className={styles.container}>
       <label htmlFor={id}>{labelText} *</label>
       <div className={styles["input-group"]}>
         <input
@@ -40,7 +40,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
           <span className={styles["input-group-icon"]}>{iconToInsert}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

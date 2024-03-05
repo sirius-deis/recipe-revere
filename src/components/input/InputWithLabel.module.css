@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.container label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.input-group {
+  width: 100%;
+  padding: 2rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-200);
+  border-radius: 10px;
+  overflow: hidden;
+  caret-color: var(--main-950);
+}
+
+.input-group:focus-within {
+  outline: 1px solid var(--main-700);
+}
+
+.form-control {
+  width: 100%;
+  font-size: 2rem;
+  border: none;
+  background-color: transparent;
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+.input-group-append {
+  font-size: 2rem;
+}

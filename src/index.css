@@ -19,9 +19,11 @@ code {
 
 :root {
   font-size: 50%;
-  --main-light: #fdf4ff;
-  --main-medium: #d946ef;
-  --main-dark: #4a044e;
+  --main-50: #fdf4ff;
+  --main-200: #f5d0fe;
+  --main-500: #d946ef;
+  --main-700: #a21caf;
+  --main-950: #4a044e;
 }
 
 a {

@@ -27,7 +27,7 @@ function App() {
             path="/login"
             element={
               <Suspense fallback={<Loader />}>
-                <SignUpPage />
+                <SignInPage />
               </Suspense>
             }
           />
@@ -35,7 +35,7 @@ function App() {
             path="/register"
             element={
               <Suspense fallback={<Loader />}>
-                <SignInPage />
+                <SignUpPage />
               </Suspense>
             }
           />

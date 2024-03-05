@@ -12,4 +12,17 @@ describe("InputWithLabel component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+  it("should render element with correct label and placeholder", () => {
+    render(
+      <InputWithLabel
+        labelText="Email"
+        inputPlaceholder="Example@email.com"
+        icon="email"
+      />
+    );
+    expect(screen.getByLabelText("Email *")).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText("Example@email.com")
+    ).toBeInTheDocument();
+  });
 });

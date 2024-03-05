@@ -9,7 +9,7 @@ export interface IUser {
   isBlocked: boolean;
   role: string;
   passwordChangedAt: number;
-  pictures: [string] | [];
+  pictures: string[] | [];
 }
 
 interface IUserState {

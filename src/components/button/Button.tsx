@@ -5,7 +5,7 @@ interface ButtonProps {
   type?: "error";
 }
 
-const Button: FC<PropsWithChildren<ButtonProps>> = ({
+const Button: FC<PropsWithChildren & ButtonProps> = ({
   children,
   type,
 }): JSX.Element => {

@@ -4,6 +4,7 @@ import "./App.css";
 import Loader from "./components/loader/Loader";
 import EmptyLayout from "./layouts/EmptyLayout";
 import RootLayout from "./layouts/RootLayout";
+import ApolloAppProvider from "./utils/ApolloProvider";
 
 const StartPage = lazy(() => import("./pages/startPage/StartPage"));
 const SignInPage = lazy(() => import("./pages/signInPage/SignInPage"));
@@ -12,45 +13,47 @@ const NotFoundPage = lazy(() => import("./pages/notFoundPage/NotFoundPage"));
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<EmptyLayout />}>
+    <ApolloAppProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<EmptyLayout />}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<Loader />}>
+                  <StartPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <SignInPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <SignUpPage />
+                </Suspense>
+              }
+            />
+          </Route>
+          <Route path="/" element={<RootLayout />}></Route>
           <Route
-            index
+            path="*"
             element={
               <Suspense fallback={<Loader />}>
-                <StartPage />
+                <NotFoundPage />
               </Suspense>
             }
           />
-          <Route
-            path="/login"
-            element={
-              <Suspense fallback={<Loader />}>
-                <SignInPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <Suspense fallback={<Loader />}>
-                <SignUpPage />
-              </Suspense>
-            }
-          />
-        </Route>
-        <Route path="/" element={<RootLayout />}></Route>
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={<Loader />}>
-              <NotFoundPage />
-            </Suspense>
-          }
-        />
-      </Routes>
-    </div>
+        </Routes>
+      </div>
+    </ApolloAppProvider>
   );
 }
 

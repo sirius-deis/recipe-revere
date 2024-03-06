@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import StarterImg from "../../assets/starterImg.png";
 import styles from "./SignInPage.module.css";
@@ -7,6 +7,12 @@ import InputWithLabel from "../../components/input/InputWithLabel";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 
 const SignInPage: FC = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const onCheckHandler = () => {
+    setIsChecked((prevState) => !prevState);
+  };
+
   return (
     <div>
       <div className={styles.container}>
@@ -36,7 +42,11 @@ const SignInPage: FC = () => {
           type="password"
           icon="password"
         />
-        <CheckboxWithLabel isChecked={false} labelText="Remember me" />
+        <CheckboxWithLabel
+          isChecked={isChecked}
+          labelText="Remember me"
+          onCheckHandler={onCheckHandler}
+        />
         <Button>Sign In</Button>
         <p className={styles.text}>
           Don't have an account?{" "}

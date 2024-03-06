@@ -4,6 +4,7 @@ import StarterImg from "../../assets/starterImg.png";
 import styles from "./SignInPage.module.css";
 import Button from "../../components/button/Button";
 import InputWithLabel from "../../components/input/InputWithLabel";
+import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 
 const SignInPage: FC = () => {
   return (
@@ -29,6 +30,13 @@ const SignInPage: FC = () => {
           type="password"
           icon="password"
         />
+        <InputWithLabel
+          labelText="Confirm Password"
+          inputPlaceholder="************"
+          type="password"
+          icon="password"
+        />
+        <CheckboxWithLabel isChecked={false} labelText="Remember me" />
         <Button>Sign In</Button>
         <p className={styles.text}>
           Don't have an account?{" "}

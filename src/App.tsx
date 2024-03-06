@@ -4,7 +4,7 @@ import "./App.css";
 import Loader from "./components/loader/Loader";
 import EmptyLayout from "./layouts/EmptyLayout";
 import RootLayout from "./layouts/RootLayout";
-import ApolloAppProvider from "./utils/ApolloProvider";
+import ApolloAppProvider from "./components/apollo/ApolloProvider";
 
 const StartPage = lazy(() => import("./pages/startPage/StartPage"));
 const SignInPage = lazy(() => import("./pages/signInPage/SignInPage"));

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import StarterImg from "../../assets/starterImg.png";
 import styles from "./SignUpPage.module.css";
 import Button from "../../components/button/Button";
@@ -32,9 +32,9 @@ const SignUpPage: FC = () => {
         <Button>Sign Up</Button>
         <p className={styles.text}>
           Already have an account?{" "}
-          <NavLink to="/login" className={styles.link}>
+          <Link to="/login" className={styles.link}>
             Log in
-          </NavLink>
+          </Link>
         </p>
       </div>
     </div>

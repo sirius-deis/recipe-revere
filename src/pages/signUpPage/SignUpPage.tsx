@@ -7,7 +7,7 @@ import InputWithLabel from "../../components/input/InputWithLabel";
 
 const SignUpPage: FC = () => {
   return (
-    <div>
+    <section>
       <div className={styles.container}>
         <div className={styles["image-container"]}>
           <img
@@ -37,7 +37,7 @@ const SignUpPage: FC = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

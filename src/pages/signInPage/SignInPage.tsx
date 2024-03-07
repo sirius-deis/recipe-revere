@@ -15,7 +15,7 @@ const SignInPage: FC = () => {
   };
 
   return (
-    <div>
+    <section>
       <div className={styles.container}>
         <div className={styles["image-container"]}>
           <img
@@ -65,7 +65,7 @@ const SignInPage: FC = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

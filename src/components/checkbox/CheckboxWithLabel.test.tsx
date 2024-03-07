@@ -35,7 +35,7 @@ describe("CheckboxWithLabel component", () => {
     fireEvent.click(checkboxLabel);
     expect(onCheckHandler).toHaveBeenCalled();
     expect(onCheckHandler).toHaveBeenCalledTimes(1);
-    const checkbox = checkboxLabel?.nextElementSibling;
+    const checkbox = checkboxLabel?.nextElementSibling as HTMLInputElement;
     fireEvent.click(checkbox!);
     expect(onCheckHandler).toHaveBeenCalledTimes(2);
   });

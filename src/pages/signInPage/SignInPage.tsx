@@ -42,11 +42,26 @@ const SignInPage: FC = () => {
           type="password"
           icon="password"
         />
-        <CheckboxWithLabel
-          isChecked={isChecked}
-          labelText="Remember me"
-          onCheckHandler={onCheckHandler}
-        />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "100%",
+          }}
+        >
+          <CheckboxWithLabel
+            isChecked={isChecked}
+            labelText="Remember me"
+            onCheckHandler={onCheckHandler}
+          />
+          <Link
+            to="/forgot"
+            style={{ fontSize: "1.5rem", textDecoration: "underline" }}
+          >
+            Forgot password?
+          </Link>
+        </div>
         <Button>Sign In</Button>
         <p className={styles.text}>
           Don't have an account?{" "}

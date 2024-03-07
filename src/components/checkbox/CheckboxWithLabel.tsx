@@ -14,9 +14,8 @@ const CheckboxWithLabel: FC<CheckboxWithLabelProps> = ({
 }) => {
   const id = useId();
   return (
-    <div>
-      <label className={styles.label}>
-        {labelText}
+    <>
+      <label className={styles.checkbox}>
         <label htmlFor={id} className={styles.container}>
           <input
             type="checkbox"
@@ -26,8 +25,9 @@ const CheckboxWithLabel: FC<CheckboxWithLabelProps> = ({
           />
           <span className={styles.checkmark}></span>
         </label>
+        {labelText}
       </label>
-    </div>
+    </>
   );
 };
 

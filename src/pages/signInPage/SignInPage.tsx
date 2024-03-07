@@ -5,6 +5,7 @@ import styles from "./SignInPage.module.css";
 import Button from "../../components/button/Button";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
+import Row from "../../components/row/Row";
 
 const SignInPage: FC = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -43,13 +44,7 @@ const SignInPage: FC = () => {
           icon="password"
         />
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "100%",
-          }}
-        >
+        <Row inlineStyles={{ gap: "2rem" }}>
           <CheckboxWithLabel
             isChecked={isChecked}
             labelText="Remember me"
@@ -61,7 +56,7 @@ const SignInPage: FC = () => {
           >
             Forgot password?
           </Link>
-        </div>
+        </Row>
         <Button>Sign In</Button>
         <p className={styles.text}>
           Don't have an account?{" "}

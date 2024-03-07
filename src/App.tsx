@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Loader from "./components/loader/Loader";
 import EmptyLayout from "./layouts/EmptyLayout";
@@ -13,6 +13,7 @@ const NotFoundPage = lazy(() => import("./pages/notFoundPage/NotFoundPage"));
 const ForgetPasswordPage = lazy(
   () => import("./pages/forgotPasswordPage/ForgotPasswordPage")
 );
+const HomePage = lazy(() => import("./pages/homePage/HomePage"));
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<EmptyLayout />}>
             <Route
-              index
+              path="get-started"
               element={
                 <Suspense fallback={<Loader />}>
                   <StartPage />
@@ -53,7 +54,17 @@ function App() {
               }
             />
           </Route>
-          <Route path="/" element={<RootLayout />}></Route>
+          <Route path="/" element={<RootLayout />}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<Loader />}>
+                  <HomePage />
+                </Suspense>
+              }
+            />
+            <Route path="/home" element={<Navigate to="/" />} />
+          </Route>
           <Route
             path="*"
             element={

@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<EmptyLayout />}>
             <Route
-              path="get-started"
+              path="/get-started"
               element={
                 <Suspense fallback={<Loader />}>
                   <StartPage />

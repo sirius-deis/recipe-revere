@@ -5,8 +5,8 @@ const HamburgerMenu: FC = () => {
   return (
     <nav className={styles.navigation}>
       <span></span>
-      <div></div>
-      <div></div>
+      <span></span>
+      <span></span>
     </nav>
   );
 };

@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./Col.module.css";
 
-const Col: FC<PropsWithChildren & { inlineStyles: {} }> = ({
+const Col: FC<PropsWithChildren & { inlineStyles?: {} }> = ({
   children,
   inlineStyles,
 }) => {

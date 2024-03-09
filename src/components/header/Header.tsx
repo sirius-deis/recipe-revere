@@ -1,14 +1,16 @@
 import { FC } from "react";
 import styles from "./Header.module.css";
+import Col from "../column/Col";
 
 const Header: FC = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.left}>
+      <Col>
         <div className={styles["image-container"]}>
           <img src="" alt="user picture" />
         </div>
-      </div>
+      </Col>
+      <Col></Col>
     </header>
   );
 };

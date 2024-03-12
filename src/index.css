@@ -24,6 +24,11 @@ code {
   --main-500: #d946ef;
   --main-700: #a21caf;
   --main-950: #4a044e;
+  --additional-50: #f8fafc;
+  --additional-200: #e2e8f0;
+  --additional-500: #64748b;
+  --additional-700: #334155;
+  --additional-950: #020617;
 }
 
 a {

@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 
 interface ButtonProps {
-  type?: "error";
+  type?: "error" | "icon";
 }
 
 const Button: FC<PropsWithChildren & ButtonProps> = ({

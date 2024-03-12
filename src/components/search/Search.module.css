@@ -1,0 +1,27 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  font-size: 2rem;
+  background-color: var(--main-200);
+  border-radius: 5px;
+}
+
+.search svg {
+  flex-basis: 10%;
+}
+
+.search input {
+  flex-basis: 90%;
+  border: none;
+  background-color: transparent;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search input::placeholder {
+  color: var(--main-700);
+}

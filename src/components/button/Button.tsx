@@ -2,6 +2,8 @@ import { FC, PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 
 interface ButtonProps {
+  size?: "lg" | "sm";
+  bg?: "main" | "additional" | "icon";
   type?: "error" | "icon" | "sm-green";
 }
 

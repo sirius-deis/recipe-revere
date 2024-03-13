@@ -3,7 +3,6 @@
   margin-top: 1rem;
   padding: 2rem 0;
   font-size: 2rem;
-  line-height: 1;
   font-weight: 600;
   border: none;
   border-radius: 10px;
@@ -34,4 +33,10 @@
   font-size: 2.4rem;
   display: flex;
   color: var(--additional-950);
+}
+
+.btn-sm-green {
+  width: auto;
+  margin-top: 0;
+  padding: 0.5rem 1.5rem;
 }

@@ -24,6 +24,7 @@
 
 .btn-icon {
   width: auto;
+  margin-top: 0;
   padding: 1.3rem;
   background-color: var(--additional-200);
   box-shadow: none;

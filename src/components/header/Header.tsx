@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { FaHome, FaSearch, FaUserCircle } from "react-icons/fa";
-import { FaListCheck } from "react-icons/fa6";
+import { FaListCheck, FaUserSecret } from "react-icons/fa6";
 import styles from "./Header.module.css";
 import Col from "../column/Col";
 import Row from "../row/Row";
@@ -11,9 +11,9 @@ const Header: FC = () => {
     <header>
       <div className={styles["header-top"]}>
         <Col>
-          <Row>
+          <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>
-              <img src="" alt="user picture" />
+              <FaUserSecret className={styles["user-icon"]} />
             </div>
             Hello ...
           </Row>

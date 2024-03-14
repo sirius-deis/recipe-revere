@@ -1,24 +1,40 @@
 .btn {
-  width: 45rem;
-  margin-top: 1rem;
-  padding: 2rem 0;
   font-size: 2rem;
   font-weight: 600;
   border: none;
   border-radius: 10px;
-  background-color: var(--main-500);
   box-shadow: 1px 2px rgba(217, 70, 239, 0.25);
   color: var(--main-50);
   cursor: pointer;
   transition: background-color 200ms linear;
 }
 
-.btn:hover {
-  filter: brightness(105%);
+.btn-lg {
+  width: 45rem;
+  margin-top: 1rem;
+  padding: 2rem 0;
 }
 
-.btn-error {
+.btn-md {
   width: 25rem;
+  margin-top: 1rem;
+  padding: 2rem 0;
+}
+
+.btn-sm {
+  width: auto;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-main {
+  background-color: var(--main-500);
+}
+
+.btn-action {
+}
+
+.btn:hover {
+  filter: brightness(105%);
 }
 
 .btn-icon {
@@ -33,10 +49,4 @@
   font-size: 2.4rem;
   display: flex;
   color: var(--additional-950);
-}
-
-.btn-sm-green {
-  width: auto;
-  margin-top: 0;
-  padding: 0.5rem 1.5rem;
 }

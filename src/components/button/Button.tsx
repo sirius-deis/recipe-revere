@@ -3,17 +3,19 @@ import styles from "./Button.module.css";
 
 interface ButtonProps {
   size?: "lg" | "sm";
-  bg?: "main" | "additional" | "icon";
-  type?: "error" | "icon" | "sm-green";
+  bg?: "main" | "action" | "icon";
 }
 
 const Button: FC<PropsWithChildren & ButtonProps> = ({
   children,
-  type,
+  size,
+  bg,
 }): JSX.Element => {
   return (
     <button
-      className={`${styles.btn} ${type ? `${styles[`btn-${type}`]}` : ""}`}
+      className={`${styles.btn} ${
+        size ? `${styles[`btn-${size}`]}` : "btn-lg"
+      } ${bg ? `${styles[`btn-${bg}`]}` : "btn-main"}`}
     >
       {children}
     </button>

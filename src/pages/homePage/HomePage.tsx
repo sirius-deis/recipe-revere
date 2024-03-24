@@ -11,7 +11,7 @@ const HomePage: FC = () => {
       <h2 className={styles.heading}>What are we cooking today?</h2>
       <div className={styles["search-with-filter"]}>
         <Search placeholderText="Ex.: Burger" />
-        <Button type="icon">
+        <Button bg="icon">
           <IoOptionsSharp />
         </Button>
       </div>

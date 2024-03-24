@@ -27,7 +27,7 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
           {ratingAvg}
         </div>
         <div className={styles.liked}>
-          <Button type="icon">
+          <Button bg="icon">
             <FaHeart />
           </Button>
         </div>
@@ -43,7 +43,9 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
             </div>
           </Col>
           <Col>
-            <Button type="sm-green">Cook now</Button>
+            <Button bg="action" size="sm">
+              Cook now
+            </Button>
           </Col>
         </Row>
       </div>

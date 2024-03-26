@@ -29,6 +29,9 @@ code {
   --additional-500: #64748b;
   --additional-700: #334155;
   --additional-950: #020617;
+  --action-200: #d9f99d;
+  --action-500: #84cc16;
+  --action-900: #1a2e05;
 }
 
 a {

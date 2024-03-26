@@ -20,7 +20,7 @@ const HomePage: FC = () => {
         <RecipeOfTheDay
           ratingAvg={4.9}
           title="Creamy Funghi Risotto"
-          image=""
+          image="https://www.inspiredtaste.net/wp-content/uploads/2011/12/Mushroom-Risotto-Recipe-1-1200.jpg"
           tags={["Healthy", "Vegetarian", "Lunch"]}
         />
       </section>

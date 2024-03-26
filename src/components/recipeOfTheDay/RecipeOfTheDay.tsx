@@ -20,8 +20,11 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
 }) => {
   return (
     <article className={styles.recipe}>
-      <div className={styles["image-container"]}>
-        <img className={styles.img} src={image} alt="A prepared recipe" />
+      <div
+        className={styles["image-container"]}
+        style={{ backgroundImage: `url(${image})` }}
+      >
+        {/* <img className={styles.img} src={image} alt="A prepared recipe" /> */}
         <div className={styles.rating}>
           <FaStar />
           {ratingAvg}
@@ -33,14 +36,14 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
         </div>
       </div>
       <div className={styles.desc}>
-        <Row>
+        <Row inlineStyles={{ justifyContent: "space-between" }}>
           <Col>
-            <h3>{title}</h3>
-            <div className={styles.tags}>
+            <h3 className="title">{title}</h3>
+            <ul className={styles.tags}>
               {tags.map((tag) => (
-                <span key={tag}>{tag}</span>
+                <li key={tag}>{tag}</li>
               ))}
-            </div>
+            </ul>
           </Col>
           <Col>
             <Button bg="action" size="sm">

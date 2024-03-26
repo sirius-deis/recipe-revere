@@ -48,10 +48,15 @@
   padding: 1.3rem;
   background-color: var(--additional-200);
   box-shadow: none;
+  font-size: 2.4rem;
 }
 
 .btn-icon svg {
-  font-size: 2.4rem;
+  font-size: inherit;
   display: flex;
   color: var(--additional-950);
+}
+
+.btn-rounded {
+  border-radius: 50%;
 }

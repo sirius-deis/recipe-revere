@@ -30,7 +30,11 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
           {ratingAvg}
         </div>
         <div className={styles.liked}>
-          <Button bg="icon">
+          <Button
+            bg="icon"
+            inlineStyles={{ fontSize: "1.7rem", padding: "0.8rem" }}
+            rounded
+          >
             <FaHeart />
           </Button>
         </div>

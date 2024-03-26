@@ -15,8 +15,8 @@ const HomePage: FC = () => {
           <IoOptionsSharp />
         </Button>
       </div>
-      <section>
-        <h3>Recipe of the day</h3>
+      <section className="d-flex" style={{ gap: "2rem", marginTop: "1rem" }}>
+        <h3 className={styles.title}>Recipe of the day</h3>
         <RecipeOfTheDay
           ratingAvg={4.9}
           title="Creamy Funghi Risotto"

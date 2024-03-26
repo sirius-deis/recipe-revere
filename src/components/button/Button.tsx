@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 
 interface ButtonProps {
-  size?: "lg" | "sm";
+  size?: "lg" | "sm" | "md";
   bg?: "main" | "action" | "icon";
   rounded?: true | false;
   inlineStyles?: {};

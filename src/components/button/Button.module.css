@@ -23,7 +23,7 @@
 
 .btn-sm {
   width: auto;
-  padding: 0.5rem 1.5rem;
+  padding: 0.8rem 2rem;
 }
 
 .btn-main {
@@ -43,8 +43,9 @@
 }
 
 .btn-icon {
-  width: auto;
-  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.3rem;
   background-color: var(--additional-200);
   box-shadow: none;
@@ -53,7 +54,6 @@
 
 .btn-icon svg {
   font-size: inherit;
-  display: flex;
   color: var(--additional-950);
 }
 

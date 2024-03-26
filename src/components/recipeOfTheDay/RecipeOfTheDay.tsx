@@ -32,7 +32,8 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
         <div className={styles.liked}>
           <Button
             bg="icon"
-            inlineStyles={{ fontSize: "1.7rem", padding: "0.8rem" }}
+            size="sm"
+            inlineStyles={{ padding: "0.8rem" }}
             rounded
           >
             <FaHeart />
@@ -41,8 +42,8 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
       </div>
       <div className={styles.desc}>
         <Row inlineStyles={{ justifyContent: "space-between" }}>
-          <Col>
-            <h3 className="title">{title}</h3>
+          <Col inlineStyles={{ gap: "0.5rem" }}>
+            <h3 className={styles.title}>{title}</h3>
             <ul className={styles.tags}>
               {tags.map((tag) => (
                 <li key={tag}>{tag}</li>

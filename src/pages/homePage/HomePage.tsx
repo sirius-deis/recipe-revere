@@ -33,6 +33,39 @@ const HomePage: FC = () => {
           <h2 className={styles.title}>Categories</h2>
           <Link to="/search">See all</Link>
         </Row>
+        <Row inlineStyles={{ gap: "1rem" }}>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaBurger />
+              <span className="fs-2">Burger</span>
+            </Col>
+          </Button>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaLeaf />
+              <span className="fs-2">Vegan</span>
+            </Col>
+          </Button>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaCookieBite />
+              <span className="fs-2">Desserts</span>
+            </Col>
+          </Button>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaFishFins />
+              <span className="fs-2">Seafood</span>
+            </Col>
+          </Button>
+        </Row>
+      </section>
+
+      <section className="mt-1">
+        <Row inlineStyles={{ justifyContent: "space-between" }}>
+          <h2 className={styles.title}>Categories</h2>
+          <Link to="/search">See all</Link>
+        </Row>
         <Row>
           <Button bg="icon" size="sm">
             <Col>

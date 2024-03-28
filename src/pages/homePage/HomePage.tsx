@@ -1,11 +1,13 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IoOptionsSharp } from "react-icons/io5";
+import { FaBurger, FaLeaf, FaCookieBite, FaFishFins } from "react-icons/fa6";
 import styles from "./HomePage.module.css";
 import Search from "../../components/search/Search";
 import Button from "../../components/button/Button";
 import RecipeOfTheDay from "../../components/recipeOfTheDay/RecipeOfTheDay";
 import Row from "../../components/row/Row";
+import Col from "../../components/column/Col";
 
 const HomePage: FC = () => {
   return (
@@ -30,6 +32,32 @@ const HomePage: FC = () => {
         <Row inlineStyles={{ justifyContent: "space-between" }}>
           <h2 className={styles.title}>Categories</h2>
           <Link to="/search">See all</Link>
+        </Row>
+        <Row>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaBurger />
+              Burger
+            </Col>
+          </Button>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaLeaf />
+              Vegan
+            </Col>
+          </Button>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaCookieBite />
+              Desserts
+            </Col>
+          </Button>
+          <Button bg="icon" size="sm">
+            <Col>
+              <FaFishFins />
+              Seafood
+            </Col>
+          </Button>
         </Row>
       </section>
     </div>

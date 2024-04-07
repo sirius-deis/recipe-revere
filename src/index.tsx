@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import store from "./store/store";
+import ApolloAppProvider from "./components/apollo/ApolloProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,9 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <ApolloAppProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ApolloAppProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

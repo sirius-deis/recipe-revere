@@ -39,6 +39,10 @@ a {
   color: inherit;
 }
 
+.main {
+  padding-bottom: 9rem;
+}
+
 .d-flex {
   display: flex;
   flex-direction: column;

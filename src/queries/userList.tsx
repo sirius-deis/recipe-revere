@@ -10,7 +10,7 @@ interface User {
   pictures: string[];
 }
 
-const getUsers = gql`
+const GET_USERS = gql`
   query getUsers {
     users {
       _id
@@ -24,7 +24,7 @@ const getUsers = gql`
 `;
 
 const UserList: FC = () => {
-  const { loading, error, data } = useQuery(getUsers);
+  const { loading, error, data } = useQuery(GET_USERS);
   if (loading) {
     return <Loader />;
   }

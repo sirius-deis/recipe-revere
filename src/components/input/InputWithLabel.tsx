@@ -8,6 +8,7 @@ interface InputWithLabelProps {
   inputPlaceholder: string;
   type?: string;
   icon: "email" | "password";
+  changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputWithLabel: FC<InputWithLabelProps> = ({

@@ -31,7 +31,7 @@ const Register: FC = () => {
   };
 
   const handleChange = (
-    setFunction: (value: string) => {},
+    setFunction: (value: string) => void,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     e.preventDefault();
@@ -44,6 +44,9 @@ const Register: FC = () => {
         labelText="Email"
         inputPlaceholder="example@email.com"
         icon="email"
+        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(setEmail, e)
+        }
       />
       <InputWithLabel
         labelText="Password"

@@ -30,6 +30,14 @@ const Register: FC = () => {
     });
   };
 
+  const handleChange = (
+    setFunction: (value: string) => {},
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    e.preventDefault();
+    setFunction(e.target.value);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <InputWithLabel

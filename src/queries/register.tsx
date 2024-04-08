@@ -31,7 +31,7 @@ const Register: FC = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

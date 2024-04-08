@@ -53,6 +53,9 @@ const Register: FC = () => {
         inputPlaceholder="************"
         type="password"
         icon="password"
+        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(setPassword, e)
+        }
       />
       <InputWithLabel
         labelText="Password Confirm"

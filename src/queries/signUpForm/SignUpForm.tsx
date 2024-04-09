@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { FC, useState } from "react";
-import InputWithLabel from "../components/input/InputWithLabel";
-import Button from "../components/button/Button";
+import InputWithLabel from "../../components/input/InputWithLabel";
+import Button from "../../components/button/Button";
 
 const REGISTER = gql`
   mutation Register($email: String!, $password: String!. passwordConfirm: String!) {
@@ -13,7 +13,7 @@ const REGISTER = gql`
   }
 `;
 
-const Register: FC = () => {
+const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -68,4 +68,4 @@ const Register: FC = () => {
   );
 };
 
-export default Register;
+export default SignUpForm;

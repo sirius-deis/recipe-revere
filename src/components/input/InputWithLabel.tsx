@@ -16,6 +16,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
   type = "text",
   inputPlaceholder,
   icon,
+  changeHandler,
 }) => {
   const id = useId();
   let iconToInsert;
@@ -36,6 +37,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
           id={id}
           className={styles["form-control"]}
           placeholder={inputPlaceholder}
+          onChange={changeHandler}
         />
         <div className={styles["input-group-append"]}>
           <span className={styles["input-group-icon"]}>{iconToInsert}</span>

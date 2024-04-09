@@ -35,18 +35,32 @@ const SignInForm = () => {
     });
   };
 
+  const handleChange = (
+    setFunction: (value: string) => void,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    e.preventDefault();
+    setFunction(e.target.value);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"
         icon="email"
+        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(setEmail, e)
+        }
       />
       <InputWithLabel
         labelText="Password"
         inputPlaceholder="************"
         type="password"
         icon="password"
+        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(setPassword, e)
+        }
       />
 
       <Row inlineStyles={{ gap: "2rem" }}>

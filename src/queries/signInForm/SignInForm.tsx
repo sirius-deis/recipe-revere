@@ -9,8 +9,14 @@ import { Link } from "react-router-dom";
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-      email
-      password
+      token
+      user {
+        _id
+        name
+        email
+        role
+        pictures
+      }
     }
   }
 `;

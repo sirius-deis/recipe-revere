@@ -16,8 +16,17 @@ const ForgetPasswordForm: FC = () => {
   const [forgetPassword, { data, loading, error }] =
     useMutation(FORGET_PASSWORD);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await forgetPassword({
+      variables: {
+        userEmail,
+      },
+    });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

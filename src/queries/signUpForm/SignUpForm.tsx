@@ -59,6 +59,9 @@ const SignUpForm: FC = () => {
         inputPlaceholder="************"
         type="password"
         icon="password"
+        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(setPasswordConfirm, e)
+        }
       />
       <Button>Sign Up</Button>
     </form>

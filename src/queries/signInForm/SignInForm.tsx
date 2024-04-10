@@ -15,11 +15,11 @@ const LOGIN = gql`
   }
 `;
 
-const SignInForm = () => {
+const SignInForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [login] = useMutation(LOGIN);
+  const [login, { data, loading, error }] = useMutation(LOGIN);
 
   const onCheckHandler = () => {
     setIsChecked((prevState) => !prevState);

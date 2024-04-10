@@ -21,6 +21,7 @@ const LOGIN = gql`
   }
 `;
 
+//TODO: handle received data, loading and error
 const SignInForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

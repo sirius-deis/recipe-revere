@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 
+//TODO: handle loading and error
 const REGISTER = gql`
   mutation Register($email: String!, $password: String!. passwordConfirm: String!) {
     register(email: $email, password: $password, passwordConfirm: $passwordConfirm) {
@@ -14,7 +15,7 @@ const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [register] = useMutation(REGISTER);
+  const [register, { data, loading, error }] = useMutation(REGISTER);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

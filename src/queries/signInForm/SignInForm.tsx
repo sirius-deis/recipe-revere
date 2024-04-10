@@ -5,6 +5,7 @@ import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 import { Link } from "react-router-dom";
+import { handleChange } from "../../utils/utils";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
@@ -40,14 +41,6 @@ const SignInForm: FC = () => {
         password,
       },
     });
-  };
-
-  const handleChange = (
-    setFunction: (value: string) => void,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    e.preventDefault();
-    setFunction(e.target.value);
   };
 
   return (

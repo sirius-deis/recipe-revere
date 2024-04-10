@@ -2,6 +2,7 @@ import { gql, useMutation } from "@apollo/client";
 import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
+import { handleChange } from "../../utils/utils";
 
 //TODO: handle loading and error
 const REGISTER = gql`
@@ -26,14 +27,6 @@ const SignUpForm: FC = () => {
         passwordConfirm,
       },
     });
-  };
-
-  const handleChange = (
-    setFunction: (value: string) => void,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    e.preventDefault();
-    setFunction(e.target.value);
   };
 
   return (

@@ -2,6 +2,7 @@ import { gql, useMutation } from "@apollo/client";
 import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
+import { handleChange } from "../../utils/utils";
 
 const FORGET_PASSWORD = gql`
   mutation ForgetPassword($userEmail: String!) {
@@ -12,7 +13,7 @@ const FORGET_PASSWORD = gql`
 `;
 
 const ForgetPasswordForm: FC = () => {
-  const [userEmail, setUserEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [forgetPassword, { data, loading, error }] =
     useMutation(FORGET_PASSWORD);
 
@@ -20,7 +21,7 @@ const ForgetPasswordForm: FC = () => {
     e.preventDefault();
     await forgetPassword({
       variables: {
-        userEmail,
+        email,
       },
     });
   };
@@ -31,6 +32,9 @@ const ForgetPasswordForm: FC = () => {
         labelText="Email"
         inputPlaceholder="example@email.com"
         icon="email"
+        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+          handleChange(setEmail, e)
+        }
       />
       <Button>Submit</Button>
     </form>

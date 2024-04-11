@@ -3,6 +3,7 @@ import styles from "./ForgotPasswordPage.module.css";
 import StarterImg from "../../assets/starterImg.png";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
+import { handleChange } from "../../utils/utils";
 
 const ForgetPasswordPage: FC = () => {
   return (

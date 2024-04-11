@@ -1,9 +1,31 @@
 import { FC } from "react";
+import { gql, useQuery } from "@apollo/client";
 import { FaStar, FaHeart, FaRegHeart } from "react-icons/fa";
 import styles from "./RecipeOfTheDay.module.css";
 import Row from "../row/Row";
 import Col from "../column/Col";
 import Button from "../button/Button";
+
+const RECIPE_OF_THE_DAY = gql`
+  GET_RECIPE($tags: [String]!) {
+    getRecipe(tags: $tags) {
+      url
+      label
+      image
+      source
+      dietLabels
+      healthLabels
+      cautions
+      ingredientLines
+      calories
+      totalWeigh
+      totalTime
+      cuisineType
+      mealType
+      dishType
+    }
+  }
+`;
 
 interface RecipeOfTheDayProps {
   ratingAvg: number;

@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import Loader from "../components/loader/Loader";
+import Loader from "../../components/loader/Loader";
 import { FC } from "react";
 
 interface User {

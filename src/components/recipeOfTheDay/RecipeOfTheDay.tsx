@@ -5,6 +5,7 @@ import styles from "./RecipeOfTheDay.module.css";
 import Row from "../row/Row";
 import Col from "../column/Col";
 import Button from "../button/Button";
+import Loader from "../loader/Loader";
 
 const RECIPE_OF_THE_DAY = gql`
   GET_RECIPE($tags: [String]!) {
@@ -40,6 +41,14 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
   tags,
   image,
 }) => {
+  const { loading, error, data } = useQuery(RECIPE_OF_THE_DAY, {
+    variables: {
+      tags: "RECIPE OF THE DAY",
+    },
+  });
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <article className={styles.recipe}>
       <div

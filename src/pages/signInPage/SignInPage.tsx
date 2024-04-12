@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import StarterImg from "../../assets/starterImg.png";
 import styles from "./SignInPage.module.css";
-import SignInForm from "../../queries/signInForm/SignInForm";
+import SignInForm from "../../components/signInForm/SignInForm";
 
 const SignInPage: FC = () => {
   return (

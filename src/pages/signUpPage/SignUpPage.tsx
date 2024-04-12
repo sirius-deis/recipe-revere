@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import StarterImg from "../../assets/starterImg.png";
 import styles from "./SignUpPage.module.css";
-import SignUpForm from "../../queries/signUpForm/SignUpForm";
+import SignUpForm from "../../components/signUpForm/SignUpForm";
 
 const SignUpPage: FC = () => {
   return (

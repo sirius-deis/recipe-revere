@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./ForgotPasswordPage.module.css";
 import StarterImg from "../../assets/starterImg.png";
-import ForgetPasswordForm from "../../queries/forgetPasswordForm/ForgetPassword";
+import ForgetPasswordForm from "../../components/forgetPasswordForm/ForgetPassword";
 
 const ForgetPasswordPage: FC = () => {
   return (

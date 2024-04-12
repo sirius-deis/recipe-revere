@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { FC, useState } from "react";
-import InputWithLabel from "../../components/input/InputWithLabel";
-import Button from "../../components/button/Button";
+import InputWithLabel from "../input/InputWithLabel";
+import Button from "../button/Button";
 import { handleChange } from "../../utils/utils";
 
 const FORGET_PASSWORD = gql`

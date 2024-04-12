@@ -10,20 +10,16 @@ import Loader from "../loader/Loader";
 const RECIPE_OF_THE_DAY = gql`
   GET_RECIPE($tags: [String]!) {
     getRecipe(tags: $tags) {
-      url
-      label
-      image
-      source
-      dietLabels
-      healthLabels
-      cautions
-      ingredientLines
-      calories
-      totalWeigh
-      totalTime
-      cuisineType
-      mealType
-      dishType
+      recipe {
+        url
+        label
+        image
+        source
+        dietLabels
+        healthLabels
+        totalTime
+      }
+      averageRating
     }
   }
 `;
@@ -48,6 +44,9 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
   });
   if (loading) {
     return <Loader />;
+  }
+  if (error) {
+    //TODO: add error img
   }
   return (
     <article className={styles.recipe}>

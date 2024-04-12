@@ -21,12 +21,7 @@ const HomePage: FC = () => {
       </div>
       <section className="d-flex" style={{ gap: "2rem", marginTop: "1rem" }}>
         <h2 className={styles.title}>Recipe of the day</h2>
-        <RecipeOfTheDay
-          ratingAvg={4.9}
-          title="Creamy Funghi Risotto"
-          image="https://www.inspiredtaste.net/wp-content/uploads/2011/12/Mushroom-Risotto-Recipe-1-1200.jpg"
-          tags={["Healthy", "Vegetarian", "Lunch"]}
-        />
+        <RecipeOfTheDay />
       </section>
       <section className="mt-1">
         <Row inlineStyles={{ justifyContent: "space-between" }}>

@@ -11,10 +11,8 @@ const RECIPE_OF_THE_DAY = gql`
   GET_RECIPE($tags: [String]!) {
     getRecipe(tags: $tags) {
       recipe {
-        url
         label
         image
-        source
         dietLabels
         healthLabels
         totalTime
@@ -24,19 +22,7 @@ const RECIPE_OF_THE_DAY = gql`
   }
 `;
 
-interface RecipeOfTheDayProps {
-  ratingAvg: number;
-  title: string;
-  tags: string[];
-  image: string;
-}
-
-const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
-  ratingAvg,
-  title,
-  tags,
-  image,
-}) => {
+const RecipeOfTheDay: FC = () => {
   const { loading, error, data } = useQuery(RECIPE_OF_THE_DAY, {
     variables: {
       tags: "RECIPE OF THE DAY",
@@ -52,12 +38,11 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
     <article className={styles.recipe}>
       <div
         className={styles["image-container"]}
-        style={{ backgroundImage: `url(${image})` }}
+        style={{ backgroundImage: `url(${data.recipe.image})` }}
       >
-        {/* <img className={styles.img} src={image} alt="A prepared recipe" /> */}
         <div className={styles.rating}>
           <FaStar />
-          {ratingAvg}
+          {data.averageRating}
         </div>
         <div className={styles.liked}>
           <Button
@@ -73,9 +58,9 @@ const RecipeOfTheDay: FC<RecipeOfTheDayProps> = ({
       <div className={styles.desc}>
         <Row inlineStyles={{ justifyContent: "space-between" }}>
           <Col inlineStyles={{ gap: "0.5rem" }}>
-            <h3 className={styles.title}>{title}</h3>
+            <h3 className={styles.title}>{data.recipe.label}</h3>
             <ul className={styles.tags}>
-              {tags.map((tag) => (
+              {data.recipe.dietLabels.map((tag: string) => (
                 <li key={tag}>{tag}</li>
               ))}
             </ul>

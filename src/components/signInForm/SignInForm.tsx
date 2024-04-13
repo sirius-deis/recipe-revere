@@ -7,6 +7,7 @@ import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 import { Link } from "react-router-dom";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
+import Error from "../error/Error";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
@@ -23,7 +24,6 @@ const LOGIN = gql`
   }
 `;
 
-//TODO: handle received data, loading and error
 const SignInForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +47,7 @@ const SignInForm: FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
-      {error && <></>}
+      {error && <Error>{error.message}</Error>}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

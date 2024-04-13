@@ -6,6 +6,7 @@ import Row from "../../components/row/Row";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 import { Link } from "react-router-dom";
 import { handleChange } from "../../utils/utils";
+import Loader from "../loader/Loader";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
@@ -45,6 +46,7 @@ const SignInForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {loading && <Loader />}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

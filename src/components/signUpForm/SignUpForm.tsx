@@ -3,8 +3,9 @@ import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import { handleChange } from "../../utils/utils";
+import Loader from "../loader/Loader";
+import Error from "../error/Error";
 
-//TODO: handle loading and error
 const REGISTER = gql`
   mutation Register($email: String!, $password: String!. passwordConfirm: String!) {
     register(email: $email, password: $password, passwordConfirm: $passwordConfirm) {
@@ -31,6 +32,8 @@ const SignUpForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {loading && <Loader />}
+      {error && <Error>{error.message}</Error>}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

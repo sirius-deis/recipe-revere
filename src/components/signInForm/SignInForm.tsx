@@ -47,6 +47,7 @@ const SignInForm: FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
+      {error && <></>}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from "react";
-import styles from "./Error.module.css";
+import styles from "./MessageBox.module.css";
 import Button from "../button/Button";
 
-const Error: FC<PropsWithChildren> = ({ children }) => {
+const MessageBox: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={styles.container}>
       {children}
@@ -13,4 +13,4 @@ const Error: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default Error;
+export default MessageBox;

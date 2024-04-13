@@ -4,7 +4,7 @@ import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
-import Error from "../error/Error";
+import MessageBox from "../error/MessageBox";
 
 const REGISTER = gql`
   mutation Register($email: String!, $password: String!. passwordConfirm: String!) {
@@ -33,7 +33,7 @@ const SignUpForm: FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
-      {error && <Error>{error.message}</Error>}
+      {error && <MessageBox>{error.message}</MessageBox>}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

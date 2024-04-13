@@ -4,7 +4,7 @@ import InputWithLabel from "../input/InputWithLabel";
 import Button from "../button/Button";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
-import Error from "../error/Error";
+import MessageBox from "../error/MessageBox";
 
 const FORGET_PASSWORD = gql`
   mutation ForgetPassword($userEmail: String!) {
@@ -31,7 +31,7 @@ const ForgetPasswordForm: FC = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
-      {error && <Error>{error.message}</Error>}
+      {error && <MessageBox>{error.message}</MessageBox>}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

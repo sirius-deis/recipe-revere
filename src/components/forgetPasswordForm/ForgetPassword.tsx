@@ -3,6 +3,8 @@ import { FC, useState } from "react";
 import InputWithLabel from "../input/InputWithLabel";
 import Button from "../button/Button";
 import { handleChange } from "../../utils/utils";
+import Loader from "../loader/Loader";
+import Error from "../error/Error";
 
 const FORGET_PASSWORD = gql`
   mutation ForgetPassword($userEmail: String!) {
@@ -28,6 +30,8 @@ const ForgetPasswordForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {loading && <Loader />}
+      {error && <Error>{error.message}</Error>}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

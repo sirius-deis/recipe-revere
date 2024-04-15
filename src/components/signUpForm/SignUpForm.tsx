@@ -5,6 +5,7 @@ import Button from "../../components/button/Button";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../error/MessageBox";
+import { useNavigate } from "react-router-dom";
 
 const REGISTER = gql`
   mutation Register($email: String!, $password: String!. passwordConfirm: String!) {
@@ -20,6 +21,7 @@ const SignUpForm: FC = () => {
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [isSent, setIsSent] = useState(false);
   const [register, { data, loading, error }] = useMutation(REGISTER);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,6 +38,9 @@ const SignUpForm: FC = () => {
   useEffect(() => {
     if (isSent && error) {
       setIsMessageBoxOpen(true);
+    }
+    if (isSent && !loading && !error) {
+      navigate("/login");
     }
   }, [isSent, error]);
 

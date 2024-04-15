@@ -29,6 +29,7 @@ const SignInForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [login, { data, loading, error }] = useMutation(LOGIN);
 
   const onCheckHandler = () => {
@@ -45,10 +46,20 @@ const SignInForm: FC = () => {
     });
   };
 
+  const openMessageBox = () => {
+    setIsMessageBoxOpen((prevState: boolean) => {
+      return !prevState;
+    });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
-      {error && <MessageBox>{error.message}</MessageBox>}
+      {error && isMessageBoxOpen && (
+        <MessageBox closeMessageBox={openMessageBox}>
+          {error.message}
+        </MessageBox>
+      )}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

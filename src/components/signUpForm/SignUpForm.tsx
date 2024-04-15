@@ -37,7 +37,7 @@ const SignUpForm: FC = () => {
     if (isSent && error) {
       setIsMessageBoxOpen(true);
     }
-  }, [error]);
+  }, [isSent, error]);
 
   const openMessageBox = () => {
     setIsMessageBoxOpen((prevState: boolean) => {

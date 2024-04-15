@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import { handleChange } from "../../utils/utils";
@@ -17,6 +17,7 @@ const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [register, { data, loading, error }] = useMutation(REGISTER);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,10 +31,26 @@ const SignUpForm: FC = () => {
     });
   };
 
+  useEffect(() => {
+    if (error) {
+      setIsMessageBoxOpen(true);
+    }
+  }, [error]);
+
+  const openMessageBox = () => {
+    setIsMessageBoxOpen((prevState: boolean) => {
+      return !prevState;
+    });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
-      {error && <MessageBox>{error.message}</MessageBox>}
+      {error && isMessageBoxOpen && (
+        <MessageBox closeMessageBox={setIsMessageBoxOpen}>
+          {error.message}
+        </MessageBox>
+      )}
       <InputWithLabel
         labelText="Email"
         inputPlaceholder="example@email.com"

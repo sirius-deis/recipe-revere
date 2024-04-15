@@ -18,6 +18,7 @@ const SignUpForm: FC = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const [register, { data, loading, error }] = useMutation(REGISTER);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,10 +30,11 @@ const SignUpForm: FC = () => {
         passwordConfirm,
       },
     });
+    setIsSent(true);
   };
 
   useEffect(() => {
-    if (error) {
+    if (isSent && error) {
       setIsMessageBoxOpen(true);
     }
   }, [error]);

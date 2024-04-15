@@ -42,7 +42,7 @@ const SignUpForm: FC = () => {
     if (isSent && !loading && !error) {
       navigate("/login");
     }
-  }, [isSent, error]);
+  }, [isSent, loading, error]);
 
   const openMessageBox = () => {
     setIsMessageBoxOpen((prevState: boolean) => {

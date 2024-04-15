@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
@@ -30,6 +30,7 @@ const SignInForm: FC = () => {
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const [login, { data, loading, error }] = useMutation(LOGIN);
 
   const onCheckHandler = () => {
@@ -44,7 +45,14 @@ const SignInForm: FC = () => {
         password,
       },
     });
+    setIsSent(true);
   };
+
+  useEffect(() => {
+    if (isSent && error) {
+      setIsMessageBoxOpen(true);
+    }
+  }, [isSent, error]);
 
   const openMessageBox = () => {
     setIsMessageBoxOpen((prevState: boolean) => {

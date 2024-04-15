@@ -47,7 +47,7 @@ const SignUpForm: FC = () => {
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
       {error && isMessageBoxOpen && (
-        <MessageBox closeMessageBox={setIsMessageBoxOpen}>
+        <MessageBox closeMessageBox={openMessageBox}>
           {error.message}
         </MessageBox>
       )}

@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import InputWithLabel from "../input/InputWithLabel";
 import Button from "../button/Button";
 import { handleChange } from "../../utils/utils";
@@ -16,6 +16,7 @@ const FORGET_PASSWORD = gql`
 
 const ForgetPasswordForm: FC = () => {
   const [email, setEmail] = useState("");
+  const [isSent, setIsSent] = useState(false);
   const [isErrorMessageBoxOpen, setIsErrorMessageBoxOpen] = useState(false);
   const [isInfoMessageBoxOpen, setIsInfoMessageBoxOpen] = useState(false);
   const [forgetPassword, { data, loading, error }] =
@@ -28,7 +29,17 @@ const ForgetPasswordForm: FC = () => {
         email,
       },
     });
+    setIsSent(true);
   };
+
+  useEffect(() => {
+    if (isSent && error) {
+      setIsErrorMessageBoxOpen(true);
+    }
+    if (isSent && !loading && !error) {
+      setIsInfoMessageBoxOpen(true);
+    }
+  }, [isSent, loading, error]);
 
   const openErrorMessageBox = () => {
     setIsErrorMessageBoxOpen((prevState: boolean) => {

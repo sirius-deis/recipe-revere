@@ -17,6 +17,7 @@ const FORGET_PASSWORD = gql`
 const ForgetPasswordForm: FC = () => {
   const [email, setEmail] = useState("");
   const [isErrorMessageBoxOpen, setIsErrorMessageBoxOpen] = useState(false);
+  const [isInfoMessageBoxOpen, setIsInfoMessageBoxOpen] = useState(false);
   const [forgetPassword, { data, loading, error }] =
     useMutation(FORGET_PASSWORD);
 
@@ -35,6 +36,12 @@ const ForgetPasswordForm: FC = () => {
     });
   };
 
+  const openInfoMessageBox = () => {
+    setIsInfoMessageBoxOpen((prevState: boolean) => {
+      return !prevState;
+    });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
@@ -43,8 +50,8 @@ const ForgetPasswordForm: FC = () => {
           {error.message}
         </MessageBox>
       )}
-      {!loading && !error && data && (
-        <MessageBox closeMessageBox={}>{data}</MessageBox>
+      {!loading && !error && data && isInfoMessageBoxOpen && (
+        <MessageBox closeMessageBox={openInfoMessageBox}>{data}</MessageBox>
       )}
       <InputWithLabel
         labelText="Email"

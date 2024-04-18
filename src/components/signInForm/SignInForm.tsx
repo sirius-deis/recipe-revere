@@ -31,7 +31,11 @@ const SignInForm: FC = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [isSent, setIsSent] = useState(false);
-  const [login, { data, loading, error }] = useMutation(LOGIN);
+  const [login, { data, loading, error }] = useMutation(LOGIN, {
+    onCompleted(data, clientOptions) {
+      localStorage.setItem("token", data.login.token);
+    },
+  });
 
   const onCheckHandler = () => {
     setIsChecked((prevState) => !prevState);

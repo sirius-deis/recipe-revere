@@ -9,19 +9,9 @@ import HamburgerMenu from "../burger/HamburgerMenu";
 const Header: FC = () => {
   return (
     <header>
-      <div className={styles["header-top"]}>
-        <Col>
-          <Row inlineStyles={{ gap: "1rem" }}>
-            <div className={styles["image-container"]}>
-              <FaUserSecret className={styles["user-icon"]} />
-            </div>
-            Hello ...
-          </Row>
-        </Col>
-        <Col>
-          <HamburgerMenu />
-        </Col>
-      </div>
+      <Col>
+        <HamburgerMenu />
+      </Col>
       <nav className={styles["header-bottom"]}>
         <ul className={styles.list}>
           <li className={styles.item}>

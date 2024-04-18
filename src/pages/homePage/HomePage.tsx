@@ -1,7 +1,13 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { IoOptionsSharp } from "react-icons/io5";
-import { FaBurger, FaLeaf, FaCookieBite, FaFishFins } from "react-icons/fa6";
+import {
+  FaBurger,
+  FaLeaf,
+  FaCookieBite,
+  FaFishFins,
+  FaUserSecret,
+} from "react-icons/fa6";
 import styles from "./HomePage.module.css";
 import Search from "../../components/search/Search";
 import Button from "../../components/button/Button";
@@ -12,6 +18,16 @@ import Col from "../../components/column/Col";
 const HomePage: FC = () => {
   return (
     <div className={styles.home}>
+      <div className={styles["header-top"]}>
+        <Col>
+          <Row inlineStyles={{ gap: "1rem" }}>
+            <div className={styles["image-container"]}>
+              <FaUserSecret className={styles["user-icon"]} />
+            </div>
+            Hello ...
+          </Row>
+        </Col>
+      </div>
       <h1 className={styles.heading}>What are we cooking today?</h1>
       <div className={styles["search-with-filter"]}>
         <Search placeholderText="Ex.: Burger" />

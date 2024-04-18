@@ -15,6 +15,7 @@ import RecipeOfTheDay from "../../components/recipeOfTheDay/RecipeOfTheDay";
 import Row from "../../components/row/Row";
 import Col from "../../components/column/Col";
 
+//TODO: add a user data
 const HomePage: FC = () => {
   return (
     <div className={styles.home}>
@@ -23,8 +24,9 @@ const HomePage: FC = () => {
           <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>
               <FaUserSecret className={styles["user-icon"]} />
+              {/* <img src="" alt="user profile picture" /> */}
             </div>
-            Hello ...
+            Hello ... name
           </Row>
         </Col>
       </div>

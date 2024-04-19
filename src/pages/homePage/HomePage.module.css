@@ -5,6 +5,13 @@
   gap: 2rem;
 }
 
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3.5rem 0 1.5rem;
+  font-size: 1.8rem;
+}
+
 .heading {
   text-align: left;
   font-size: 3.5rem;

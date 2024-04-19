@@ -1,10 +1,25 @@
 import { FC } from "react";
+import styles from "./ProfilePage.module.css";
+import Col from "../../components/column/Col";
+import Row from "../../components/row/Row";
+import { FaUserSecret } from "react-icons/fa";
 
 const ProfilePage: FC = () => {
   return (
-    <div>
+    <div className={styles.profile}>
       <h1>My Profile</h1>
       <p>This is the profile page</p>
+      <div className={styles["profile-header"]}>
+        <Col>
+          <Row inlineStyles={{ gap: "1rem" }}>
+            <div className={styles["image-container"]}>
+              <FaUserSecret className={styles["user-icon"]} />
+              {/* <img src="" alt="user profile picture" /> */}
+            </div>
+            Name
+          </Row>
+        </Col>
+      </div>
     </div>
   );
 };

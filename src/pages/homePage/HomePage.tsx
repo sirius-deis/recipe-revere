@@ -19,7 +19,7 @@ import Col from "../../components/column/Col";
 const HomePage: FC = () => {
   return (
     <div className={styles.home}>
-      <div className={styles["header-top"]}>
+      <div className={styles["home-header"]}>
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>

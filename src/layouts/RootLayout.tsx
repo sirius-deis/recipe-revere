@@ -5,8 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 const RootLayout: FC = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  if (!token) {
+  if (!getToken()) {
     navigate("/login");
   }
   return (

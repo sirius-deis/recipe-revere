@@ -33,7 +33,7 @@ const SignInForm: FC = () => {
   const [isSent, setIsSent] = useState(false);
   const [login, { data, loading, error }] = useMutation(LOGIN, {
     onCompleted(data, clientOptions) {
-      localStorage.setItem("token", data.login.token);
+      setToken(data.login.token);
     },
   });
 

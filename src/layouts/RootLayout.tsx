@@ -5,9 +5,12 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 const RootLayout: FC = () => {
   const navigate = useNavigate();
-  if (!getToken()) {
+  let token = getToken();
+
+  if (!token) {
     navigate("/login");
   }
+
   return (
     <>
       <Header />

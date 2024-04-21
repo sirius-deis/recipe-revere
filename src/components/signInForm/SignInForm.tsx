@@ -35,6 +35,9 @@ const SignInForm: FC = () => {
     onCompleted(data, clientOptions) {
       setToken(data.login.token);
     },
+    onError() {
+      setIsMessageBoxOpen(true);
+    },
   });
 
   const onCheckHandler = () => {
@@ -51,12 +54,6 @@ const SignInForm: FC = () => {
     });
     setIsSent(true);
   };
-
-  useEffect(() => {
-    if (isSent && error) {
-      setIsMessageBoxOpen(true);
-    }
-  }, [isSent, error]);
 
   const openMessageBox = () => {
     setIsMessageBoxOpen((prevState: boolean) => {

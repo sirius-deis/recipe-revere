@@ -3,6 +3,7 @@ import styles from "./ProfilePage.module.css";
 import Col from "../../components/column/Col";
 import Row from "../../components/row/Row";
 import { FaUserSecret } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ProfilePage: FC = () => {
   return (
@@ -20,6 +21,14 @@ const ProfilePage: FC = () => {
           </Row>
         </Col>
       </div>
+      <section>
+        <Col>
+          <h2>Saved recently</h2>
+        </Col>
+        <Col>
+          <Link to="/saved">See all</Link>
+        </Col>
+      </section>
     </div>
   );
 };

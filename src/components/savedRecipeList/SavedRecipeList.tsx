@@ -2,6 +2,7 @@ import { FC } from "react";
 import { gql, useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import SavedRecipe from "../savedRecipe/SavedRecipe";
+import styles from "./SavedRecipeList.module.css";
 
 const GET_SAVED_RECIPES = gql`
   query getSavedRecipes {
@@ -21,7 +22,7 @@ const SavedRecipeList: FC = () => {
   if (error) {
   }
   return (
-    <section>
+    <section className={styles["saved-recipe-list"]}>
       {data.recipes.map(
         (recipe: { url: string; label: string; image: string }) => (
           <SavedRecipe

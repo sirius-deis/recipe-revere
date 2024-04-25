@@ -4,6 +4,7 @@ import Col from "../../components/column/Col";
 import Row from "../../components/row/Row";
 import { FaUserSecret } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import SavedRecipeList from "../../components/savedRecipeList/SavedRecipeList";
 
 const ProfilePage: FC = () => {
   return (
@@ -28,6 +29,7 @@ const ProfilePage: FC = () => {
         <Col>
           <Link to="/saved">See all</Link>
         </Col>
+        <SavedRecipeList />
       </section>
     </div>
   );

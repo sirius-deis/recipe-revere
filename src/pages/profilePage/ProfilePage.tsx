@@ -31,6 +31,9 @@ const ProfilePage: FC = () => {
         </Col>
         <SavedRecipeList />
       </section>
+      <section>
+        <h2>Friends activity</h2>
+      </section>
     </div>
   );
 };

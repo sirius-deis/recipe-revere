@@ -1,7 +1,9 @@
 import { FC } from "react";
 import styles from "./FriendsActivity.module.css";
+import { Link } from "react-router-dom";
 
 interface FriendsActivityProps {
+  _id: string;
   name: string;
   pictures: string;
   activity: string;
@@ -9,6 +11,7 @@ interface FriendsActivityProps {
 }
 
 const FriendsActivity: FC<FriendsActivityProps> = ({
+  _id,
   name,
   pictures,
   activity,
@@ -20,7 +23,9 @@ const FriendsActivity: FC<FriendsActivityProps> = ({
         <img src={pictures} alt={name} />
       </div>
       <div className={styles.activity}>
-        <h3>{name}</h3>
+        <h3>
+          <Link to={`/users/${_id}`}>{name}</Link>
+        </h3>
         just
         <p className={styles.action}>{activity}</p>
       </div>

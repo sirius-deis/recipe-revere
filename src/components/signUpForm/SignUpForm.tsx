@@ -4,7 +4,7 @@ import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
-import MessageBox from "../error/MessageBox";
+import MessageBox from "../messageBox/MessageBox";
 import { useNavigate } from "react-router-dom";
 
 const REGISTER = gql`

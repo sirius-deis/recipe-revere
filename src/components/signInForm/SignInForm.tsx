@@ -7,7 +7,7 @@ import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 import { Link } from "react-router-dom";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
-import MessageBox from "../error/MessageBox";
+import MessageBox from "../messageBox/MessageBox";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {

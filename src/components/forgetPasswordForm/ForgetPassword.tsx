@@ -4,7 +4,7 @@ import InputWithLabel from "../input/InputWithLabel";
 import Button from "../button/Button";
 import { handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
-import MessageBox from "../error/MessageBox";
+import MessageBox from "../messageBox/MessageBox";
 
 const FORGET_PASSWORD = gql`
   mutation ForgetPassword($userEmail: String!) {

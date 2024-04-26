@@ -5,22 +5,22 @@ import { Link } from "react-router-dom";
 interface FriendsActivityProps {
   _id: string;
   name: string;
-  pictures: string;
+  picture: string;
   activity: string;
-  time: string;
+  time: number;
 }
 
 const FriendsActivity: FC<FriendsActivityProps> = ({
   _id,
   name,
-  pictures,
+  picture,
   activity,
   time,
 }) => {
   return (
     <article>
       <div className={styles["image-container"]}>
-        <img src={pictures} alt={name} />
+        <img src={picture} alt={name} />
       </div>
       <div className={styles.activity}>
         <h3>

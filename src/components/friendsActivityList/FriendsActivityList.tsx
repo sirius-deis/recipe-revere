@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { gql, useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import ErrorBox from "../errorBox/ErrorBox";
 import FriendsActivity from "../friendsActivity/FriendsActivity";
+import useOnScreen from "../../hooks/useOnScreen";
 
 const GET_FRIENDS_ACTIVITY = gql`
   query getFriendsActivity {
@@ -26,6 +27,8 @@ type friendType = {
 
 const FriendsActivityList: FC = () => {
   const { loading, error, data } = useQuery(GET_FRIENDS_ACTIVITY);
+  const ref = useRef<HTMLDivElement>(null);
+  const isIntersecting = useOnScreen(ref);
   if (loading) {
     return <Loader />;
   }
@@ -36,24 +39,42 @@ const FriendsActivityList: FC = () => {
   return (
     <section>
       {data.friendsActivityList.map(
-        ({
-          friend: { _id, name, pictures },
-          activity,
-          time,
-        }: {
-          friend: friendType;
-          activity: string;
-          time: number;
-        }) => (
-          <FriendsActivity
-            key={_id}
-            _id={_id}
-            name={name}
-            picture={pictures[0]}
-            activity={activity}
-            time={time}
-          />
-        )
+        (
+          {
+            friend: { _id, name, pictures },
+            activity,
+            time,
+          }: {
+            friend: friendType;
+            activity: string;
+            time: number;
+          },
+          index: number,
+          array: []
+        ) => {
+          if (array.length < index) {
+            return (
+              <FriendsActivity
+                key={_id}
+                _id={_id}
+                name={name}
+                picture={pictures[0]}
+                activity={activity}
+                time={time}
+              />
+            );
+          }
+          return (
+            <FriendsActivity
+              key={_id}
+              _id={_id}
+              name={name}
+              picture={pictures[0]}
+              activity={activity}
+              time={time}
+            />
+          );
+        }
       )}
     </section>
   );

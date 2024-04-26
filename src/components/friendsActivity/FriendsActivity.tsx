@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, PropsWithRef, forwardRef } from "react";
 import styles from "./FriendsActivity.module.css";
 import { Link } from "react-router-dom";
 
@@ -10,15 +10,12 @@ interface FriendsActivityProps {
   time: number;
 }
 
-const FriendsActivity: FC<FriendsActivityProps> = ({
-  _id,
-  name,
-  picture,
-  activity,
-  time,
-}) => {
+const FriendsActivity: FC<PropsWithRef<FriendsActivityProps>> = forwardRef<
+  HTMLDivElement,
+  FriendsActivityProps
+>(({ _id, name, picture, activity, time }, ref) => {
   return (
-    <article>
+    <article ref={ref}>
       <div className={styles["image-container"]}>
         <img src={picture} alt={name} />
       </div>
@@ -32,6 +29,6 @@ const FriendsActivity: FC<FriendsActivityProps> = ({
       <p className={styles.time}>{time}</p>
     </article>
   );
-};
+});
 
 export default FriendsActivity;

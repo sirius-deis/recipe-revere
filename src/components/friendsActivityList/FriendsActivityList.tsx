@@ -66,6 +66,7 @@ const FriendsActivityList: FC = () => {
           }
           return (
             <FriendsActivity
+              ref={ref}
               key={_id}
               _id={_id}
               name={name}

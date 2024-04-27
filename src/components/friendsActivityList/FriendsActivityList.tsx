@@ -26,7 +26,10 @@ type friendType = {
 };
 
 const FriendsActivityList: FC = () => {
-  const { loading, error, data } = useQuery(GET_FRIENDS_ACTIVITY);
+  const [page, setPage] = useState(0);
+  const { loading, error, data, refetch } = useQuery(GET_FRIENDS_ACTIVITY, {
+    variables: { page },
+  });
   const ref = useRef<HTMLDivElement>(null);
   const isIntersecting = useOnScreen(ref);
   if (loading) {
@@ -37,7 +40,10 @@ const FriendsActivityList: FC = () => {
   }
 
   useEffect(() => {
-    //TODO:
+    setPage((prevState: number) => {
+      return prevState + 1;
+    });
+    refetch({ page });
   }, [isIntersecting]);
 
   return (

@@ -1,5 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
+import styles from "./FriendsActivityList.module.css";
 import Loader from "../loader/Loader";
 import ErrorBox from "../errorBox/ErrorBox";
 import FriendsActivity from "../friendsActivity/FriendsActivity";
@@ -26,13 +27,17 @@ type friendType = {
 };
 
 const FriendsActivityList: FC = () => {
+  const firstFetch = useRef(true);
   const [page, setPage] = useState(0);
   const { loading, error, data, refetch } = useQuery(GET_FRIENDS_ACTIVITY, {
     variables: { page },
+    onCompleted: () => {
+      firstFetch.current = false;
+    },
   });
   const ref = useRef<HTMLDivElement>(null);
   const isIntersecting = useOnScreen(ref);
-  if (loading) {
+  if (loading && firstFetch.current) {
     return <Loader />;
   }
   if (error) {
@@ -47,7 +52,7 @@ const FriendsActivityList: FC = () => {
   }, [isIntersecting]);
 
   return (
-    <section>
+    <section className={styles.list}>
       {data.friendsActivityList.map(
         (
           {
@@ -87,6 +92,7 @@ const FriendsActivityList: FC = () => {
           );
         }
       )}
+      {loading && !firstFetch.current && <Loader />}
     </section>
   );
 };

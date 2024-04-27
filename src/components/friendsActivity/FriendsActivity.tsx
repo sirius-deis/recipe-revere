@@ -13,12 +13,12 @@ interface FriendsActivityProps {
 const FriendsActivity = forwardRef<HTMLDivElement, FriendsActivityProps>(
   ({ _id, name, picture, activity, time }, ref) => {
     return (
-      <article ref={ref}>
+      <article ref={ref} className={styles["friends-activity"]}>
         <div className={styles["image-container"]}>
           <img src={picture} alt={name} />
         </div>
         <div className={styles.activity}>
-          <h3>
+          <h3 className={styles.name}>
             <Link to={`/users/${_id}`}>{name}</Link>
           </h3>
           just

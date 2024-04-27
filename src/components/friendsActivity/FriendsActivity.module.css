@@ -1,0 +1,37 @@
+.friends-activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-basis: 15%;
+}
+
+.activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 70%;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.action {
+  font-style: italic;
+}
+
+.time {
+  flex-basis: 15%;
+  color: var(--additional-200);
+}

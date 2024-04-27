@@ -1,4 +1,4 @@
-import { FC, PropsWithRef, forwardRef } from "react";
+import { forwardRef } from "react";
 import styles from "./FriendsActivity.module.css";
 import { Link } from "react-router-dom";
 

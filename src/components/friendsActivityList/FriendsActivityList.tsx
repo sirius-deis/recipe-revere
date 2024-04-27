@@ -1,4 +1,4 @@
-import { FC, useRef } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import ErrorBox from "../errorBox/ErrorBox";
@@ -6,8 +6,8 @@ import FriendsActivity from "../friendsActivity/FriendsActivity";
 import useOnScreen from "../../hooks/useOnScreen";
 
 const GET_FRIENDS_ACTIVITY = gql`
-  query getFriendsActivity {
-    friendsActivityList {
+  query getFriendsActivity($page: number!) {
+    friendsActivityList(page: $page) {
       friend {
         _id
         name
@@ -35,6 +35,10 @@ const FriendsActivityList: FC = () => {
   if (error) {
     return <ErrorBox message={error.message} />;
   }
+
+  useEffect(() => {
+    //TODO:
+  }, [isIntersecting]);
 
   return (
     <section>

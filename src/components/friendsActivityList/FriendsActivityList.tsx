@@ -9,13 +9,14 @@ import useOnScreen from "../../hooks/useOnScreen";
 const GET_FRIENDS_ACTIVITY = gql`
   query getFriendsActivity($page: number!) {
     friendsActivityList(page: $page) {
-      friend {
+      _id
+      userId {
         _id
         name
         pictures
       }
       activity
-      time
+      date
     }
   }
 `;
@@ -56,13 +57,13 @@ const FriendsActivityList: FC = () => {
       {data.friendsActivityList.map(
         (
           {
-            friend: { _id, name, pictures },
+            userId: { _id, name, pictures },
             activity,
-            time,
+            date,
           }: {
-            friend: friendType;
+            userId: friendType;
             activity: string;
-            time: number;
+            date: number;
           },
           index: number,
           array: []
@@ -75,7 +76,7 @@ const FriendsActivityList: FC = () => {
                 name={name}
                 picture={pictures[0]}
                 activity={activity}
-                time={time}
+                time={date}
               />
             );
           }
@@ -87,7 +88,7 @@ const FriendsActivityList: FC = () => {
               name={name}
               picture={pictures[0]}
               activity={activity}
-              time={time}
+              time={date}
             />
           );
         }

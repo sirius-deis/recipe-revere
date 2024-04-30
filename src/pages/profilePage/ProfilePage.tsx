@@ -5,6 +5,7 @@ import Row from "../../components/row/Row";
 import { FaUserSecret } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SavedRecipeList from "../../components/savedRecipeList/SavedRecipeList";
+import FriendsActivityList from "../../components/friendsActivityList/FriendsActivityList";
 
 const ProfilePage: FC = () => {
   return (
@@ -33,6 +34,7 @@ const ProfilePage: FC = () => {
       </section>
       <section>
         <h2>Friends activity</h2>
+        <FriendsActivityList />
       </section>
     </div>
   );

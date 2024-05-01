@@ -5,6 +5,7 @@ import Loader from "./components/loader/Loader";
 import EmptyLayout from "./layouts/EmptyLayout";
 import RootLayout from "./layouts/RootLayout";
 import ApolloAppProvider from "./components/apollo/ApolloProvider";
+import ProfilePage from "./pages/profilePage/ProfilePage";
 
 const StartPage = lazy(() => import("./pages/startPage/StartPage"));
 const SignInPage = lazy(() => import("./pages/signInPage/SignInPage"));
@@ -64,6 +65,14 @@ function App() {
               }
             />
             <Route path="/home" element={<Navigate to="/" />} />
+            <Route
+              path="/profile"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <ProfilePage />
+                </Suspense>
+              }
+            />
           </Route>
           <Route
             path="*"

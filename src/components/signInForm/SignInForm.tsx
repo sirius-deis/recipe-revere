@@ -27,6 +27,7 @@ const LOGIN = gql`
 //TODO: handle data
 const SignInForm: FC = () => {
   const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
@@ -42,22 +43,6 @@ const SignInForm: FC = () => {
 
   const onCheckHandler = () => {
     setIsChecked((prevState) => !prevState);
-  };
-
-  const onChangeHandler = (
-    value: string,
-    fn: (value: boolean) => void,
-    length: number,
-    pattern: string
-  ) => {
-    const trimmed = value.trim();
-    if (trimmed.length > length) {
-      if (pattern && !trimmed.match(pattern)) {
-        return fn(false);
-      }
-      return fn(true);
-    }
-    return fn(false);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

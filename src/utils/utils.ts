@@ -10,7 +10,7 @@ export const checkValidity = (
   value: string,
   fn: (value: boolean) => void,
   length: number,
-  pattern: string
+  pattern?: string
 ) => {
   const trimmed = value.trim();
   if (trimmed.length > length) {

@@ -5,7 +5,7 @@ import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 import { Link } from "react-router-dom";
-import { handleChange } from "../../utils/utils";
+import { handleChange, checkValidity } from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 
@@ -77,6 +77,7 @@ const SignInForm: FC = () => {
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setEmail, e)
         }
+        blurHandler={() => checkValidity(email, setIsEmailValid, 9)}
       />
       <InputWithLabel
         labelText="Password"

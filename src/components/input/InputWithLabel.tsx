@@ -9,6 +9,7 @@ interface InputWithLabelProps {
   type?: string;
   icon: "email" | "password";
   changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  blurHandler?: () => void;
 }
 
 const InputWithLabel: FC<InputWithLabelProps> = ({
@@ -17,6 +18,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
   inputPlaceholder,
   icon,
   changeHandler,
+  blurHandler,
 }) => {
   const id = useId();
   let iconToInsert;
@@ -38,6 +40,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
           className={styles["form-control"]}
           placeholder={inputPlaceholder}
           onChange={changeHandler}
+          onBlur={blurHandler}
         />
         <div className={styles["input-group-append"]}>
           <span className={styles["input-group-icon"]}>{iconToInsert}</span>

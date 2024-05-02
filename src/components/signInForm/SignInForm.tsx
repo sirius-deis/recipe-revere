@@ -44,6 +44,22 @@ const SignInForm: FC = () => {
     setIsChecked((prevState) => !prevState);
   };
 
+  const onChangeHandler = (
+    value: string,
+    fn: (value: boolean) => void,
+    length: number,
+    pattern: string
+  ) => {
+    const trimmed = value.trim();
+    if (trimmed.length > length) {
+      if (pattern && !trimmed.match(pattern)) {
+        return fn(false);
+      }
+      return fn(true);
+    }
+    return fn(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await login({

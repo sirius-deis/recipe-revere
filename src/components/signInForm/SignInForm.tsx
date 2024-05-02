@@ -29,6 +29,7 @@ const SignInForm: FC = () => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [password, setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -87,6 +88,7 @@ const SignInForm: FC = () => {
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }
+        blurHandler={() => checkValidity(password, setIsPasswordValid, 6)}
       />
 
       <Row inlineStyles={{ gap: "2rem" }}>

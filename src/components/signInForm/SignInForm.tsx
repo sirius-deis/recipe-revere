@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
@@ -48,6 +48,9 @@ const SignInForm: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isEmailValid && !isPasswordValid) {
+      return;
+    }
     await login({
       variables: {
         email,

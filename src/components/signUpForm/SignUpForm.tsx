@@ -1,8 +1,8 @@
 import { gql, useMutation } from "@apollo/client";
-import { FC, useState, useEffect } from "react";
+import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
-import { handleChange } from "../../utils/utils";
+import { EMAIL_REGEXP, checkValidity, handleChange } from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ const REGISTER = gql`
 
 const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
@@ -60,6 +61,9 @@ const SignUpForm: FC = () => {
         icon="email"
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setEmail, e)
+        }
+        blurHandler={() =>
+          checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)
         }
       />
       <InputWithLabel

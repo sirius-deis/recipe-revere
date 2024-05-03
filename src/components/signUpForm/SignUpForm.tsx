@@ -34,6 +34,9 @@ const SignUpForm: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isEmailValid && isPasswordValid && isPasswordConfirmValid) {
+      return;
+    }
     await register({
       variables: {
         email,

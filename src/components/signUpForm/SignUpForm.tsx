@@ -18,6 +18,7 @@ const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [password, setPassword] = useState("");
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [register, { data, loading, error }] = useMutation(REGISTER, {
@@ -74,6 +75,7 @@ const SignUpForm: FC = () => {
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }
+        blurHandler={() => checkValidity(password, setIsPasswordValid, 6)}
       />
       <InputWithLabel
         labelText="Password Confirm"

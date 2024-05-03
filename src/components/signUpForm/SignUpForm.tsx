@@ -20,6 +20,7 @@ const SignUpForm: FC = () => {
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [isPasswordConfirmValid, setIsPasswordConfirmValid] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const [register, { data, loading, error }] = useMutation(REGISTER, {
     onCompleted() {
@@ -84,6 +85,9 @@ const SignUpForm: FC = () => {
         icon="password"
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPasswordConfirm, e)
+        }
+        blurHandler={() =>
+          checkValidity(password, setIsPasswordConfirmValid, 6)
         }
       />
       <Button>Sign Up</Button>

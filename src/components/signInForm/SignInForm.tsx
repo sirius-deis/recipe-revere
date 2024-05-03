@@ -5,7 +5,12 @@ import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
 import { Link } from "react-router-dom";
-import { handleChange, checkValidity, EMAIL_REGEXP } from "../../utils/utils";
+import {
+  handleChange,
+  checkValidity,
+  EMAIL_REGEXP,
+  PASSWORD_REGEXP,
+} from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 
@@ -91,7 +96,9 @@ const SignInForm: FC = () => {
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }
-        blurHandler={() => checkValidity(password, setIsPasswordValid, 6)}
+        blurHandler={() =>
+          checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
+        }
       />
 
       <Row inlineStyles={{ gap: "2rem" }}>

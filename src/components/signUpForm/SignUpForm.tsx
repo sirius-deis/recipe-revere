@@ -19,8 +19,14 @@ const SignUpForm: FC = () => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
-  const [isSent, setIsSent] = useState(false);
-  const [register, { data, loading, error }] = useMutation(REGISTER);
+  const [register, { data, loading, error }] = useMutation(REGISTER, {
+    onCompleted() {
+      navigate("/login");
+    },
+    onError() {
+      setIsMessageBoxOpen(true);
+    },
+  });
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,17 +38,7 @@ const SignUpForm: FC = () => {
         passwordConfirm,
       },
     });
-    setIsSent(true);
   };
-
-  useEffect(() => {
-    if (isSent && error) {
-      setIsMessageBoxOpen(true);
-    }
-    if (isSent && !loading && !error) {
-      navigate("/login");
-    }
-  }, [isSent, loading, error]);
 
   const openMessageBox = () => {
     setIsMessageBoxOpen((prevState: boolean) => {

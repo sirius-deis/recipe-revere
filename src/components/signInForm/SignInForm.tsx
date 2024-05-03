@@ -32,7 +32,6 @@ const SignInForm: FC = () => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
-  const [isSent, setIsSent] = useState(false);
   const [login, { data, loading, error }] = useMutation(LOGIN, {
     onCompleted(data, clientOptions) {
       setToken(data.login.token);
@@ -57,7 +56,6 @@ const SignInForm: FC = () => {
         password,
       },
     });
-    setIsSent(true);
   };
 
   const openMessageBox = () => {

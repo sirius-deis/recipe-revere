@@ -2,7 +2,12 @@ import { gql, useMutation } from "@apollo/client";
 import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
-import { EMAIL_REGEXP, checkValidity, handleChange } from "../../utils/utils";
+import {
+  EMAIL_REGEXP,
+  checkValidity,
+  handleChange,
+  PASSWORD_REGEXP,
+} from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 import { useNavigate } from "react-router-dom";
@@ -79,7 +84,9 @@ const SignUpForm: FC = () => {
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }
-        blurHandler={() => checkValidity(password, setIsPasswordValid, 6)}
+        blurHandler={() =>
+          checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
+        }
       />
       <InputWithLabel
         labelText="Password Confirm"
@@ -90,7 +97,7 @@ const SignUpForm: FC = () => {
           handleChange(setPasswordConfirm, e)
         }
         blurHandler={() =>
-          checkValidity(password, setIsPasswordConfirmValid, 6)
+          checkValidity(password, setIsPasswordConfirmValid, 6, PASSWORD_REGEXP)
         }
       />
       <Button>Sign Up</Button>

@@ -17,7 +17,6 @@ const FORGET_PASSWORD = gql`
 const ForgetPasswordForm: FC = () => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isSent, setIsSent] = useState(false);
   const [isErrorMessageBoxOpen, setIsErrorMessageBoxOpen] = useState(false);
   const [isInfoMessageBoxOpen, setIsInfoMessageBoxOpen] = useState(false);
   const [forgetPassword, { data, loading, error }] = useMutation(
@@ -25,6 +24,9 @@ const ForgetPasswordForm: FC = () => {
     {
       onError: () => {
         setIsErrorMessageBoxOpen(true);
+      },
+      onCompleted: () => {
+        setIsInfoMessageBoxOpen(true);
       },
     }
   );
@@ -36,17 +38,7 @@ const ForgetPasswordForm: FC = () => {
         email,
       },
     });
-    setIsSent(true);
   };
-
-  useEffect(() => {
-    if (isSent && error) {
-      setIsErrorMessageBoxOpen(true);
-    }
-    if (isSent && !loading && !error) {
-      setIsInfoMessageBoxOpen(true);
-    }
-  }, [isSent, loading, error]);
 
   const openErrorMessageBox = () => {
     setIsErrorMessageBoxOpen((prevState: boolean) => {
@@ -68,7 +60,7 @@ const ForgetPasswordForm: FC = () => {
           {error.message}
         </MessageBox>
       )}
-      {!loading && !error && data && isInfoMessageBoxOpen && (
+      {!loading && !error && isInfoMessageBoxOpen && (
         <MessageBox closeMessageBox={openInfoMessageBox}>{data}</MessageBox>
       )}
       <InputWithLabel

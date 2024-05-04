@@ -33,6 +33,9 @@ const ForgetPasswordForm: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isEmailValid) {
+      return;
+    }
     await forgetPassword({
       variables: {
         email,

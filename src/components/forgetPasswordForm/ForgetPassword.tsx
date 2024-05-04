@@ -70,6 +70,9 @@ const ForgetPasswordForm: FC = () => {
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setEmail, e)
         }
+        blurHandler={() =>
+          checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)
+        }
       />
       <Button>Submit</Button>
     </form>

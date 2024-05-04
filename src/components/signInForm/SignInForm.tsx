@@ -87,6 +87,7 @@ const SignInForm: FC = () => {
         blurHandler={() =>
           checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)
         }
+        isValid={email.length > 0 && !isEmailValid}
       />
       <InputWithLabel
         labelText="Password"
@@ -99,6 +100,7 @@ const SignInForm: FC = () => {
         blurHandler={() =>
           checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
         }
+        isValid={password.length > 0 && !isPasswordValid}
       />
 
       <Row inlineStyles={{ gap: "2rem" }}>

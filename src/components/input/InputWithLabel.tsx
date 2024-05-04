@@ -10,7 +10,7 @@ interface InputWithLabelProps {
   icon: "email" | "password";
   changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   blurHandler?: () => void;
-  error?: boolean;
+  isValid?: boolean;
 }
 
 const InputWithLabel: FC<InputWithLabelProps> = ({
@@ -20,7 +20,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
   icon,
   changeHandler,
   blurHandler,
-  error = false,
+  isValid = false,
 }) => {
   const id = useId();
   let iconToInsert;
@@ -36,7 +36,9 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
     <div className={styles.container}>
       <label htmlFor={id}>{labelText} *</label>
       <div
-        className={`${styles["input-group"]} ${error ? `${styles.error}` : ""}`}
+        className={`${styles["input-group"]} ${
+          isValid ? `${styles.error}` : ""
+        }`}
       >
         <input
           type={type}

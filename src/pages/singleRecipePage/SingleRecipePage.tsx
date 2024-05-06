@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import styles from './SingleRecipePage.module.css'
 import Row from "../../components/row/Row";
+import Loader from "../../components/loader/Loader";
+import Button from "../../components/button/Button";
 
 const GET_RECIPE = gql`
   query getRecipe($id: String) {
@@ -11,6 +14,7 @@ const GET_RECIPE = gql`
         label
         image
         source
+        yield
         dietLabels
         healthLabels
         cautions
@@ -47,13 +51,26 @@ const SingleRecipePage: FC = () => {
   const { loading, error, data } = useQuery(GET_RECIPE, {
     variables: { id: recipeId },
   });
+  if(loading) {
+    return <Loader />;
+  }
   return (
     <section>
       <h1>{data.label}</h1>
       <Row>
         <div>{data.totalTime}</div>
         <div></div>
-        <div></div>
+        <div>{data.recipe.yield}</div>
+      </Row>
+      <div className={styles['image-container']}>
+        <img src={data.recipe.image} alt={`Prepared ${data.recipe.label}`} />
+      </div>
+      <Row>
+        <div>
+          <h2>Ingredients</h2>
+          <Button>+</Button>
+          <Button>-</Button>
+        </div>
       </Row>
     </section>
   );

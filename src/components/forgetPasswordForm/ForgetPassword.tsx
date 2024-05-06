@@ -76,6 +76,7 @@ const ForgetPasswordForm: FC = () => {
         blurHandler={() =>
           checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)
         }
+        isValid={email.length > 0 && !isEmailValid}
       />
       <Button>Submit</Button>
     </form>

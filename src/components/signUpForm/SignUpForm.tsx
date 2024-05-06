@@ -75,6 +75,7 @@ const SignUpForm: FC = () => {
         blurHandler={() =>
           checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)
         }
+        isValid={email.length > 0 && !isEmailValid}
       />
       <InputWithLabel
         labelText="Password"
@@ -87,6 +88,7 @@ const SignUpForm: FC = () => {
         blurHandler={() =>
           checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
         }
+        isValid={password.length > 0 && !isPasswordValid}
       />
       <InputWithLabel
         labelText="Password Confirm"
@@ -97,8 +99,9 @@ const SignUpForm: FC = () => {
           handleChange(setPasswordConfirm, e)
         }
         blurHandler={() =>
-          checkValidity(password, setIsPasswordConfirmValid, 6, PASSWORD_REGEXP)
+          checkValidity(passwordConfirm, setIsPasswordConfirmValid, 6, PASSWORD_REGEXP)
         }
+        isValid={passwordConfirm.length > 0 && !isPasswordConfirmValid}
       />
       <Button>Sign Up</Button>
     </form>

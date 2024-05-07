@@ -12,7 +12,7 @@ interface Ingredient {
 }
 
 const Ingredient: FC<Ingredient> = ({food, measure, quantity, weight, factor}) => {
-    return <li className={styles.list}>
+    return <li className={styles['list-item']}>
         <span>{food}</span>
         <span>{weight}</span>
     </li>

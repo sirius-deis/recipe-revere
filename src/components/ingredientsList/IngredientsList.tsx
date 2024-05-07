@@ -1,4 +1,5 @@
 import { FC } from "react";
+import styles from './IngredientsList.module.css'
 import Ingredient from "../ingredient/Ingredient";
 
 interface IngredientsList {
@@ -15,7 +16,7 @@ interface IngredientsList {
 
 const IngredientsList: FC<IngredientsList> = ({ingredients, factor}) => {
     
-    return <ul>
+    return <ul className={styles.list}>
         {ingredients.map(ingredient => <Ingredient {...ingredient} factor={factor}/>)}
     </ul>
 }

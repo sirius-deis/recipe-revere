@@ -5,6 +5,7 @@ import styles from './SingleRecipePage.module.css'
 import Row from "../../components/row/Row";
 import Loader from "../../components/loader/Loader";
 import Button from "../../components/button/Button";
+import IngredientsList from "../../components/ingredientsList/IngredientsList";
 
 const GET_RECIPE = gql`
   query getRecipe($id: String) {
@@ -73,6 +74,7 @@ const SingleRecipePage: FC = () => {
           <Button>-</Button>
         </div>
       </Row>
+      <IngredientsList ingredients={data.recipe.ingredients} factor={1} />
     </section>
   );
 };

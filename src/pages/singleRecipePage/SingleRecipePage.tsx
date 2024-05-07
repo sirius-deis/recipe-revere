@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import styles from './SingleRecipePage.module.css'
@@ -49,12 +49,28 @@ const GET_RECIPE = gql`
 
 const SingleRecipePage: FC = () => {
   const { recipeId } = useParams();
+  const [factor, setFactor] = useState(1)
+  const [servings, setServings] = useState(0)
   const { loading, error, data } = useQuery(GET_RECIPE, {
     variables: { id: recipeId },
+    onCompleted: (data) => {
+      setServings(data.recipe.recipe.yield)
+    },
   });
   if(loading) {
     return <Loader />;
   }
+
+  const changeServings = (dir: number) => {
+    if(servings === 1 && dir === -1) {
+      return;
+    }
+    setServings((prevState) => {
+      return prevState + dir;
+    })
+    setFactor(servings / data.recipe.recipe.yield)
+  }
+
   return (
     <section>
       <h1>{data.label}</h1>
@@ -69,12 +85,12 @@ const SingleRecipePage: FC = () => {
       <Row>
         <h2>Ingredients</h2>
         <div>
-          {data.recipe.yield} servings
+          {servings} servings
           <Button>+</Button>
           <Button>-</Button>
         </div>
       </Row>
-      <IngredientsList ingredients={data.recipe.ingredients} factor={1} />
+      <IngredientsList ingredients={data.recipe.ingredients} factor={factor} />
     </section>
   );
 };

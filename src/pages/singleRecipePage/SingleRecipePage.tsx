@@ -66,8 +66,9 @@ const SingleRecipePage: FC = () => {
         <img src={data.recipe.image} alt={`Prepared ${data.recipe.label}`} />
       </div>
       <Row>
+        <h2>Ingredients</h2>
         <div>
-          <h2>Ingredients</h2>
+          {data.recipe.yield} servings
           <Button>+</Button>
           <Button>-</Button>
         </div>

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Ingredient from "../ingredient/Ingredient";
 
 interface IngredientsList {
     ingredients: Array<{
@@ -9,12 +10,13 @@ interface IngredientsList {
         foodId: string,
         image: string
     }>
+    factor: number
 }
 
-const IngredientsList: FC<IngredientsList> = ({ingredients}) => {
+const IngredientsList: FC<IngredientsList> = ({ingredients, factor}) => {
     
     return <ul>
-
+        {ingredients.map(ingredient => <Ingredient {...ingredient} factor={factor}/>)}
     </ul>
 }
 

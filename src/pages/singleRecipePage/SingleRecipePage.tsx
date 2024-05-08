@@ -86,8 +86,8 @@ const SingleRecipePage: FC = () => {
         <h2>Ingredients</h2>
         <div>
           {servings} servings
-          <Button clickHandler={() => changeServings(+1)}>+</Button>
-          <Button clickHandler={() => changeServings(-1)}>-</Button>
+          <Button clickHandler={() => changeServings(+1)} size="sm">+</Button>
+          <Button clickHandler={() => changeServings(-1)} size="sm">-</Button>
         </div>
       </Row>
       <IngredientsList ingredients={data.recipe.ingredients} factor={factor} />

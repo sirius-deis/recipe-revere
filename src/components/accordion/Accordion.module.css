@@ -1,0 +1,31 @@
+.accordion {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 2rem;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.accordion::after {
+  content: "\11167;";
+  color: var(--additional-950);
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.panel {
+  padding: 0 2rem;
+  background-color: transparent;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.active.accordion:after {
+  content: "\11165";
+}
+
+.active.panel {
+  max-height: auto;
+}

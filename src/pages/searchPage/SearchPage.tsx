@@ -9,6 +9,8 @@ const SearchPage: FC = () => {
       <Search placeholderText="Ex.: Veggie Burger" />
       <h2>Filter by</h2>
       <Accordion title="Categories"></Accordion>
+      <Accordion title="Diet"></Accordion>
+      <Accordion title="Meal Type"></Accordion>
     </div>
   );
 };

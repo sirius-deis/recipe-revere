@@ -38,19 +38,18 @@ const FriendsActivityList: FC = () => {
   });
   const ref = useRef<HTMLDivElement>(null);
   const isIntersecting = useOnScreen(ref);
-  if (loading && firstFetch.current) {
-    return <Loader />;
-  }
-  if (error) {
-    return <ErrorBox message={error.message} />;
-  }
-
   useEffect(() => {
     setPage((prevState: number) => {
       return prevState + 1;
     });
     refetch({ page });
   }, [isIntersecting]);
+  if (loading && firstFetch.current) {
+    return <Loader />;
+  }
+  if (error) {
+    return <ErrorBox message={error.message} />;
+  }
 
   return (
     <section className={styles.list}>

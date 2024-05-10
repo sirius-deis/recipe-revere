@@ -2,10 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
-import store from "./store/store";
 import ApolloAppProvider from "./components/apollo/ApolloProvider";
 
 const root = ReactDOM.createRoot(
@@ -15,9 +13,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ApolloAppProvider>
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <App />
       </ApolloAppProvider>
     </BrowserRouter>
   </React.StrictMode>

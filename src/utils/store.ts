@@ -1,12 +1,12 @@
-const getToken = (): string | null => {
+export const getToken = (): string | null => {
   const token = localStorage.getItem("token");
   return token;
 };
 
-const setToken = (value: string): void => {
+export const setToken = (value: string): void => {
   localStorage.setItem("token", value);
 };
 
-const deleteToken = (): void => {
+export const deleteToken = (): void => {
   localStorage.removeItem("token");
 };

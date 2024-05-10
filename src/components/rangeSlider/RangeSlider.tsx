@@ -1,12 +1,10 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import styles from "./RangleSlider.module.css";
 
 interface RangeSliderProps {
   min: number;
   max: number;
-  value: number;
-  onMouseDown: (value: number) => void;
-  onTouchStart: (value: number) => void;
+  onChange: (value: number) => void;
   width: number;
   withLabel: boolean;
 }
@@ -14,22 +12,41 @@ interface RangeSliderProps {
 const RangeSlider: FC<RangeSliderProps> = ({
   max,
   min,
-  value,
-  onMouseDown,
-  onTouchStart,
+  onChange,
   width,
   withLabel,
 }) => {
+  const [minVal, setMinVal] = useState(min);
+  const [maxVal, setMaxVal] = useState(max);
+  const range = useRef(null);
   return (
     <div
       className={styles["range-slider"]}
       style={{ width: width ? `${width}px` : "100%" }}
     >
-      <div
-        className={styles["range-slider-bar"]}
-        style={{ width: `${((value - min) / (max - min)) * 100}%` }}
-      >
-        <span className={styles["range-slider-handle"]}></span>
+      <input
+        type="range"
+        className={`${styles.thumbnail} ${styles["thumbnail--left"]}`}
+        min={min}
+        max={max}
+        value={minVal}
+      />
+      <input
+        type="range"
+        className={`${styles.thumbnail} ${styles["thumbnail--right"]}`}
+        min={min}
+        max={max}
+        value={maxVal}
+      />
+      <div className={styles.slider}>
+        <div className={styles["slider-track"]} />
+        <div ref={range} className={styles["slider-range"]} />
+        {withLabel && (
+          <>
+            <div className={styles["slider-value"]}>{minVal}</div>
+            <div className={styles["slider-value"]}>{maxVal}</div>
+          </>
+        )}
       </div>
     </div>
   );

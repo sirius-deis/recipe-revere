@@ -13,7 +13,7 @@ import MessageBox from "../messageBox/MessageBox";
 import { useNavigate } from "react-router-dom";
 
 const REGISTER = gql`
-  mutation Register($email: String!, $password: String!. passwordConfirm: String!) {
+  mutation Register($email: String, $password: String. passwordConfirm: String) {
     register(email: $email, password: $password, passwordConfirm: $passwordConfirm) {
     }
   }
@@ -99,7 +99,12 @@ const SignUpForm: FC = () => {
           handleChange(setPasswordConfirm, e)
         }
         blurHandler={() =>
-          checkValidity(passwordConfirm, setIsPasswordConfirmValid, 6, PASSWORD_REGEXP)
+          checkValidity(
+            passwordConfirm,
+            setIsPasswordConfirmValid,
+            6,
+            PASSWORD_REGEXP
+          )
         }
         isValid={passwordConfirm.length > 0 && !isPasswordConfirmValid}
       />

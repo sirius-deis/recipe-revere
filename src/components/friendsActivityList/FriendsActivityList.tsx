@@ -7,7 +7,7 @@ import FriendsActivity from "../friendsActivity/FriendsActivity";
 import useOnScreen from "../../hooks/useOnScreen";
 
 const GET_FRIENDS_ACTIVITY = gql`
-  query getFriendsActivity($page: number!) {
+  query getFriendsActivity($page: number) {
     friendsActivityList(page: $page) {
       _id
       userId {

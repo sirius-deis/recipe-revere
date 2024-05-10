@@ -7,7 +7,7 @@ import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 
 const FORGET_PASSWORD = gql`
-  mutation ForgetPassword($userEmail: String!) {
+  mutation ForgetPassword($userEmail: String) {
     forgetPassword(userEmail: $userEmail) {
       message
     }

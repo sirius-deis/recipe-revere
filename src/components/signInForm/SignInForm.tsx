@@ -13,9 +13,10 @@ import {
 } from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
+import { setToken } from "../../utils/store";
 
 const LOGIN = gql`
-  mutation Login($email: String!, $password: String!) {
+  mutation Login($email: String, $password: String) {
     login(email: $email, password: $password) {
       token
       user {

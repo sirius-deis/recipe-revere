@@ -7,7 +7,7 @@ import styles from "./SavedRecipeList.module.css";
 const GET_SAVED_RECIPES = gql`
   query getSavedRecipes {
     recipes {
-      url: String!
+      url: String
       label: String
       image: String
     }

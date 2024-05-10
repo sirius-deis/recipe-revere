@@ -8,7 +8,7 @@ import Button from "../button/Button";
 import Loader from "../loader/Loader";
 
 const RECIPE_OF_THE_DAY = gql`
-  GET_RECIPE($tags: [String]!) {
+  GET_RECIPE($tags: [String]) {
     getRecipe(tags: $tags) {
       recipe {
         label

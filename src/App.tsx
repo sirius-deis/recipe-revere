@@ -7,6 +7,7 @@ import RootLayout from "./layouts/RootLayout";
 import ApolloAppProvider from "./components/apollo/ApolloProvider";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SingleRecipePage from "./pages/singleRecipePage/SingleRecipePage";
+import SearchPage from "./pages/searchPage/SearchPage";
 
 const StartPage = lazy(() => import("./pages/startPage/StartPage"));
 const SignInPage = lazy(() => import("./pages/signInPage/SignInPage"));
@@ -79,6 +80,14 @@ function App() {
               element={
                 <Suspense fallback={<Loader />}>
                   <SingleRecipePage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/search"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <SearchPage />
                 </Suspense>
               }
             />

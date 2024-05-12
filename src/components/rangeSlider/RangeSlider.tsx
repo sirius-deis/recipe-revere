@@ -5,8 +5,8 @@ interface RangeSliderProps {
   min: number;
   max: number;
   onChange: (value: number) => void;
-  width: number;
-  withLabel: boolean;
+  width?: number;
+  withLabel?: boolean;
 }
 
 const RangeSlider: FC<RangeSliderProps> = ({
@@ -14,7 +14,7 @@ const RangeSlider: FC<RangeSliderProps> = ({
   min,
   onChange,
   width,
-  withLabel,
+  withLabel = true,
 }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);

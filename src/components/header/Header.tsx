@@ -6,23 +6,28 @@ import Col from "../column/Col";
 import HamburgerMenu from "../burger/HamburgerMenu";
 import { useLocation } from "react-router-dom";
 
-const paths = [{
-  title: "Home",
-  href: "/home",
-  icon: <FaHome />
-}, {
-  title: "Search",
-  href: "/search",
-  icon: <FaSearch />
-}, {
-  title: "Shop list",
-  href: "/shop-list",
-  icon: <FaListCheck />
-}, {
-  title: "Profile",
-  href: "/profile",
-  icon: <FaUserCircle />
-}]
+const paths = [
+  {
+    title: "Home",
+    href: "/home",
+    icon: <FaHome />,
+  },
+  {
+    title: "Search",
+    href: "/search",
+    icon: <FaSearch />,
+  },
+  {
+    title: "Shop list",
+    href: "/shop-list",
+    icon: <FaListCheck />,
+  },
+  {
+    title: "Profile",
+    href: "/profile",
+    icon: <FaUserCircle />,
+  },
+];
 
 const Header: FC = () => {
   const pathname = useLocation().pathname;
@@ -34,9 +39,14 @@ const Header: FC = () => {
       </Col>
       <nav className={styles["header-bottom"]}>
         <ul className={styles.list}>
-          {paths.map(path => (
-            <li className={styles.item}>
-              <a href={path.href} className={`${styles.link} ${pathname === path.href ? `${styles.active}` : ''}`}>
+          {paths.map((path, i) => (
+            <li className={styles.item} key={i}>
+              <a
+                href={path.href}
+                className={`${styles.link} ${
+                  pathname === path.href ? `${styles.active}` : ""
+                }`}
+              >
                 {path.icon}
                 {path.title}
               </a>

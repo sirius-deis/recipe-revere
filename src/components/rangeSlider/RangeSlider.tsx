@@ -26,25 +26,33 @@ const RangeSlider: FC<RangeSliderProps> = ({
     >
       <input
         type="range"
-        className={`${styles.thumbnail} ${styles["thumbnail--left"]}`}
+        className={`${styles.thumb} ${styles["thumb-left"]}`}
         min={min}
         max={max}
-        value={minVal}
+        defaultValue={minVal}
       />
       <input
         type="range"
-        className={`${styles.thumbnail} ${styles["thumbnail--right"]}`}
+        className={`${styles.thumb} ${styles["thumb-right"]}`}
         min={min}
         max={max}
-        value={maxVal}
+        defaultValue={maxVal}
       />
       <div className={styles.slider}>
         <div className={styles["slider-track"]} />
         <div ref={range} className={styles["slider-range"]} />
         {withLabel && (
           <>
-            <div className={styles["slider-value"]}>{minVal}</div>
-            <div className={styles["slider-value"]}>{maxVal}</div>
+            <div
+              className={`${styles["slider-value"]} ${styles["slider-value-left"]}`}
+            >
+              {minVal}
+            </div>
+            <div
+              className={`${styles["slider-value"]} ${styles["slider-value-right"]}`}
+            >
+              {maxVal}
+            </div>
           </>
         )}
       </div>

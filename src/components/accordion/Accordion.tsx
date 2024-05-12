@@ -9,7 +9,7 @@ const Accordion: FC<PropsWithChildren & AccordionProps> = ({
   children,
   title,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const clickHandler = () => {
     setIsOpen((prevState) => {
       return !prevState;

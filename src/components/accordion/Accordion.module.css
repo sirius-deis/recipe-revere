@@ -26,6 +26,6 @@
   content: "\11165";
 }
 
-.active.panel {
-  max-height: auto;
+.active .panel {
+  max-height: 100%;
 }

@@ -8,7 +8,7 @@ import Button from "../button/Button";
 import Loader from "../loader/Loader";
 
 const RECIPE_OF_THE_DAY = gql`
-  GET_RECIPE($tags: [String]) {
+  query GetRecipe($tags: [String]) {
     getRecipe(tags: $tags) {
       recipe {
         label
@@ -38,11 +38,11 @@ const RecipeOfTheDay: FC = () => {
     <article className={styles.recipe}>
       <div
         className={styles["image-container"]}
-        style={{ backgroundImage: `url(${data.recipe.image})` }}
+        style={{ backgroundImage: `url(${data?.recipe.image})` }}
       >
         <div className={styles.rating}>
           <FaStar />
-          {data.averageRating}
+          {data?.averageRating}
         </div>
         <div className={styles.liked}>
           <Button
@@ -58,9 +58,9 @@ const RecipeOfTheDay: FC = () => {
       <div className={styles.desc}>
         <Row inlineStyles={{ justifyContent: "space-between" }}>
           <Col inlineStyles={{ gap: "0.5rem" }}>
-            <h3 className={styles.title}>{data.recipe.label}</h3>
+            <h3 className={styles.title}>{data?.recipe.label}</h3>
             <ul className={styles.tags}>
-              {data.recipe.dietLabels.map((tag: string) => (
+              {data?.recipe.dietLabels.map((tag: string) => (
                 <li key={tag}>{tag}</li>
               ))}
             </ul>

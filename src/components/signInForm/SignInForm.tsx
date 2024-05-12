@@ -117,7 +117,9 @@ const SignInForm: FC = () => {
           Forgot password?
         </Link>
       </Row>
-      <Button>Sign In</Button>
+      <Button size="lg" bg="main">
+        Sign In
+      </Button>
     </form>
   );
 };

@@ -4,7 +4,7 @@ import styles from "./RangleSlider.module.css";
 interface RangeSliderProps {
   min: number;
   max: number;
-  onChange: (value: number) => void;
+  onChange: (minVal: number, maxVal: number) => void;
   width?: number;
   withLabel?: boolean;
 }
@@ -49,6 +49,10 @@ const RangeSlider: FC<RangeSliderProps> = ({
       }%`;
     }
   }, [maxVal, getValueInPercent]);
+
+  useEffect(() => {
+    onChange(minVal, maxVal);
+  }, [minVal, maxVal, onChange]);
 
   return (
     <div

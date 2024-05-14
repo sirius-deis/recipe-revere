@@ -39,6 +39,17 @@ const RangeSlider: FC<RangeSliderProps> = ({
     }
   }, [minVal, getValueInPercent]);
 
+  useEffect(() => {
+    const minPercentage = getValueInPercent(minValueRef.current);
+    const maxPercentage = getValueInPercent(maxVal);
+
+    if (range.current) {
+      (range.current as HTMLDivElement).style.width = `${
+        maxPercentage - minPercentage
+      }%`;
+    }
+  }, [maxVal, getValueInPercent]);
+
   return (
     <div
       className={styles["range-slider"]}

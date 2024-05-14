@@ -77,6 +77,11 @@ const RangeSlider: FC<RangeSliderProps> = ({
         min={min}
         max={max}
         defaultValue={maxVal}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          const value = Math.max(Number.parseInt(e.target.value), minVal + 1);
+          setMaxVal(value);
+          maxValueRef.current = value;
+        }}
       />
       <div className={styles.slider}>
         <div className={styles["slider-track"]} />

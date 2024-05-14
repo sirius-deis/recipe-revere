@@ -65,6 +65,11 @@ const RangeSlider: FC<RangeSliderProps> = ({
         min={min}
         max={max}
         defaultValue={minVal}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          const value = Math.min(Number.parseInt(e.target.value), maxVal - 1);
+          setMinVal(value);
+          minValueRef.current = value;
+        }}
       />
       <input
         type="range"

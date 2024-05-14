@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useCallback, useRef, useState } from "react";
 import styles from "./RangleSlider.module.css";
 
 interface RangeSliderProps {
@@ -19,6 +19,12 @@ const RangeSlider: FC<RangeSliderProps> = ({
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
   const range = useRef(null);
+
+  const getValueInPercent = useCallback(
+    (value: number) => Math.round(((value - min) / (max - min)) * 100),
+    [min, max]
+  );
+
   return (
     <div
       className={styles["range-slider"]}

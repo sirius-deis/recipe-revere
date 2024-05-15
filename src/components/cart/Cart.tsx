@@ -9,8 +9,8 @@ interface CartProps {
 const Cart: FC<CartProps> = ({ title, icon }) => {
   return (
     <article className={styles.cart}>
-      <h3 className={styles.title}>{title}</h3>
       <div className={styles.icon}>{icon}</div>
+      <h3 className={styles.title}>{title}</h3>
     </article>
   );
 };

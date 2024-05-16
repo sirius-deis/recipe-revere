@@ -9,9 +9,16 @@ import {
   FaThermometer,
   FaCompress,
   FaSourcetree,
+  FaPizzaSlice,
 } from "react-icons/fa6";
 import { PiCookingPotFill } from "react-icons/pi";
 import { GiChickenLeg, GiAppleSeeds } from "react-icons/gi";
+import {
+  MdBreakfastDining,
+  MdDinnerDining,
+  MdLunchDining,
+  MdCoffee,
+} from "react-icons/md";
 import Search from "../../components/search/Search";
 import Accordion from "../../components/accordion/Accordion";
 import RangeSlider from "../../components/rangeSlider/RangeSlider";
@@ -61,6 +68,29 @@ const diet: Cart[] = [
   { title: "Low sodium", icon: <FaCompress /> },
 ];
 
+const mealType: Cart[] = [
+  {
+    title: "Breakfast",
+    icon: <MdBreakfastDining />,
+  },
+  {
+    title: "Dinner",
+    icon: <MdDinnerDining />,
+  },
+  {
+    title: "Lunch",
+    icon: <MdLunchDining />,
+  },
+  {
+    title: "Snack",
+    icon: <FaPizzaSlice />,
+  },
+  {
+    title: "Tea time",
+    icon: <MdCoffee />,
+  },
+];
+
 const SearchPage: FC = () => {
   return (
     <div>
@@ -73,7 +103,9 @@ const SearchPage: FC = () => {
       <Accordion title="Diet">
         <CartGroup carts={diet} />
       </Accordion>
-      <Accordion title="Meal Type"></Accordion>
+      <Accordion title="Meal Type">
+        <CartGroup carts={mealType} />
+      </Accordion>
       <Accordion title="Calories">
         <RangeSlider min={1} max={900} onChange={() => {}} />
       </Accordion>

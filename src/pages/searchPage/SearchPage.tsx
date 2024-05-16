@@ -1,13 +1,28 @@
 import { FC, ReactNode } from "react";
-import { FaLeaf, FaSeedling, FaIceCream, FaCookieBite } from "react-icons/fa6";
+import {
+  FaLeaf,
+  FaSeedling,
+  FaIceCream,
+  FaCookieBite,
+  FaScaleBalanced,
+  FaBottleWater,
+  FaThermometer,
+  FaCompress,
+  FaSourcetree,
+} from "react-icons/fa6";
 import { PiCookingPotFill } from "react-icons/pi";
-import { GiChickenLeg } from "react-icons/gi";
+import { GiChickenLeg, GiAppleSeeds } from "react-icons/gi";
 import Search from "../../components/search/Search";
 import Accordion from "../../components/accordion/Accordion";
 import RangeSlider from "../../components/rangeSlider/RangeSlider";
 import CartGroup from "../../components/cartGroup/CartGroup";
 
-const categories: { title: string; icon: ReactNode }[] = [
+interface Cart {
+  title: string;
+  icon: ReactNode;
+}
+
+const categories: Cart[] = [
   {
     title: "Vegetarian",
     icon: <FaLeaf />,
@@ -34,6 +49,18 @@ const categories: { title: string; icon: ReactNode }[] = [
   },
 ];
 
+const diet: Cart[] = [
+  { title: "Balanced", icon: <FaScaleBalanced /> },
+  { title: "Hight Fiber", icon: <GiAppleSeeds /> },
+  { title: "Hight protein", icon: <FaBottleWater /> },
+  {
+    title: "Low carb",
+    icon: <FaSourcetree />,
+  },
+  { title: "Low fat", icon: <FaThermometer /> },
+  { title: "Low sodium", icon: <FaCompress /> },
+];
+
 const SearchPage: FC = () => {
   return (
     <div>
@@ -43,7 +70,9 @@ const SearchPage: FC = () => {
       <Accordion title="Categories">
         <CartGroup carts={categories} />
       </Accordion>
-      <Accordion title="Diet"></Accordion>
+      <Accordion title="Diet">
+        <CartGroup carts={diet} />
+      </Accordion>
       <Accordion title="Meal Type"></Accordion>
       <Accordion title="Calories">
         <RangeSlider min={1} max={900} onChange={() => {}} />

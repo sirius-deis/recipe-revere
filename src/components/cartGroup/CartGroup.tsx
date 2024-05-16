@@ -6,6 +6,7 @@ interface CartGroupProps {
   carts: Array<{
     title: string;
     icon: ReactNode;
+    url: string;
   }>;
 }
 

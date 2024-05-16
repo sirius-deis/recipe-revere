@@ -1,5 +1,7 @@
 import { FC, ReactNode } from "react";
-import { FaLeaf } from "react-icons/fa";
+import { FaLeaf, FaSeedling, FaIceCream, FaCookieBite } from "react-icons/fa6";
+import { PiCookingPotFill } from "react-icons/pi";
+import { GiChickenLeg } from "react-icons/gi";
 import Search from "../../components/search/Search";
 import Accordion from "../../components/accordion/Accordion";
 import RangeSlider from "../../components/rangeSlider/RangeSlider";
@@ -9,6 +11,26 @@ const categories: { title: string; icon: ReactNode }[] = [
   {
     title: "Vegetarian",
     icon: <FaLeaf />,
+  },
+  {
+    title: "Vegan",
+    icon: <FaSeedling />,
+  },
+  {
+    title: "One-pot meals",
+    icon: <PiCookingPotFill />,
+  },
+  {
+    title: "Snacks",
+    icon: <FaIceCream />,
+  },
+  {
+    title: "Desserts",
+    icon: <FaCookieBite />,
+  },
+  {
+    title: "Meat",
+    icon: <GiChickenLeg />,
   },
 ];
 

@@ -43,6 +43,12 @@ const userReducer: React.Reducer<
         user: action.payload.user,
         token: action.payload.token,
       };
+    case USER_ACTIONS.SIGN_OUT:
+      return {
+        ...prevState,
+        user: null,
+        token: undefined,
+      };
     default:
       return prevState;
   }

@@ -57,10 +57,15 @@ const userReducer: React.Reducer<
 export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INIT_STATE);
 
-  const value = {
-    user: null,
-    token: "",
+  const signIn = ({ user, token }: { user: IUser; token: string }) => {
+    dispatch({ type: actionType.SIGN_IN, payload: { user, token } });
   };
 
-  return <UserContext.Provider value={value}></UserContext.Provider>;
+  const value = {
+    user: state.user,
+    token: state.token,
+    signIn,
+  };
+
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

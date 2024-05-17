@@ -44,6 +44,7 @@ const userReducer: React.Reducer<
         token: action.payload.token,
       };
     case USER_ACTIONS.SIGN_OUT:
+    case USER_ACTIONS.RESET_PASSWORD:
       return {
         ...prevState,
         user: null,

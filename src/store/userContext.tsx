@@ -21,19 +21,28 @@ const INIT_STATE: IInitState = {
 const UserContext = createContext(INIT_STATE);
 
 export const USER_ACTIONS = {
-  SIGN_UP: "SIGN_UP",
-  SIGN_IN_: "SIGN_IN",
+  SIGN_IN: "SIGN_IN",
   SIGN_OUT: "SIGN_OUT",
   RESET_PASSWORD: "RESET_PASSWORD",
 };
 
-const userReducer: React.Reducer<IInitState, { type: string; payload: any }> = (
-  prevState,
-  action
-) => {
+enum actionType {
+  SIGN_IN = "SIGN_IN",
+  SIGN_OUT = "SIGN_OUT",
+  RESET_PASSWORD = "RESET_PASSWORD",
+}
+
+const userReducer: React.Reducer<
+  IInitState,
+  { type: actionType; payload: any }
+> = (prevState, action) => {
   switch (action.type) {
-    case "":
-      return prevState;
+    case USER_ACTIONS.SIGN_IN:
+      return {
+        ...prevState,
+        user: action.payload.user,
+        token: action.payload.token,
+      };
     default:
       return prevState;
   }

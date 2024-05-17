@@ -20,6 +20,13 @@ const INIT_STATE: IInitState = {
 
 const UserContext = createContext(INIT_STATE);
 
+export const USER_ACTIONS = {
+  SIGN_UP: "SIGN_UP",
+  SIGN_IN_: "SIGN_IN",
+  SIGN_OUT: "SIGN_OUT",
+  RESET_PASSWORD: "RESET_PASSWORD",
+};
+
 const userReducer: React.Reducer<IInitState, { type: string; payload: any }> = (
   prevState,
   action

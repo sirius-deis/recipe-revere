@@ -34,7 +34,7 @@ enum actionType {
 
 const userReducer: React.Reducer<
   IInitState,
-  { type: actionType; payload: any }
+  { type: actionType; payload?: any }
 > = (prevState, action) => {
   switch (action.type) {
     case USER_ACTIONS.SIGN_IN:
@@ -62,10 +62,17 @@ export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
     dispatch({ type: actionType.SIGN_IN, payload: { user, token } });
   };
 
+  const signOut =
+    (actionType: actionType.SIGN_OUT | actionType.RESET_PASSWORD) => () => {
+      dispatch({ type: actionType });
+    };
+
   const value = {
     user: state.user,
     token: state.token,
     signIn,
+    signOut: signOut(actionType.SIGN_OUT),
+    resetPassword: signOut(actionType.RESET_PASSWORD),
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

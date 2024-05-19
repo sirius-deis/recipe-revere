@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoOptionsSharp } from "react-icons/io5";
 import {
@@ -14,19 +14,23 @@ import Button from "../../components/button/Button";
 import RecipeOfTheDay from "../../components/recipeOfTheDay/RecipeOfTheDay";
 import Row from "../../components/row/Row";
 import Col from "../../components/column/Col";
+import { UserContext } from "../../store/userContext";
 
-//TODO: add a user data
 const HomePage: FC = () => {
+  const { user } = useContext(UserContext);
   return (
     <div className={styles.home}>
       <div className={styles["home-header"]}>
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>
-              <FaUserSecret className={styles["user-icon"]} />
-              {/* <img src="" alt="user profile picture" /> */}
+              {user?.pictures ? (
+                <FaUserSecret className={styles["user-icon"]} />
+              ) : (
+                <img src={`${user?.pictures![0]}`} alt="user profile" />
+              )}
             </div>
-            Hello ... name
+            Hello {user?.name}
           </Row>
         </Col>
       </div>

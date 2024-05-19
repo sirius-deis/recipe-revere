@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import ApolloAppProvider from "./components/apollo/ApolloProvider";
+import UserProvider from "./store/userContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ApolloAppProvider>
-        <App />
-      </ApolloAppProvider>
+      <UserProvider>
+        <ApolloAppProvider>
+          <App />
+        </ApolloAppProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

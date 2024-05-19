@@ -10,12 +10,10 @@ export interface IUser {
 
 interface IInitState {
   user: IUser | null;
-  token: string | undefined;
 }
 
 const INIT_STATE: IInitState = {
   user: null,
-  token: undefined,
 };
 
 const UserContext = createContext(INIT_STATE);
@@ -41,25 +39,23 @@ const userReducer: React.Reducer<
       return {
         ...prevState,
         user: action.payload.user,
-        token: action.payload.token,
       };
     case USER_ACTIONS.SIGN_OUT:
     case USER_ACTIONS.RESET_PASSWORD:
       return {
         ...prevState,
         user: null,
-        token: undefined,
       };
     default:
       return prevState;
   }
 };
 
-export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
+const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INIT_STATE);
 
-  const signIn = ({ user, token }: { user: IUser; token: string }) => {
-    dispatch({ type: actionType.SIGN_IN, payload: { user, token } });
+  const signIn = ({ user }: { user: IUser }) => {
+    dispatch({ type: actionType.SIGN_IN, payload: { user } });
   };
 
   const signOut =
@@ -69,7 +65,6 @@ export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const value = {
     user: state.user,
-    token: state.token,
     signIn,
     signOut: signOut(actionType.SIGN_OUT),
     resetPassword: signOut(actionType.RESET_PASSWORD),
@@ -77,3 +72,5 @@ export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
+
+export default UserProvider;

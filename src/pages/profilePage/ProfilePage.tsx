@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import styles from "./ProfilePage.module.css";
 import Col from "../../components/column/Col";
 import Row from "../../components/row/Row";
@@ -6,8 +6,10 @@ import { FaUserSecret } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SavedRecipeList from "../../components/savedRecipeList/SavedRecipeList";
 import FriendsActivityList from "../../components/friendsActivityList/FriendsActivityList";
+import { UserContext } from "../../store/userContext";
 
 const ProfilePage: FC = () => {
+  const { user } = useContext(UserContext);
   return (
     <div className={styles.profile}>
       <h1>My Profile</h1>
@@ -16,10 +18,13 @@ const ProfilePage: FC = () => {
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>
-              <FaUserSecret className={styles["user-icon"]} />
-              {/* <img src="" alt="user profile picture" /> */}
+              {user?.pictures ? (
+                <FaUserSecret className={styles["user-icon"]} />
+              ) : (
+                <img src={`${user?.pictures![0]}`} alt="user profile" />
+              )}
             </div>
-            Name
+            {user?.name}
           </Row>
         </Col>
       </div>

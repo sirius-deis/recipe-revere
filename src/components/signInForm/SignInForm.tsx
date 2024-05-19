@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
@@ -14,6 +14,7 @@ import {
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 import { setToken } from "../../utils/store";
+import { UserContext } from "../../store/userContext";
 
 const LOGIN = gql`
   mutation Login($email: String, $password: String) {
@@ -38,6 +39,7 @@ const SignInForm: FC = () => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
+  const {} = useContext(UserContext);
   const [login, { data, loading, error }] = useMutation(LOGIN, {
     onCompleted(data, clientOptions) {
       setToken(data.login.token);

@@ -16,7 +16,12 @@ const INIT_STATE: IInitState = {
   user: null,
 };
 
-const UserContext = createContext(INIT_STATE);
+export const UserContext = createContext({
+  ...INIT_STATE,
+  signIn: (user: IUser) => {},
+  signOut: () => {},
+  resetPassword: () => {},
+});
 
 export const USER_ACTIONS = {
   SIGN_IN: "SIGN_IN",
@@ -54,7 +59,7 @@ const userReducer: React.Reducer<
 const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INIT_STATE);
 
-  const signIn = ({ user }: { user: IUser }) => {
+  const signIn = (user: IUser) => {
     dispatch({ type: actionType.SIGN_IN, payload: { user } });
   };
 

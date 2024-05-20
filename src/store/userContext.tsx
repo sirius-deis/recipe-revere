@@ -1,4 +1,6 @@
 import { FC, PropsWithChildren, createContext, useReducer } from "react";
+import { getToken } from "../utils/store";
+import { Token } from "graphql";
 
 export interface IUser {
   _id: string | undefined;
@@ -10,15 +12,17 @@ export interface IUser {
 
 interface IInitState {
   user: IUser | null;
+  token: string | null;
 }
 
 const INIT_STATE: IInitState = {
   user: null,
+  token: getToken(),
 };
 
 export const UserContext = createContext({
   ...INIT_STATE,
-  signIn: (user: IUser) => {},
+  signIn: (user: IUser, token: string) => {},
   signOut: () => {},
   resetPassword: () => {},
 });
@@ -44,6 +48,7 @@ const userReducer: React.Reducer<
       return {
         ...prevState,
         user: action.payload.user,
+        token: action.payload.token,
       };
     case USER_ACTIONS.SIGN_OUT:
     case USER_ACTIONS.RESET_PASSWORD:
@@ -59,8 +64,8 @@ const userReducer: React.Reducer<
 const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INIT_STATE);
 
-  const signIn = (user: IUser) => {
-    dispatch({ type: actionType.SIGN_IN, payload: { user } });
+  const signIn = (user: IUser, token: string) => {
+    dispatch({ type: actionType.SIGN_IN, payload: { user, token } });
   };
 
   const signOut =
@@ -70,6 +75,7 @@ const UserProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const value = {
     user: state.user,
+    token: null,
     signIn,
     signOut: signOut(actionType.SIGN_OUT),
     resetPassword: signOut(actionType.RESET_PASSWORD),

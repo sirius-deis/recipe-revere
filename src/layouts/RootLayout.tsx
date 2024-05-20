@@ -1,16 +1,18 @@
-import { FC } from "react";
+import { FC, useContext, useEffect } from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import { Outlet, useNavigate } from "react-router-dom";
-import { getToken } from "../utils/store";
+import { UserContext } from "../store/userContext";
 
 const RootLayout: FC = () => {
   const navigate = useNavigate();
-  let token = getToken();
+  let { token } = useContext(UserContext);
 
-  if (!token) {
-    navigate("/login");
-  }
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token]);
 
   return (
     <>

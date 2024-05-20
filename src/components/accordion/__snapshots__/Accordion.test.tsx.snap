@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion component Should match snapshot 1`] = `
+<div>
+  <section
+    class="active"
+  >
+    <button
+      class="accordion"
+    >
+      Lorem
+    </button>
+    <div
+      class="panel"
+    >
+      <p>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero totam magnam cum culpa nemo nesciunt laborum reiciendis necessitatibus ea, pariatur error itaque repudiandae repellat incidunt doloremque earum et officiis quam?
+      </p>
+    </div>
+  </section>
+</div>
+`;

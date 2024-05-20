@@ -55,6 +55,7 @@ const userReducer: React.Reducer<
       return {
         ...prevState,
         user: null,
+        token: null,
       };
     default:
       return prevState;

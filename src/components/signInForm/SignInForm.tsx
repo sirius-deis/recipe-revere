@@ -42,7 +42,7 @@ const SignInForm: FC = () => {
   const [login, { data, loading, error }] = useMutation(LOGIN, {
     onCompleted(data, clientOptions) {
       setToken(data.login.token);
-      signIn(data.login.user);
+      signIn(data.login.user, data.login.token);
     },
     onError() {
       setIsMessageBoxOpen(true);

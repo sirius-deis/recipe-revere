@@ -27,4 +27,11 @@ describe("Button component", () => {
     fireEvent.click(screen.getByRole("button"));
     expect(fn).toHaveBeenCalled();
   });
+  it("should check if default classes are provided correctly", () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByRole("button")).toHaveClass("btn");
+    expect(screen.getByRole("button")).toHaveClass("btn-lg");
+    expect(screen.getByRole("button")).toHaveClass("btn-main");
+    expect(screen.getByRole("button")).not.toHaveClass("btn-rounded");
+  });
 });

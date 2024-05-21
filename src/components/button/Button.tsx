@@ -21,9 +21,9 @@ const Button: FC<PropsWithChildren & ButtonProps> = ({
     <button
       className={`${styles.btn} ${
         size ? `${styles[`btn-${size}`]}` : "btn-lg"
-      } ${bg ? `${styles[`btn-${bg}`]}` : "btn-main"} ${
+      } ${bg ? `${styles[`btn-${bg}`]}` : "btn-main"}${
         rounded ? `${styles["btn-rounded"]}` : ""
-      } `}
+      }`}
       style={inlineStyles}
       onClick={clickHandler}
     >

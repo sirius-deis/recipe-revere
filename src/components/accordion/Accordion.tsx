@@ -9,7 +9,7 @@ const Accordion: FC<PropsWithChildren & AccordionProps> = ({
   children,
   title,
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const clickHandler = () => {
     setIsOpen((prevState) => {
       return !prevState;
@@ -19,6 +19,7 @@ const Accordion: FC<PropsWithChildren & AccordionProps> = ({
     <section
       className={`${isOpen ? styles.active : ""}`}
       onClick={clickHandler}
+      data-testid="accordion"
     >
       <button className={styles.accordion}>{title}</button>
       <div className={styles.panel}>{children}</div>

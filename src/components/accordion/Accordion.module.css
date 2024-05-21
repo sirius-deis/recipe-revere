@@ -20,6 +20,7 @@
   background-color: transparent;
   max-height: 0;
   overflow: hidden;
+  transition: max-height 2s;
 }
 
 .active.accordion:after {

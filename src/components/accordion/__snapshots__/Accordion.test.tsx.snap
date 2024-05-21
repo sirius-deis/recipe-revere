@@ -3,7 +3,8 @@
 exports[`Accordion component Should match snapshot 1`] = `
 <div>
   <section
-    class="active"
+    class=""
+    data-testid="accordion"
   >
     <button
       class="accordion"
@@ -14,7 +15,7 @@ exports[`Accordion component Should match snapshot 1`] = `
       class="panel"
     >
       <p>
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero totam magnam cum culpa nemo nesciunt laborum reiciendis necessitatibus ea, pariatur error itaque repudiandae repellat incidunt doloremque earum et officiis quam?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero totam magnam cum culpa nemo nesciunt laborum reiciendis necessitatibus ea, pariatur error itaque repudiandae repellat incidunt doloremque earum et officiis quam?
       </p>
     </div>
   </section>

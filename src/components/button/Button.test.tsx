@@ -34,4 +34,15 @@ describe("Button component", () => {
     expect(screen.getByRole("button")).toHaveClass("btn-main");
     expect(screen.getByRole("button")).not.toHaveClass("btn-rounded");
   });
+  it("should render a button with provided classes", () => {
+    render(
+      <Button size="sm" bg="action" rounded>
+        Click me
+      </Button>
+    );
+    expect(screen.getByRole("button")).toHaveClass("btn");
+    expect(screen.getByRole("button")).toHaveClass("btn-sm");
+    expect(screen.getByRole("button")).toHaveClass("btn-action");
+    expect(screen.getByRole("button")).toHaveClass("btn-rounded");
+  });
 });

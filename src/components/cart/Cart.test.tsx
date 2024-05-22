@@ -28,4 +28,12 @@ describe("Cart component", () => {
     );
     expect(screen.getByTestId("icon").firstChild).toBeInTheDocument();
   });
+  it("should get the right url param", () => {
+    render(
+      <BrowserRouter>
+        <Cart title="Title" url="/some_url" icon={<FaHeart />} />
+      </BrowserRouter>
+    );
+    expect(screen.getByRole("link").getAttribute("href")).toBe("/some_url");
+  });
 });

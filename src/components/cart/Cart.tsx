@@ -12,7 +12,9 @@ const Cart: FC<CartProps> = ({ title, icon, url }) => {
   return (
     <Link to={url}>
       <article className={styles.cart}>
-        <div className={styles.icon}>{icon}</div>
+        <div data-testid="icon" className={styles.icon}>
+          {icon}
+        </div>
         <h3 className={styles.title}>{title}</h3>
       </article>
     </Link>

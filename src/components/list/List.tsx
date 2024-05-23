@@ -4,10 +4,13 @@ import styles from "./List.module.css";
 import ListItem from "../listItem/ListItem";
 
 interface ListProps {
-  direction: "vertical" | "horizontal";
+  direction?: "vertical" | "horizontal";
 }
 
-const List: FC<PropsWithChildren & ListProps> = ({ children, direction }) => {
+const List: FC<PropsWithChildren & ListProps> = ({
+  children,
+  direction = "vertical",
+}) => {
   return (
     <ul className={`${styles.list} ${styles[direction]}`}>
       {React.Children.map<ReactNode, ReactNode>(children, (child) => {

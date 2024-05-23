@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component should match snapshot 1`] = `
+<div>
+  <ul
+    class="list vertical"
+  >
+    <li>
+      <div>
+        Some content 1
+      </div>
+    </li>
+    <li>
+      <div>
+        Some content 2
+      </div>
+    </li>
+    <li>
+      <div>
+        Some content 3
+      </div>
+    </li>
+  </ul>
+</div>
+`;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./Ingredient.module.css";
 
-interface Ingredient {
+export interface IngredientProps {
   quantity: number;
   measure: string;
   food: string;
@@ -11,7 +11,7 @@ interface Ingredient {
   factor: number;
 }
 
-const Ingredient: FC<Ingredient> = ({
+const Ingredient: FC<IngredientProps> = ({
   food,
   measure,
   quantity,

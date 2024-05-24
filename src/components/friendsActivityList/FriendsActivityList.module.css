@@ -1,8 +1,0 @@
-.list {
-  display: flex;
-  flex-direction: column;
-}
-
-.list:not(:last-child) {
-  border-bottom: 1px solid var(--additional-200);
-}

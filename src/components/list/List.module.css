@@ -12,3 +12,7 @@
 .horizontal {
   flex-direction: row;
 }
+
+.borderBottom {
+  border-bottom: 1px solid var(--additional-200);
+}

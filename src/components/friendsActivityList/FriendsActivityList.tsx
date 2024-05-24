@@ -1,10 +1,10 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
-import styles from "./FriendsActivityList.module.css";
 import Loader from "../loader/Loader";
 import ErrorBox from "../errorBox/ErrorBox";
 import FriendsActivity from "../friendsActivity/FriendsActivity";
 import useOnScreen from "../../hooks/useOnScreen";
+import List from "../list/List";
 
 const GET_FRIENDS_ACTIVITY = gql`
   query getFriendsActivity($page: number) {
@@ -52,24 +52,37 @@ const FriendsActivityList: FC = () => {
   }
 
   return (
-    <section className={styles.list}>
-      {data.friendsActivityList.map(
-        (
-          {
-            userId: { _id, name, pictures },
-            activity,
-            date,
-          }: {
-            userId: friendType;
-            activity: string;
-            date: number;
-          },
-          index: number,
-          array: []
-        ) => {
-          if (array.length < index) {
+    <section>
+      <List borderBottom>
+        {data.friendsActivityList.map(
+          (
+            {
+              userId: { _id, name, pictures },
+              activity,
+              date,
+            }: {
+              userId: friendType;
+              activity: string;
+              date: number;
+            },
+            index: number,
+            array: []
+          ) => {
+            if (array.length < index) {
+              return (
+                <FriendsActivity
+                  key={_id}
+                  _id={_id}
+                  name={name}
+                  picture={pictures[0]}
+                  activity={activity}
+                  time={date}
+                />
+              );
+            }
             return (
               <FriendsActivity
+                ref={ref}
                 key={_id}
                 _id={_id}
                 name={name}
@@ -79,19 +92,8 @@ const FriendsActivityList: FC = () => {
               />
             );
           }
-          return (
-            <FriendsActivity
-              ref={ref}
-              key={_id}
-              _id={_id}
-              name={name}
-              picture={pictures[0]}
-              activity={activity}
-              time={date}
-            />
-          );
-        }
-      )}
+        )}
+      </List>
       {loading && !firstFetch.current && <Loader />}
     </section>
   );

@@ -1,17 +1,39 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import styles from "./Search.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface SearchProps {
   placeholderText: string;
 }
 
 const Search: FC<SearchProps> = ({ placeholderText }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const SubmitHandle = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) {
+      return;
+    }
+    //TODO: add url with query parameter
+    // navigate("");
+    throw new Error("This feature is not supported");
+  };
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
   return (
-    <div className={styles.search}>
+    <form className={styles.search} onSubmit={SubmitHandle}>
       <FaSearch />
-      <input type="search" placeholder={placeholderText} />
-    </div>
+      <input
+        type="search"
+        value={searchTerm}
+        onChange={changeHandler}
+        placeholder={placeholderText}
+      />
+    </form>
   );
 };
 

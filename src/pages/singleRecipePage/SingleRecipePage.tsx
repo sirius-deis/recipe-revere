@@ -64,6 +64,10 @@ const SingleRecipePage: FC = () => {
     return <Loader />;
   }
 
+  if (error) {
+    //TODO: add error handler
+  }
+
   const changeServings = (dir: number) => {
     if (servings === 1 && dir === -1) {
       return;

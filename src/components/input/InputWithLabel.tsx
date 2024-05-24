@@ -8,6 +8,7 @@ interface InputWithLabelProps {
   inputPlaceholder: string;
   type?: string;
   icon: "email" | "password";
+  value: string;
   changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   blurHandler?: () => void;
   isValid?: boolean;
@@ -18,6 +19,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
   type = "text",
   inputPlaceholder,
   icon,
+  value,
   changeHandler,
   blurHandler,
   isValid = false,
@@ -45,6 +47,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
           id={id}
           className={styles["form-control"]}
           placeholder={inputPlaceholder}
+          value={value}
           onChange={changeHandler}
           onBlur={blurHandler}
         />

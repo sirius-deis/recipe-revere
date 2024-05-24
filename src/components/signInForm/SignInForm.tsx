@@ -84,6 +84,7 @@ const SignInForm: FC = () => {
         labelText="Email"
         inputPlaceholder="example@email.com"
         icon="email"
+        value={email}
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setEmail, e)
         }
@@ -97,6 +98,7 @@ const SignInForm: FC = () => {
         inputPlaceholder="************"
         type="password"
         icon="password"
+        value={password}
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }

@@ -69,6 +69,7 @@ const SignUpForm: FC = () => {
         labelText="Email"
         inputPlaceholder="example@email.com"
         icon="email"
+        value={email}
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setEmail, e)
         }
@@ -82,6 +83,7 @@ const SignUpForm: FC = () => {
         inputPlaceholder="************"
         type="password"
         icon="password"
+        value={password}
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }
@@ -95,6 +97,7 @@ const SignUpForm: FC = () => {
         inputPlaceholder="************"
         type="password"
         icon="password"
+        value={passwordConfirm}
         changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPasswordConfirm, e)
         }

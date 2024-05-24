@@ -2,7 +2,7 @@
 
 exports[`Search component should match snapchat 1`] = `
 <div>
-  <div
+  <form
     class="search"
   >
     <svg
@@ -21,7 +21,8 @@ exports[`Search component should match snapchat 1`] = `
     <input
       placeholder="Ex.: Something"
       type="search"
+      value=""
     />
-  </div>
+  </form>
 </div>
 `;

@@ -5,17 +5,23 @@ exports[`List component should match snapshot 1`] = `
   <ul
     class="list vertical"
   >
-    <li>
+    <li
+      class="list-item"
+    >
       <div>
         Some content 1
       </div>
     </li>
-    <li>
+    <li
+      class="list-item"
+    >
       <div>
         Some content 2
       </div>
     </li>
-    <li>
+    <li
+      class="list-item"
+    >
       <div>
         Some content 3
       </div>

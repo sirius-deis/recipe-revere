@@ -11,7 +11,7 @@ const Search: FC<SearchProps> = ({ placeholderText }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const SubmitHandle = (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const submitHandle = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!searchTerm.trim()) {
       return;
@@ -25,7 +25,7 @@ const Search: FC<SearchProps> = ({ placeholderText }) => {
     setSearchTerm(e.target.value);
   };
   return (
-    <form className={styles.search} onSubmit={SubmitHandle}>
+    <form className={styles.search} onSubmit={submitHandle}>
       <FaSearch />
       <input
         type="search"

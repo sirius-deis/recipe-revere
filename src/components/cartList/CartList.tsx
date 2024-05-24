@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import styles from "./CartGroup.module.css";
+import styles from "./CartList.module.css";
 import Cart from "../cart/Cart";
 
 interface CartGroupProps {

@@ -22,72 +22,105 @@ import {
 import Search from "../../components/search/Search";
 import Accordion from "../../components/accordion/Accordion";
 import RangeSlider from "../../components/rangeSlider/RangeSlider";
-import CartGroup from "../../components/cartGroup/CartGroup";
+import CartList from "../../components/cartList/CartList";
 
 interface Cart {
   title: string;
   icon: ReactNode;
+  url: string;
 }
 
 const categories: Cart[] = [
   {
     title: "Vegetarian",
     icon: <FaLeaf />,
+    url: "/search-results?category=vegetarian",
   },
   {
     title: "Vegan",
     icon: <FaSeedling />,
+    url: "/search-results?category=vegan",
   },
   {
     title: "One-pot meals",
     icon: <PiCookingPotFill />,
+    url: "/search-results?category=one-pot",
   },
   {
     title: "Snacks",
     icon: <FaIceCream />,
+    url: "/search-results?category=snacks",
   },
   {
     title: "Desserts",
     icon: <FaCookieBite />,
+    url: "/search-results?category=desserts",
   },
   {
     title: "Meat",
     icon: <GiChickenLeg />,
+    url: "/search-results?category=meat",
   },
 ];
 
 const diet: Cart[] = [
-  { title: "Balanced", icon: <FaScaleBalanced /> },
-  { title: "Hight Fiber", icon: <GiAppleSeeds /> },
-  { title: "Hight protein", icon: <FaBottleWater /> },
+  {
+    title: "Balanced",
+    icon: <FaScaleBalanced />,
+    url: "/search-results?diet=balanced",
+  },
+  {
+    title: "High Fiber",
+    icon: <GiAppleSeeds />,
+    url: "/search-results?diet=high-fiber",
+  },
+  {
+    title: "High protein",
+    icon: <FaBottleWater />,
+    url: "/search-results?diet=high-protein",
+  },
   {
     title: "Low carb",
     icon: <FaSourcetree />,
+    url: "/search-results?diet=low-carb",
   },
-  { title: "Low fat", icon: <FaThermometer /> },
-  { title: "Low sodium", icon: <FaCompress /> },
+  {
+    title: "Low fat",
+    icon: <FaThermometer />,
+    url: "/search-results?diet=low-fat",
+  },
+  {
+    title: "Low sodium",
+    icon: <FaCompress />,
+    url: "/search-results?diet=low-sodium",
+  },
 ];
 
 const mealType: Cart[] = [
   {
     title: "Breakfast",
     icon: <MdBreakfastDining />,
+    url: "/search-results?mealType=breakfast",
   },
   {
     title: "Dinner",
     icon: <MdDinnerDining />,
+    url: "/search-results?mealType=dinner",
   },
   {
     title: "Lunch",
     icon: <MdLunchDining />,
+    url: "/search-results?mealType=lunch",
   },
   {
     title: "Snack",
     icon: <FaPizzaSlice />,
+    url: "/search-results?mealType=snack",
   },
   {
     title: "Tea time",
     icon: <MdCoffee />,
+    url: "/search-results?mealType=tea-time",
   },
 ];
 
@@ -98,13 +131,13 @@ const SearchPage: FC = () => {
       <Search placeholderText="Ex.: Veggie Burger" />
       <h2>Filter by</h2>
       <Accordion title="Categories">
-        <CartGroup carts={categories} />
+        <CartList carts={categories} />
       </Accordion>
       <Accordion title="Diet">
-        <CartGroup carts={diet} />
+        <CartList carts={diet} />
       </Accordion>
       <Accordion title="Meal Type">
-        <CartGroup carts={mealType} />
+        <CartList carts={mealType} />
       </Accordion>
       <Accordion title="Calories">
         <RangeSlider min={1} max={900} onChange={() => {}} />

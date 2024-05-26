@@ -23,7 +23,7 @@ describe("Button component", () => {
   });
   it("should fire provided function on click event", () => {
     const fn = jest.fn();
-    render(<Button clickHandler={fn}>Click me</Button>);
+    render(<Button onClick={fn}>Click me</Button>);
     fireEvent.click(screen.getByRole("button"));
     expect(fn).toHaveBeenCalled();
   });

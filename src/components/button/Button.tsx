@@ -6,7 +6,7 @@ interface ButtonProps {
   bg?: "main" | "action" | "icon";
   rounded?: true | false;
   inlineStyles?: {};
-  clickHandler?: () => void;
+  [x: string]: any;
 }
 
 const Button: FC<PropsWithChildren & ButtonProps> = ({
@@ -15,7 +15,7 @@ const Button: FC<PropsWithChildren & ButtonProps> = ({
   bg,
   inlineStyles,
   rounded,
-  clickHandler = () => {},
+  ...rest
 }): JSX.Element => {
   return (
     <button
@@ -25,7 +25,7 @@ const Button: FC<PropsWithChildren & ButtonProps> = ({
         rounded ? ` ${styles["btn-rounded"]}` : ""
       }`}
       style={inlineStyles}
-      onClick={clickHandler}
+      {...rest}
     >
       {children}
     </button>

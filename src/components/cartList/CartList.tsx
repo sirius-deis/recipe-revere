@@ -1,9 +1,8 @@
 import { FC, ReactNode } from "react";
-import styles from "./CartList.module.css";
 import Cart from "../cart/Cart";
 import List from "../list/List";
 
-interface CartGroupProps {
+interface CartListProps {
   carts: Array<{
     title: string;
     icon: ReactNode;
@@ -11,7 +10,7 @@ interface CartGroupProps {
   }>;
 }
 
-const CartGroup: FC<CartGroupProps> = ({ carts }) => {
+const CartList: FC<CartListProps> = ({ carts }) => {
   return (
     <div>
       <List>
@@ -23,4 +22,4 @@ const CartGroup: FC<CartGroupProps> = ({ carts }) => {
   );
 };
 
-export default CartGroup;
+export default CartList;

@@ -5,24 +5,16 @@ import styles from "./InputWithLabel.module.css";
 
 interface InputWithLabelProps {
   labelText: string;
-  inputPlaceholder: string;
-  type?: string;
   icon: "email" | "password";
-  value: string;
-  changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  blurHandler?: () => void;
   isValid?: boolean;
+  [x: string]: any;
 }
 
 const InputWithLabel: FC<InputWithLabelProps> = ({
   labelText,
-  type = "text",
-  inputPlaceholder,
   icon,
-  value,
-  changeHandler,
-  blurHandler,
   isValid = false,
+  ...rest
 }) => {
   const id = useId();
   let iconToInsert;
@@ -42,15 +34,7 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
           isValid ? `${styles.error}` : ""
         }`}
       >
-        <input
-          type={type}
-          id={id}
-          className={styles["form-control"]}
-          placeholder={inputPlaceholder}
-          value={value}
-          onChange={changeHandler}
-          onBlur={blurHandler}
-        />
+        <input id={id} className={styles["form-control"]} {...rest} />
         <div className={styles["input-group-append"]}>
           <span className={styles["input-group-icon"]}>{iconToInsert}</span>
         </div>

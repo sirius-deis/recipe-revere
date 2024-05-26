@@ -7,7 +7,7 @@ describe("CheckboxWithLabel component", () => {
       <CheckboxWithLabel
         isChecked={false}
         labelText="Remember me"
-        onCheckHandler={() => {}}
+        onChange={() => {}}
       />
     );
     expect(container).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe("CheckboxWithLabel component", () => {
       <CheckboxWithLabel
         isChecked={false}
         labelText="Remember me"
-        onCheckHandler={() => {}}
+        onChange={() => {}}
       />
     );
     expect(screen.getByText("Remember me")).toBeInTheDocument();
@@ -28,7 +28,7 @@ describe("CheckboxWithLabel component", () => {
       <CheckboxWithLabel
         isChecked={false}
         labelText="Remember me"
-        onCheckHandler={onCheckHandler}
+        onChange={onCheckHandler}
       />
     );
     const checkboxLabel = screen.getByLabelText("Remember me");

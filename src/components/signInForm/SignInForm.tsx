@@ -108,9 +108,9 @@ const SignInForm: FC = () => {
 
       <Row inlineStyles={{ gap: "2rem" }}>
         <CheckboxWithLabel
-          isChecked={isChecked}
+          checked={isChecked}
           labelText="Remember me"
-          onCheckHandler={onCheckHandler}
+          onClick={onCheckHandler}
         />
         <Link
           to="/forgot"

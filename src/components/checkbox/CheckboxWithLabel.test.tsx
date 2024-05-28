@@ -5,7 +5,7 @@ describe("CheckboxWithLabel component", () => {
   it("should match snapshot", () => {
     const { container } = render(
       <CheckboxWithLabel
-        isChecked={false}
+        checked={false}
         labelText="Remember me"
         onChange={() => {}}
       />
@@ -15,7 +15,7 @@ describe("CheckboxWithLabel component", () => {
   it("should render component with proper text", () => {
     render(
       <CheckboxWithLabel
-        isChecked={false}
+        checked={false}
         labelText="Remember me"
         onChange={() => {}}
       />
@@ -26,7 +26,7 @@ describe("CheckboxWithLabel component", () => {
     const onCheckHandler = jest.fn();
     render(
       <CheckboxWithLabel
-        isChecked={false}
+        checked={false}
         labelText="Remember me"
         onChange={onCheckHandler}
       />

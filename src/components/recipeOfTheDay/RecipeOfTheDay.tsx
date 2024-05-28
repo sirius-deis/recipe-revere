@@ -45,12 +45,7 @@ const RecipeOfTheDay: FC = () => {
           {data?.averageRating}
         </div>
         <div className={styles.liked}>
-          <Button
-            bg="icon"
-            size="sm"
-            inlineStyles={{ padding: "0.8rem" }}
-            rounded
-          >
+          <Button bg="icon" size="sm" style={{ padding: "0.8rem" }} rounded>
             <FaHeart />
           </Button>
         </div>

@@ -29,10 +29,11 @@ describe("Button component", () => {
   });
   it("should check if default classes are provided correctly", () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole("button")).toHaveClass("btn");
-    expect(screen.getByRole("button")).toHaveClass("btn-lg");
-    expect(screen.getByRole("button")).toHaveClass("btn-main");
-    expect(screen.getByRole("button")).not.toHaveClass("btn-rounded");
+    const btn = screen.getByRole("button");
+    expect(btn).toHaveClass("btn");
+    expect(btn).toHaveClass("btn-lg");
+    expect(btn).toHaveClass("btn-main");
+    expect(btn).not.toHaveClass("btn-rounded");
   });
   it("should render a button with provided classes", () => {
     render(
@@ -40,9 +41,10 @@ describe("Button component", () => {
         Click me
       </Button>
     );
-    expect(screen.getByRole("button")).toHaveClass("btn");
-    expect(screen.getByRole("button")).toHaveClass("btn-sm");
-    expect(screen.getByRole("button")).toHaveClass("btn-action");
-    expect(screen.getByRole("button")).toHaveClass("btn-rounded");
+    const btn = screen.getByRole("button");
+    expect(btn).toHaveClass("btn");
+    expect(btn).toHaveClass("btn-sm");
+    expect(btn).toHaveClass("btn-action");
+    expect(btn).toHaveClass("btn-rounded");
   });
 });

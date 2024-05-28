@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FriendsActivity component should match snapshot 1`] = `
+<div>
+  <article
+    class="friends-activity"
+  >
+    <div
+      class="image-container"
+    >
+      <img
+        alt="friend name"
+        src="picture"
+      />
+    </div>
+    <div
+      class="activity"
+    >
+      <h3
+        class="name"
+      >
+        <a
+          href="/users/123"
+        >
+          friend name
+        </a>
+      </h3>
+      just
+      <p
+        class="action"
+      >
+        some activity
+      </p>
+    </div>
+    <p
+      class="time"
+    >
+      1716933478455
+    </p>
+  </article>
+</div>
+`;

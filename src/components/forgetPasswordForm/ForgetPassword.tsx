@@ -29,6 +29,7 @@ const ForgetPasswordForm: FC = () => {
       },
       onCompleted: () => {
         setIsInfoMessageBoxOpen(true);
+        resetPassword();
       },
     }
   );

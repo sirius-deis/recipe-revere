@@ -6,7 +6,7 @@ describe("InputWithLabel component", () => {
     const { container } = render(
       <InputWithLabel
         labelText="email"
-        inputPlaceholder="Example@email.com"
+        placeholder="Example@email.com"
         icon="email"
       />
     );
@@ -16,7 +16,7 @@ describe("InputWithLabel component", () => {
     render(
       <InputWithLabel
         labelText="Email"
-        inputPlaceholder="Example@email.com"
+        placeholder="Example@email.com"
         icon="email"
       />
     );

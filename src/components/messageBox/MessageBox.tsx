@@ -14,7 +14,7 @@ const MessageBox: FC<PropsWithChildren & MessageBoxProps> = ({
     <div className={styles.container}>
       {children}
       <div className={styles["button-container"]}>
-        <Button size="sm" clickHandler={closeMessageBox}>
+        <Button size="sm" onClick={closeMessageBox}>
           &#10008;
         </Button>
       </div>

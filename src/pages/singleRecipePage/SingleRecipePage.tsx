@@ -93,10 +93,10 @@ const SingleRecipePage: FC = () => {
         <h2>Ingredients</h2>
         <div>
           {servings} servings
-          <Button clickHandler={() => changeServings(+1)} size="sm">
+          <Button onClick={() => changeServings(+1)} size="sm">
             +
           </Button>
-          <Button clickHandler={() => changeServings(-1)} size="sm">
+          <Button onClick={() => changeServings(-1)} size="sm">
             -
           </Button>
         </div>

@@ -82,27 +82,25 @@ const SignInForm: FC = () => {
       )}
       <InputWithLabel
         labelText="Email"
-        inputPlaceholder="example@email.com"
+        placeholder="example@email.com"
         icon="email"
         value={email}
-        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setEmail, e)
         }
-        blurHandler={() =>
-          checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)
-        }
+        onBlur={() => checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)}
         isValid={email.length > 0 && !isEmailValid}
       />
       <InputWithLabel
         labelText="Password"
-        inputPlaceholder="************"
+        placeholder="************"
         type="password"
         icon="password"
         value={password}
-        changeHandler={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(setPassword, e)
         }
-        blurHandler={() =>
+        onBlur={() =>
           checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
         }
         isValid={password.length > 0 && !isPasswordValid}

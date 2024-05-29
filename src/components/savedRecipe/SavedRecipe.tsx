@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import styles from "./SavedRecipe.module.css";
 
 interface SavedRecipeProps {
@@ -14,9 +15,9 @@ const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, url }) => {
         <img src={imgUrl} alt={title} className={styles.img} />
       </div>
       <h3 className={styles.title}>{title}</h3>
-      <a href={url} target="_blank" rel="noreferrer" className={styles.link}>
+      <Link to={url} target="_blank" rel="noreferrer" className={styles.link}>
         Details
-      </a>
+      </Link>
     </article>
   );
 };

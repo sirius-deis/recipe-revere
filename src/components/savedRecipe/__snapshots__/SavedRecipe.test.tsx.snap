@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedRecipe component should match snapshot 1`] = `
+<div>
+  <article
+    class="container"
+  >
+    <div
+      class="image-container"
+    >
+      <img
+        alt="Spaghetti Bolognese"
+        class="img"
+        src="https://spoonacular.com/recipeImages/623856-556x370.jpg"
+      />
+    </div>
+    <h3
+      class="title"
+    >
+      Spaghetti Bolognese
+    </h3>
+    <a
+      class="link"
+      href="https://spoonacular.com/recipeImages/623856-556x370.jpg"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Details
+    </a>
+  </article>
+</div>
+`;

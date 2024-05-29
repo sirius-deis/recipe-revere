@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageBox component should match snapshot 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div>
+      Some element
+    </div>
+    <div
+      class="button-container"
+    >
+      <button
+        class="btn btn-sm btn-main"
+      >
+        ✘
+      </button>
+    </div>
+  </div>
+</div>
+`;

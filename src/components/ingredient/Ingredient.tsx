@@ -2,8 +2,8 @@ import { FC } from "react";
 import styles from "./Ingredient.module.css";
 
 export interface IngredientProps {
-  quantity: number;
-  measure: string;
+  quantity?: number;
+  measure?: string;
   food: string;
   weight: number;
   foodId: string;

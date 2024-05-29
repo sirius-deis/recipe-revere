@@ -70,6 +70,7 @@ const RangeSlider: FC<RangeSliderProps> = ({
           setMinVal(value);
           minValueRef.current = value;
         }}
+        data-testid="range1"
       />
       <input
         type="range"
@@ -82,6 +83,7 @@ const RangeSlider: FC<RangeSliderProps> = ({
           setMaxVal(value);
           maxValueRef.current = value;
         }}
+        data-testid="range2"
       />
       <div className={styles.slider}>
         <div className={styles["slider-track"]} />

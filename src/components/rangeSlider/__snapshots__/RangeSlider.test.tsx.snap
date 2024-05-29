@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeSlider component should match snapshot 1`] = `
+<div>
+  <div
+    class="range-slider"
+    style="width: 100%;"
+  >
+    <input
+      class="thumb thumb-left"
+      data-testid="range1"
+      max="100"
+      min="0"
+      type="range"
+      value="0"
+    />
+    <input
+      class="thumb thumb-right"
+      data-testid="range2"
+      max="100"
+      min="0"
+      type="range"
+      value="100"
+    />
+    <div
+      class="slider"
+    >
+      <div
+        class="slider-track"
+      />
+      <div
+        class="slider-range"
+        style="left: 0%; width: 100%;"
+      />
+      <div
+        class="slider-value slider-value-left"
+      >
+        0
+      </div>
+      <div
+        class="slider-value slider-value-right"
+      >
+        100
+      </div>
+    </div>
+  </div>
+</div>
+`;

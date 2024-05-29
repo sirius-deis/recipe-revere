@@ -24,7 +24,7 @@ const FriendsActivity = forwardRef<HTMLDivElement, FriendsActivityProps>(
           just
           <p className={styles.action}>{activity}</p>
         </div>
-        <p className={styles.time}>{time}</p>
+        <p className={styles.time}>{new Date(time).toISOString()}</p>
       </article>
     );
   }

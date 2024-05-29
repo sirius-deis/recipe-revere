@@ -25,4 +25,27 @@ describe("InputWithLabel component", () => {
       screen.getByPlaceholderText("Example@email.com")
     ).toBeInTheDocument();
   });
+  it("should render element without an error class", () => {
+    render(
+      <InputWithLabel
+        labelText="Email"
+        placeholder="Example@email.com"
+        icon="email"
+        isValid
+      />
+    );
+    expect(screen.getByLabelText("Email *").parentElement).not.toHaveClass(
+      "error"
+    );
+  });
+  it("should render element with an error class", () => {
+    render(
+      <InputWithLabel
+        labelText="Email"
+        placeholder="Example@email.com"
+        icon="email"
+      />
+    );
+    expect(screen.getByLabelText("Email *").parentElement).toHaveClass("error");
+  });
 });

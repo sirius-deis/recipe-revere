@@ -30,8 +30,8 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
     <div className={styles.container}>
       <label htmlFor={id}>{labelText} *</label>
       <div
-        className={`${styles["input-group"]} ${
-          isValid ? `${styles.error}` : ""
+        className={`${styles["input-group"]}${
+          isValid ? "" : ` ${styles.error}`
         }`}
       >
         <input id={id} className={styles["form-control"]} {...rest} />

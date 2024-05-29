@@ -12,13 +12,12 @@ exports[`InputWithLabel component should match snapshot 1`] = `
        *
     </label>
     <div
-      class="input-group"
+      class="input-group error"
     >
       <input
         class="form-control"
         id=":r0:"
         placeholder="Example@email.com"
-        type="text"
       />
       <div
         class="input-group-append"

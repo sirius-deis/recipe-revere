@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Panel component should match snapshot 1`] = `
+<div>
+  <article
+    class="panel"
+    data-testid="panel"
+  >
+    dummyText
+  </article>
+</div>
+`;
+
+exports[`Panel component should match snapshot 2`] = `
+<div>
+  <article
+    class="panel"
+    data-testid="panel"
+  >
+    dummyHtml
+  </article>
+</div>
+`;

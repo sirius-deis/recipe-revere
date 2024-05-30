@@ -16,6 +16,7 @@ const Panel: FC<PropsWithChildren & PanelProps> = ({
       className={`${styles.panel}${withBorder ? ` ${styles.bordered}` : ""}${
         withShadow ? ` ${styles.shadowed}` : ""
       }`}
+      data-testid="panel"
     >
       {children}
     </article>

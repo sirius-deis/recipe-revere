@@ -4,10 +4,10 @@ import styles from "./Search.module.css";
 import { useNavigate } from "react-router-dom";
 
 interface SearchProps {
-  placeholderText: string;
+  [x: string]: string;
 }
 
-const Search: FC<SearchProps> = ({ placeholderText }) => {
+const Search: FC<SearchProps> = ({ ...rest }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Search: FC<SearchProps> = ({ placeholderText }) => {
         type="search"
         value={searchTerm}
         onChange={changeHandler}
-        placeholder={placeholderText}
+        {...rest}
       />
     </form>
   );

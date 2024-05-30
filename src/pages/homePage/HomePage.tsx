@@ -36,7 +36,7 @@ const HomePage: FC = () => {
       </div>
       <h1 className={styles.heading}>What are we cooking today?</h1>
       <div className={styles["search-with-filter"]}>
-        <Search placeholderText="Ex.: Burger" />
+        <Search placeholder="Ex.: Burger" />
         <Button bg="icon">
           <IoOptionsSharp />
         </Button>

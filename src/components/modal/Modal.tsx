@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 import styles from "./Modal.module.css";
+import Panel from "../panel/Panel";
 
 interface ModalProps {
   actionBar?: React.ReactNode;
@@ -11,8 +12,10 @@ const Modal: FC<PropsWithChildren & ModalProps> = ({ children, actionBar }) => {
     <>
       <div className={styles.backdrop}></div>
       <div className={styles.modal}>
-        {children}
-        {actionBar}
+        <Panel>
+          {children}
+          {actionBar}
+        </Panel>
       </div>
     </>,
     document.querySelector("/modal-container")!

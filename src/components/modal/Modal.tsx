@@ -1,13 +1,34 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
 import { createPortal } from "react-dom";
 import styles from "./Modal.module.css";
 import Panel from "../panel/Panel";
 
 interface ModalProps {
   actionBar?: React.ReactNode;
+  onClose: () => void;
 }
 
-const Modal: FC<PropsWithChildren & ModalProps> = ({ children, actionBar }) => {
+const Modal: FC<PropsWithChildren & ModalProps> = ({
+  children,
+  actionBar,
+  onClose,
+}) => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    });
+    return () => {
+      document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      });
+    };
+  }, []);
   return createPortal(
     <>
       <div className={styles.backdrop}></div>

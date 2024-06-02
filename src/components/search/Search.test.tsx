@@ -6,7 +6,7 @@ describe("Search component", () => {
   it("should match snapchat", () => {
     const { container } = render(
       <BrowserRouter>
-        <Search placeholderText="Ex.: Something" />
+        <Search placeholder="Ex.: Something" />
       </BrowserRouter>
     );
     expect(container).toMatchSnapshot();
@@ -14,7 +14,7 @@ describe("Search component", () => {
   it("should render component with the correct placeholder text", () => {
     render(
       <BrowserRouter>
-        <Search placeholderText="Ex.: Something" />
+        <Search placeholder="Ex.: Something" />
       </BrowserRouter>
     );
     expect(screen.getByPlaceholderText("Ex.: Something")).toBeInTheDocument();

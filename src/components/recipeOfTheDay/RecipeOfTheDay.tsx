@@ -6,6 +6,7 @@ import Row from "../row/Row";
 import Col from "../column/Col";
 import Button from "../button/Button";
 import Loader from "../loader/Loader";
+import Panel from "../panel/Panel";
 
 const RECIPE_OF_THE_DAY = gql`
   query GetRecipe($tags: [String]) {
@@ -35,7 +36,7 @@ const RecipeOfTheDay: FC = () => {
     //TODO: add error img
   }
   return (
-    <article className={styles.recipe}>
+    <Panel>
       <div
         className={styles["image-container"]}
         style={{ backgroundImage: `url(${data?.recipe.image})` }}
@@ -67,7 +68,7 @@ const RecipeOfTheDay: FC = () => {
           </Col>
         </Row>
       </div>
-    </article>
+    </Panel>
   );
 };
 

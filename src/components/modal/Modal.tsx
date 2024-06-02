@@ -29,9 +29,10 @@ const Modal: FC<PropsWithChildren & ModalProps> = ({
       });
     };
   }, []);
+
   return createPortal(
     <>
-      <div className={styles.backdrop}></div>
+      <div className={styles.backdrop} onClick={onClose}></div>
       <div className={styles.modal}>
         <Panel>
           {children}

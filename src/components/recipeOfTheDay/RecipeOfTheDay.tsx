@@ -12,6 +12,7 @@ const RECIPE_OF_THE_DAY = gql`
   query GetRecipe($tags: [String]) {
     getRecipe(tags: $tags) {
       recipe {
+        url
         label
         image
         dietLabels
@@ -22,7 +23,7 @@ const RECIPE_OF_THE_DAY = gql`
     }
   }
 `;
-
+//TODO: replace the button with a link
 const RecipeOfTheDay: FC = () => {
   const { loading, error, data } = useQuery(RECIPE_OF_THE_DAY, {
     variables: {

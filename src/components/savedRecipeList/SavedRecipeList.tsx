@@ -31,7 +31,7 @@ const SavedRecipeList: FC = () => {
               key={recipe.url}
               imgUrl={recipe.image}
               title={recipe.label}
-              url={recipe.url}
+              id={recipe.url}
             />
           )
         )}

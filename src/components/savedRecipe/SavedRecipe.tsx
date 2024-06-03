@@ -6,17 +6,22 @@ import Panel from "../panel/Panel";
 interface SavedRecipeProps {
   imgUrl: string;
   title: string;
-  url: string;
+  id: string;
 }
 
-const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, url }) => {
+const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, id }) => {
   return (
     <Panel centered withShadow>
       <div className={styles["image-container"]}>
         <img src={imgUrl} alt={title} className={styles.img} />
       </div>
       <h3 className={styles.title}>{title}</h3>
-      <Link to={url} target="_blank" rel="noreferrer" className={styles.link}>
+      <Link
+        to={`/recipe/${id}`}
+        target="_blank"
+        rel="noreferrer"
+        className={styles.link}
+      >
         Details
       </Link>
     </Panel>

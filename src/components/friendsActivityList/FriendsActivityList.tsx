@@ -7,10 +7,10 @@ import useOnScreen from "../../hooks/useOnScreen";
 import List from "../list/List";
 
 const GET_FRIENDS_ACTIVITY = gql`
-  query getFriendsActivity($page: number) {
+  query getFriendsActivity($page: Int) {
     friendsActivityList(page: $page) {
       _id
-      userId {
+      user {
         _id
         name
         pictures
@@ -21,19 +21,30 @@ const GET_FRIENDS_ACTIVITY = gql`
   }
 `;
 
-type friendType = {
+type FriendsActivityType = {
   _id: string;
-  name: string;
-  pictures: string;
+  user: {
+    _id: string;
+    name: string;
+    pictures: string;
+  };
+  activity: string;
+  date: number;
 };
 
 const FriendsActivityList: FC = () => {
   const firstFetch = useRef(true);
   const [page, setPage] = useState(0);
-  const { loading, error, data, refetch } = useQuery(GET_FRIENDS_ACTIVITY, {
+  const [friendsActivity, setFriendsActivity] = useState<
+    FriendsActivityType[] | []
+  >([]);
+  const { loading, error } = useQuery(GET_FRIENDS_ACTIVITY, {
     variables: { page },
-    onCompleted: () => {
-      firstFetch.current = false;
+    onCompleted: (data) => {
+      firstFetch.current &&= false;
+      setFriendsActivity((currentState) => {
+        return [...currentState, ...data];
+      });
     },
   });
   const ref = useRef<HTMLDivElement>(null);
@@ -42,7 +53,6 @@ const FriendsActivityList: FC = () => {
     setPage((prevState: number) => {
       return prevState + 1;
     });
-    refetch({ page });
   }, [isIntersecting]);
   if (loading && firstFetch.current) {
     return <Loader />;
@@ -54,41 +64,20 @@ const FriendsActivityList: FC = () => {
   return (
     <section>
       <List borderBottom>
-        {data.friendsActivityList.map(
+        {friendsActivity.map(
           (
-            {
-              userId: { _id, name, pictures },
-              activity,
-              date,
-            }: {
-              userId: friendType;
-              activity: string;
-              date: number;
-            },
-            index: number,
-            array: []
+            { _id, user: { _id: userId, name, pictures }, activity, date },
+            index
           ) => {
-            if (array.length < index) {
-              return (
-                <FriendsActivity
-                  key={_id}
-                  _id={_id}
-                  name={name}
-                  picture={pictures[0]}
-                  activity={activity}
-                  time={date}
-                />
-              );
-            }
             return (
               <FriendsActivity
-                ref={ref}
                 key={_id}
-                _id={_id}
+                _id={userId}
                 name={name}
                 picture={pictures[0]}
                 activity={activity}
                 time={date}
+                ref={friendsActivity.length - 1 <= index ? null : ref}
               />
             );
           }

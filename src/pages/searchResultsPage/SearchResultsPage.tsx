@@ -64,25 +64,15 @@ const SearchResultsPage: FC = () => {
         <List>
           {fetchedData.map(
             ({ recipe: { url, label, image }, averageRating }, index) => {
-              if (fetchedData.length - 1 <= index) {
-                return (
-                  <RecipePreview
-                    id={url}
-                    label={label}
-                    image={image}
-                    avgRating={averageRating}
-                    btnTitle="Details"
-                  />
-                );
-              }
               return (
                 <RecipePreview
-                  ref={ref}
                   id={url}
                   label={label}
                   image={image}
                   avgRating={averageRating}
                   btnTitle="Details"
+                  key={url}
+                  ref={fetchedData.length - 1 <= index ? null : ref}
                 />
               );
             }

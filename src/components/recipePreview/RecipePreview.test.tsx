@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import RecipePreview from "./recipePreview";
+import RecipePreview from "./RecipePreview";
 
 const dummy = {
   id: "id",

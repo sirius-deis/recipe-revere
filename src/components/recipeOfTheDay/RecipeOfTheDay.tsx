@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { gql, useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
-import RecipePreview from "../recipePreview/recipePreview";
+import RecipePreview from "../recipePreview/RecipePreview";
 
 const RECIPE_OF_THE_DAY = gql`
   query GetRecipe($tags: [String]) {

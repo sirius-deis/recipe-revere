@@ -36,7 +36,7 @@ const RecipeOfTheDay: FC = () => {
     //TODO: add error img
   }
   return (
-    <Panel>
+    <Panel withShadow>
       <div
         className={styles["image-container"]}
         style={{ backgroundImage: `url(${data?.recipe.image})` }}

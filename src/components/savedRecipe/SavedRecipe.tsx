@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SavedRecipe.module.css";
+import Panel from "../panel/Panel";
 
 interface SavedRecipeProps {
   imgUrl: string;
@@ -10,7 +11,7 @@ interface SavedRecipeProps {
 
 const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, url }) => {
   return (
-    <article className={styles.container}>
+    <Panel centered withShadow>
       <div className={styles["image-container"]}>
         <img src={imgUrl} alt={title} className={styles.img} />
       </div>
@@ -18,7 +19,7 @@ const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, url }) => {
       <Link to={url} target="_blank" rel="noreferrer" className={styles.link}>
         Details
       </Link>
-    </article>
+    </Panel>
   );
 };
 

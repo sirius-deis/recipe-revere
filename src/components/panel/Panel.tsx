@@ -5,6 +5,7 @@ interface PanelProps {
   withBorder?: boolean;
   withShadow?: boolean;
   centered?: boolean;
+  direction?: "vertical" | "horizontal";
   [x: string]: any;
 }
 
@@ -13,13 +14,14 @@ const Panel: FC<PropsWithChildren & PanelProps> = ({
   withBorder,
   withShadow,
   centered,
+  direction = "vertical",
   ...rest
 }) => {
   return (
     <article
       className={`${styles.panel}${withBorder ? ` ${styles.bordered}` : ""}${
         withShadow ? ` ${styles.shadowed}` : ""
-      }${centered ? ` ${styles.centered}` : ""}`}
+      }${centered ? ` ${styles.centered}` : ""}${` ${direction}`}`}
       data-testid="panel"
       {...rest}
     >

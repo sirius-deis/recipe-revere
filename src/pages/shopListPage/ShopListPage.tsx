@@ -1,6 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { FC, useState } from "react";
 import Loader from "../../components/loader/Loader";
+import List from "../../components/list/List";
+import RecipePreview from "../../components/recipePreview/RecipePreview";
 
 const GET_SHOPPING_LIST = gql`
   query GetShoppingList {
@@ -35,6 +37,21 @@ const ShopListPage: FC = () => {
   return (
     <div>
       <h1>Shopping list</h1>
+      <List>
+        {recipes.map(({ url, label, image }) => {
+          return (
+            <RecipePreview
+              key={url}
+              btnTitle="&#8250;"
+              image={image}
+              id={url}
+              label={label}
+              withHeart={false}
+              direction="horizontal"
+            ></RecipePreview>
+          );
+        })}
+      </List>
     </div>
   );
 };

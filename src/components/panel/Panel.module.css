@@ -1,6 +1,5 @@
 .panel {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
   border-radius: 10px;
@@ -17,4 +16,12 @@
 .centered {
   align-items: center;
   justify-content: center;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
 }

@@ -1,12 +1,13 @@
 import { gql, useQuery } from "@apollo/client";
-import { FC, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import Loader from "../../components/loader/Loader";
 import List from "../../components/list/List";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
+import useOnScreen from "../../hooks/useOnScreen";
 
 const GET_SHOPPING_LIST = gql`
-  query GetShoppingList {
-    getShoppingList {
+  query GetShoppingList($page: Int) {
+    getShoppingList(page: $page) {
       recipe {
         url
         label
@@ -23,35 +24,51 @@ type Recipe = {
 };
 
 const ShopListPage: FC = () => {
+  const firstFetch = useRef(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ref = useRef<HTMLDivElement>(null);
+  const isIntersecting = useOnScreen(ref);
   const [recipes, setRecipes] = useState<Recipe[] | []>([]);
   const { loading, error } = useQuery(GET_SHOPPING_LIST, {
+    variables: { page: currentPage },
     onCompleted(data) {
+      firstFetch.current &&= false;
+
       setRecipes((currentState) => {
         return [...currentState, ...data];
       });
     },
   });
-  if (loading) {
+  if (firstFetch && loading) {
     return <Loader />;
   }
+
+  useEffect(() => {
+    setCurrentPage((currentState) => currentState + 1);
+  }, [isIntersecting]);
+
   return (
     <div>
       <h1>Shopping list</h1>
-      <List>
-        {recipes.map(({ url, label, image }) => {
-          return (
-            <RecipePreview
-              key={url}
-              btnTitle="&#8250;"
-              image={image}
-              id={url}
-              label={label}
-              withHeart={false}
-              direction="horizontal"
-            ></RecipePreview>
-          );
-        })}
-      </List>
+      <section>
+        <List direction="horizontal">
+          {recipes.map(({ url, label, image }) => {
+            return (
+              <RecipePreview
+                ref={ref}
+                key={url}
+                btnTitle="&#8250;"
+                image={image}
+                id={url}
+                label={label}
+                withHeart={false}
+                direction="horizontal"
+              ></RecipePreview>
+            );
+          })}
+        </List>
+        {!firstFetch && loading && <Loader />}
+      </section>
     </div>
   );
 };

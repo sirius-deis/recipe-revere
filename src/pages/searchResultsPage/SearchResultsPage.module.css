@@ -1,0 +1,9 @@
+.heading {
+  text-align: left;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

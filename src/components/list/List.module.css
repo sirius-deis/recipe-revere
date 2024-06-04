@@ -11,8 +11,13 @@
 
 .horizontal {
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .borderBottom {
   border-bottom: 1px solid var(--additional-200);
+}
+
+.list-item {
+  flex: 1 1;
 }

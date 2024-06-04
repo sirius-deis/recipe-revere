@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
+import styles from "./SearchResultsPage.module.css";
 import Loader from "../../components/loader/Loader";
 import List from "../../components/list/List";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
@@ -54,14 +55,18 @@ const SearchResultsPage: FC = () => {
   if (firstFetch && loading) {
     return <Loader />;
   }
+
+  if (error) {
+    throw new Error("This feature is not supported");
+  }
   return (
     <div>
-      <div>
+      <div className={styles.heading}>
         <h1>Search Results For:</h1>
         <p>{query}</p>
       </div>
-      <section>
-        <List>
+      <section className={styles.results}>
+        <List direction="horizontal">
           {fetchedData.map(
             ({ recipe: { url, label, image }, averageRating }, index) => {
               return (

@@ -65,7 +65,7 @@ const SearchResultsPage: FC = () => {
         <h1>Search Results For:</h1>
         <p>{query}</p>
       </div>
-      <section className={styles.results}>
+      <section className={styles.container}>
         <List direction="horizontal">
           {fetchedData.map(
             ({ recipe: { url, label, image }, averageRating }, index) => {

@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { FC, useEffect, useRef, useState } from "react";
+import styles from "./ShopListPage.module.css";
 import Loader from "../../components/loader/Loader";
 import List from "../../components/list/List";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
@@ -49,8 +50,10 @@ const ShopListPage: FC = () => {
 
   return (
     <div>
-      <h1>Shopping list</h1>
-      <section>
+      <div className={styles.heading}>
+        <h1>Shopping list</h1>
+      </div>
+      <section className={styles.container}>
         <List direction="horizontal">
           {recipes.map(({ url, label, image }) => {
             return (

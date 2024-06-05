@@ -57,9 +57,14 @@ const ShoppingListSinglePage: FC = () => {
         </div>
       </Row>
       <List>
-        {data.recipe.ingredients.map(({ weight, food }: IngredientProps) => (
-          <CheckboxWithLabel labelText={`${weight * factor}} of ${food}`} />
-        ))}
+        {data.recipe.ingredients.map(
+          ({ weight, food }: IngredientProps, i: number) => (
+            <CheckboxWithLabel
+              labelText={`${weight * factor}} of ${food}`}
+              checked={data.checks[i][food]}
+            />
+          )
+        )}
       </List>
     </div>
   );

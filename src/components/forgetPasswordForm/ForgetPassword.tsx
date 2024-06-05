@@ -1,19 +1,12 @@
-import { gql, useMutation } from "@apollo/client";
-import { FC, useContext, useEffect, useState } from "react";
+import { useMutation } from "@apollo/client";
+import { FC, useContext, useState } from "react";
 import InputWithLabel from "../input/InputWithLabel";
 import Button from "../button/Button";
 import { handleChange, checkValidity, EMAIL_REGEXP } from "../../utils/utils";
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 import { UserContext } from "../../store/userContext";
-
-const FORGET_PASSWORD = gql`
-  mutation ForgetPassword($userEmail: String) {
-    forgetPassword(userEmail: $userEmail) {
-      message
-    }
-  }
-`;
+import { FORGET_PASSWORD } from "../../queries/queries";
 
 const ForgetPasswordForm: FC = () => {
   const [email, setEmail] = useState("");

@@ -1,23 +1,8 @@
 import { FC } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import RecipePreview from "../recipePreview/RecipePreview";
-
-const RECIPE_OF_THE_DAY = gql`
-  query GetRecipe($tags: [String]) {
-    getRecipe(tags: $tags) {
-      recipe {
-        url
-        label
-        image
-        dietLabels
-        healthLabels
-        totalTime
-      }
-      averageRating
-    }
-  }
-`;
+import { RECIPE_OF_THE_DAY } from "../../queries/queries";
 
 const RecipeOfTheDay: FC = () => {
   const { loading, error, data } = useQuery(RECIPE_OF_THE_DAY, {

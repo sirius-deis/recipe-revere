@@ -1,25 +1,11 @@
 import { FC, useEffect, useRef, useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import ErrorBox from "../errorBox/ErrorBox";
 import FriendsActivity from "../friendsActivity/FriendsActivity";
 import useOnScreen from "../../hooks/useOnScreen";
 import List from "../list/List";
-
-const GET_FRIENDS_ACTIVITY = gql`
-  query getFriendsActivity($page: Int) {
-    friendsActivityList(page: $page) {
-      _id
-      user {
-        _id
-        name
-        pictures
-      }
-      activity
-      date
-    }
-  }
-`;
+import { GET_FRIENDS_ACTIVITY } from "../../queries/queries";
 
 type FriendsActivityType = {
   _id: string;

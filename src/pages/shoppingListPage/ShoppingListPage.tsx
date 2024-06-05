@@ -5,18 +5,7 @@ import Loader from "../../components/loader/Loader";
 import List from "../../components/list/List";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
 import useOnScreen from "../../hooks/useOnScreen";
-
-const GET_SHOPPING_LIST = gql`
-  query GetShoppingList($page: Int) {
-    getShoppingList(page: $page) {
-      recipe {
-        url
-        label
-        image
-      }
-    }
-  }
-`;
+import { GET_SHOPPING_LIST } from "../../queries/queries";
 
 type Recipe = {
   url: string;

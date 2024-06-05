@@ -6,24 +6,12 @@ import Loader from "../../components/loader/Loader";
 import List from "../../components/list/List";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
 import useOnScreen from "../../hooks/useOnScreen";
+import { GET_RECIPES } from "../../queries/queries";
 
 type FetchedDataType = {
   recipe: { url: string; label: string; image: string };
   averageRating: number;
 };
-
-const GET_RECIPES = gql`
-  query GetRecipes($query: String, $page: Int) {
-    getRecipes(query: $query, page: $page) {
-      recipe {
-        url
-        label
-        image
-      }
-      averageRating
-    }
-  }
-`;
 
 const SearchResultsPage: FC = () => {
   const firstFetch = useRef(true);

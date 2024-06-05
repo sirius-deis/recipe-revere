@@ -1,4 +1,4 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { FC, useState } from "react";
 import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
@@ -11,13 +11,7 @@ import {
 import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 import { useNavigate } from "react-router-dom";
-
-const REGISTER = gql`
-  mutation Register($email: String, $password: String. passwordConfirm: String) {
-    register(email: $email, password: $password, passwordConfirm: $passwordConfirm) {
-    }
-  }
-`;
+import { REGISTER } from "../../queries/queries";
 
 const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");

@@ -1,18 +1,9 @@
 import { FC } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import SavedRecipe from "../savedRecipe/SavedRecipe";
 import List from "../list/List";
-
-const GET_SAVED_RECIPES = gql`
-  query getSavedRecipes {
-    recipes {
-      url: String
-      label: String
-      image: String
-    }
-  }
-`;
+import { GET_SAVED_RECIPES } from "../../queries/queries";
 
 const SavedRecipeList: FC = () => {
   const { loading, error, data } = useQuery(GET_SAVED_RECIPES);

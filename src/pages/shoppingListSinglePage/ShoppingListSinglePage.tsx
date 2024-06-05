@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import styles from "./ShoppingListSinglePage.module.css";
 import { GET_RECIPE } from "../../queries/queries";
@@ -43,6 +43,9 @@ const ShoppingListSinglePage: FC = () => {
       <h1>data.recipe.label</h1>
       <div className={styles["image-container"]}>
         <img src={data.recipe.image} alt={`Prepared ${data.recipe.label}`} />
+        <Link to={`/recipe/${recipeId}`}>
+          <Button>Go to recipe</Button>
+        </Link>
       </div>
       <Row>
         <h2>Ingredients</h2>

@@ -5,9 +5,6 @@ import Loader from "./components/loader/Loader";
 import EmptyLayout from "./layouts/EmptyLayout";
 import RootLayout from "./layouts/RootLayout";
 import ApolloAppProvider from "./components/apollo/ApolloProvider";
-import ProfilePage from "./pages/profilePage/ProfilePage";
-import SingleRecipePage from "./pages/singleRecipePage/SingleRecipePage";
-import SearchPage from "./pages/searchPage/SearchPage";
 
 const StartPage = lazy(() => import("./pages/startPage/StartPage"));
 const SignInPage = lazy(() => import("./pages/signInPage/SignInPage"));
@@ -17,6 +14,17 @@ const ForgetPasswordPage = lazy(
   () => import("./pages/forgotPasswordPage/ForgotPasswordPage")
 );
 const HomePage = lazy(() => import("./pages/homePage/HomePage"));
+const ProfilePage = lazy(() => import("./pages/profilePage/ProfilePage"));
+const SingleRecipePage = lazy(
+  () => import("./pages/singleRecipePage/SingleRecipePage")
+);
+const SearchPage = lazy(() => import("./pages/searchPage/SearchPage"));
+const ShoppingListPage = lazy(
+  () => import("./pages/shoppingListPage/ShoppingListPage")
+);
+const ShoppingListSinglePage = lazy(
+  () => import("./pages/shoppingListSinglePage/ShoppingListSinglePage")
+);
 
 function App() {
   return (
@@ -91,7 +99,24 @@ function App() {
                 </Suspense>
               }
             />
+            <Route
+              path="/shopping-list"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <ShoppingListPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/shopping-list/:recipeId"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <ShoppingListSinglePage />
+                </Suspense>
+              }
+            />
           </Route>
+
           <Route
             path="*"
             element={

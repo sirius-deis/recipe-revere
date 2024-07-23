@@ -49,8 +49,8 @@ export const FORGET_PASSWORD = gql`
 `;
 
 export const GET_FRIENDS_ACTIVITY = gql`
-  query getFriendsActivity($page: Int) {
-    friendsActivityList(page: $page) {
+  query getFriendsActivity($page: Int, $userId: ID) {
+    friendsActivityList(page: $page, userId: $userId) {
       _id
       user {
         _id

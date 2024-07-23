@@ -4,6 +4,7 @@ import Loader from "../loader/Loader";
 import SavedRecipe from "../savedRecipe/SavedRecipe";
 import List from "../list/List";
 import { GET_SAVED_RECIPES } from "../../queries/queries";
+import ErrorBox from "../errorBox/ErrorBox";
 
 const SavedRecipeList: FC = () => {
   const { loading, error, data } = useQuery(GET_SAVED_RECIPES);
@@ -11,7 +12,7 @@ const SavedRecipeList: FC = () => {
     return <Loader />;
   }
   if (error) {
-    throw new Error("This feature is not supported");
+    return <ErrorBox message={error.message} />;
   }
   return (
     <section>

@@ -80,8 +80,8 @@ export const RECIPE_OF_THE_DAY = gql`
 `;
 
 export const GET_SAVED_RECIPES = gql`
-  query getSavedRecipes {
-    recipes {
+  query getSavedRecipes($userId: ID) {
+    recipes(userId: $userId) {
       url: String
       label: String
       image: String

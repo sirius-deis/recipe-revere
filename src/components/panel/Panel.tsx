@@ -18,7 +18,7 @@ const Panel: FC<PropsWithChildren & PanelProps> = ({
   ...rest
 }) => {
   return (
-    <article
+    <div
       className={`${styles.panel}${withBorder ? ` ${styles.bordered}` : ""}${
         withShadow ? ` ${styles.shadowed}` : ""
       }${centered ? ` ${styles.centered}` : ""}${` ${direction}`}`}
@@ -26,7 +26,7 @@ const Panel: FC<PropsWithChildren & PanelProps> = ({
       {...rest}
     >
       {children}
-    </article>
+    </div>
   );
 };
 

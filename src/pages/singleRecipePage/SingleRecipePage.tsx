@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import styles from "./SingleRecipePage.module.css";
 import Row from "../../components/row/Row";

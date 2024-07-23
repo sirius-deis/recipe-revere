@@ -25,6 +25,9 @@ const ShoppingListPage = lazy(
 const ShoppingListSinglePage = lazy(
   () => import("./pages/shoppingListSinglePage/ShoppingListSinglePage")
 );
+const SearchResultsPage = lazy(
+  () => import("./pages/searchResultsPage/SearchResultsPage")
+);
 
 function App() {
   return (
@@ -112,6 +115,14 @@ function App() {
               element={
                 <Suspense fallback={<Loader />}>
                   <ShoppingListSinglePage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/search-results"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <SearchResultsPage />
                 </Suspense>
               }
             />

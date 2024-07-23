@@ -16,9 +16,7 @@ const Search: FC<SearchProps> = ({ ...rest }) => {
     if (!searchTerm.trim()) {
       return;
     }
-    //TODO: add url with query parameter
-    // navigate("");
-    throw new Error("This feature is not supported");
+    navigate(`/search-results?query=${searchTerm}`);
   };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {

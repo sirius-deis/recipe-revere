@@ -9,6 +9,7 @@ import Button from "../../components/button/Button";
 import List from "../../components/list/List";
 import { IngredientProps } from "../../components/ingredient/Ingredient";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
+import ErrorBox from "../../components/errorBox/ErrorBox";
 
 const ShoppingListSinglePage: FC = () => {
   const { recipeId } = useParams();
@@ -36,7 +37,7 @@ const ShoppingListSinglePage: FC = () => {
   }
 
   if (error) {
-    //TODO: add error handler
+    return <ErrorBox message={error.message} />;
   }
   return (
     <div>

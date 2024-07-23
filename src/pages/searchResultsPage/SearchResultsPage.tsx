@@ -1,12 +1,13 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import styles from "./SearchResultsPage.module.css";
 import Loader from "../../components/loader/Loader";
 import List from "../../components/list/List";
 import RecipePreview from "../../components/recipePreview/RecipePreview";
 import useOnScreen from "../../hooks/useOnScreen";
 import { GET_RECIPES } from "../../queries/queries";
+import ErrorBox from "../../components/errorBox/ErrorBox";
 
 type FetchedDataType = {
   recipe: { url: string; label: string; image: string };
@@ -45,7 +46,7 @@ const SearchResultsPage: FC = () => {
   }
 
   if (error) {
-    throw new Error("This feature is not supported");
+    return <ErrorBox message={error.message} />;
   }
   return (
     <div>

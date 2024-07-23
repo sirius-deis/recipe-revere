@@ -10,6 +10,7 @@ import Ingredient, {
 } from "../../components/ingredient/Ingredient";
 import List from "../../components/list/List";
 import { GET_RECIPE } from "../../queries/queries";
+import ErrorBox from "../../components/errorBox/ErrorBox";
 
 const SingleRecipePage: FC = () => {
   const { recipeId } = useParams();
@@ -26,7 +27,7 @@ const SingleRecipePage: FC = () => {
   }
 
   if (error) {
-    //TODO: add error handler
+    return <ErrorBox message={error.message} />;
   }
 
   const changeServings = (dir: number) => {

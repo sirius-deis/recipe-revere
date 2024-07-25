@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-container {
+  border-radius: 5px;
+  overflow: hidden;
+}
+.user-icon {
+  font-size: 3rem;
+}

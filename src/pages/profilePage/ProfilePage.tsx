@@ -3,12 +3,13 @@ import styles from "./ProfilePage.module.css";
 import Col from "../../components/column/Col";
 import Row from "../../components/row/Row";
 import { FaUserSecret } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SavedRecipeList from "../../components/savedRecipeList/SavedRecipeList";
 import FriendsActivityList from "../../components/friendsActivityList/FriendsActivityList";
 import { UserContext } from "../../store/userContext";
 
 const ProfilePage: FC = () => {
+  const { userId } = useParams();
   const { user } = useContext(UserContext);
   return (
     <div className={styles.profile}>

@@ -7,10 +7,14 @@ import { GET_SAVED_RECIPES } from "../../queries/queries";
 import ErrorBox from "../errorBox/ErrorBox";
 
 interface SavedRecipeListProps {
-  userId: string;
+  user: {
+    _id: string;
+  };
 }
 
-const SavedRecipeList: FC<SavedRecipeListProps> = ({ userId }) => {
+const SavedRecipeList: FC<SavedRecipeListProps> = ({
+  user: { _id: userId },
+}) => {
   const { loading, error, data } = useQuery(GET_SAVED_RECIPES, {
     variables: { userId },
   });

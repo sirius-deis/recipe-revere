@@ -79,7 +79,7 @@ function App() {
             />
             <Route path="/home" element={<Navigate to="/" />} />
             <Route
-              path="/profile"
+              path="/profile/:userId"
               element={
                 <Suspense fallback={<Loader />}>
                   <ProfilePage />

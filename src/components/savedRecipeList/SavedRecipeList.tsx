@@ -6,8 +6,14 @@ import List from "../list/List";
 import { GET_SAVED_RECIPES } from "../../queries/queries";
 import ErrorBox from "../errorBox/ErrorBox";
 
-const SavedRecipeList: FC = () => {
-  const { loading, error, data } = useQuery(GET_SAVED_RECIPES);
+interface SavedRecipeListProps {
+  userId: string;
+}
+
+const SavedRecipeList: FC<SavedRecipeListProps> = ({ userId }) => {
+  const { loading, error, data } = useQuery(GET_SAVED_RECIPES, {
+    variables: { userId },
+  });
   if (loading) {
     return <Loader />;
   }

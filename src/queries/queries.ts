@@ -135,3 +135,18 @@ export const GET_SHOPPING_LIST = gql`
     }
   }
 `;
+
+export const GET_USER = gql`
+  query GetUser($userId: String) {
+    getUser(userId: $userId) {
+      user {
+        _id
+        name
+        isActive
+        isBlocked
+        pictures
+        friends
+      }
+    }
+  }
+`;

@@ -6,25 +6,18 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import SavedRecipeList from "../savedRecipeList/SavedRecipeList";
 import FriendsActivityList from "../friendsActivityList/FriendsActivityList";
-import { GET_USER } from "../../queries/queries";
-import { useQuery } from "@apollo/client";
-import Loader from "../loader/Loader";
-import ErrorBox from "../errorBox/ErrorBox";
 
 interface ProfileProps {
-  userId: string;
+  user: {
+    _id: string;
+    name: string;
+    isActive: boolean;
+    isBlocked: boolean;
+    pictures: string[];
+  };
 }
 
-const Profile: FC<ProfileProps> = ({ userId }) => {
-  const { data, loading, error } = useQuery(GET_USER, {
-    variables: { id: userId },
-  });
-  if (loading) {
-    return <Loader />;
-  }
-  if (error) {
-    return <ErrorBox message={error.message} />;
-  }
+const Profile: FC<ProfileProps> = ({ user }) => {
   return (
     <div className={styles.profile}>
       <h1>My Profile</h1>
@@ -33,13 +26,13 @@ const Profile: FC<ProfileProps> = ({ userId }) => {
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>
-              {data.user?.pictures ? (
+              {user?.pictures ? (
                 <FaUserSecret className={styles["user-icon"]} />
               ) : (
-                <img src={`${data.user?.pictures![0]}`} alt="user profile" />
+                <img src={`${user?.pictures![0]}`} alt="user profile" />
               )}
             </div>
-            {data.user?.name}
+            {user?.name}
           </Row>
         </Col>
       </div>
@@ -50,7 +43,7 @@ const Profile: FC<ProfileProps> = ({ userId }) => {
         <Col>
           <Link to="/saved">See all</Link>
         </Col>
-        <SavedRecipeList user={data.user} />
+        <SavedRecipeList user={user} />
       </section>
       <section>
         <h2>Friends activity</h2>

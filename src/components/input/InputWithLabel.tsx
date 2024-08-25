@@ -4,8 +4,8 @@ import { FaLock } from "react-icons/fa";
 import styles from "./InputWithLabel.module.css";
 
 interface InputWithLabelProps {
-  labelText: string;
-  icon: "email" | "password";
+  labelText?: string;
+  icon?: "email" | "password";
   isValid?: boolean;
   [x: string]: any;
 }
@@ -28,16 +28,16 @@ const InputWithLabel: FC<InputWithLabelProps> = ({
   }
   return (
     <div className={styles.container}>
-      <label htmlFor={id}>{labelText} *</label>
+      {labelText && <label htmlFor={id}>{labelText} *</label>}
       <div
         className={`${styles["input-group"]}${
           isValid ? "" : ` ${styles.error}`
         }`}
       >
         <input id={id} className={styles["form-control"]} {...rest} />
-        <div className={styles["input-group-append"]}>
+        {icon && <div className={styles["input-group-append"]}>
           <span className={styles["input-group-icon"]}>{iconToInsert}</span>
-        </div>
+        </div>}
       </div>
     </div>
   );

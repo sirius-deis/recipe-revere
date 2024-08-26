@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { BsSend } from "react-icons/bs";
+import styles from './chatInput.module.css'
 import InputWithLabel from "../input/InputWithLabel";
 import Button from "../button/Button";
 
 const ChatInput: FC = () => {
-  return <div>
+  return <div className={styles.chatInput}>
     <InputWithLabel
       type="text"
       placeholder="Type a message..."

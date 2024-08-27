@@ -13,4 +13,12 @@ describe("ChatInput component", () => {
 
     expect(inputField).toBeInTheDocument();
   });
+  test("handles input change", () => {
+    render(<ChatInput />);
+
+    const inputField = screen.getByPlaceholderText("Type a message...");
+    fireEvent.change(inputField, { target: { value: "Hello World!" } });
+
+    expect(inputField.value).toBe("Hello World!");
+  });
 })

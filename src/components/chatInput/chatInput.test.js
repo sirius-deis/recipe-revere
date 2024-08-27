@@ -6,4 +6,11 @@ describe("ChatInput component", () => {
     const {container} = render(<ChatInput />);
     expect(container).toMatchSnapshot();
   })
+  test("renders input field and submit button", () => {
+    render(<ChatInput />);
+
+    const inputField = screen.getByPlaceholderText("Type a message...");
+
+    expect(inputField).toBeInTheDocument();
+  });
 })

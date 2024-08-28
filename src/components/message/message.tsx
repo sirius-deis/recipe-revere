@@ -1,4 +1,5 @@
 import { FC } from "react";
+import styles from './message.module.css'
 
 interface MessageProps {
   sender: string;
@@ -10,12 +11,10 @@ interface MessageProps {
 }
 
 const Message:FC<MessageProps> = ({sender, message, timestamp, isMine}) => {
-  return <div className="">
-    <div className="">
-      {!isMine && <span className="">(sender)</span>}
-      <span className="">{message}</span>
-      <span className="">{timestamp}</span>
-    </div>
+  return <div className={styles['message-container']}>
+      {!isMine && <span className={styles.sender}>(sender)</span>}
+      <span className={styles.message}>{message}</span>
+      <span className={styles.time}>{timestamp}</span>
   </div>
 }
 

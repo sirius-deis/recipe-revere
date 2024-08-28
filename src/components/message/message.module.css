@@ -1,0 +1,21 @@
+.message-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sender {
+
+}
+
+.message {
+  flex-basis: 90%;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.time {
+  flex-basis: 10%;
+  font-size: 0.9rem;
+  font-weight: 600;
+}

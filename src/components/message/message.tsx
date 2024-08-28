@@ -5,7 +5,7 @@ interface MessageProps {
   sender: string;
   message: string;
   timestamp: string;
-  isRead: boolean;
+  isRead?: boolean;
   isMine?: boolean;
   onClick?: () => void;
 }

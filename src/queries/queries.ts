@@ -150,3 +150,18 @@ export const GET_USER = gql`
     }
   }
 `;
+
+export const GET_MESSAGES = gql`
+  query GetMessages() {
+    getMessages() {
+      message {
+        _id
+        message
+        sender
+        timestamp
+        isRead
+        isMine
+      }
+    }
+  }
+`;

@@ -1,4 +1,5 @@
 import { FC, useContext } from "react"
+import styles from './messageGroup.module.css'
 import Message from "../message/message";
 
 
@@ -16,7 +17,7 @@ interface MessageGroupProps {
 }
 
 const MessageGroup: FC<MessageGroupProps> = ({messages, sender}) => {
-  return <div>
+  return <div className={styles['message-group']}>
     {messages.map(message => <Message key={message._id} {...message}/>)}
   </div>
 }

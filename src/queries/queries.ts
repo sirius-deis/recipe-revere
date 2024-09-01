@@ -165,3 +165,15 @@ export const GET_MESSAGES = gql`
     }
   }
 `;
+
+
+export const SEND_MESSAGE = gql`
+  mutation SendMessage($receiverId: ID) {
+    sendMessage(receiverId: $receiverId) {
+      message {
+        message
+        timestamp
+      }
+    }
+  }
+`;

@@ -1,10 +1,12 @@
 import { useQuery } from "@apollo/client";
 import { FC } from "react";
 import { useParams } from "react-router-dom";
+import styles from './ChatPage.module.css'
 import { GET_MESSAGES } from "../../queries/queries";
 import Loader from "../../components/loader/Loader";
 import MessageGroup from "../../components/messageGroup/messageGroup";
 import ErrorBox from "../../components/errorBox/ErrorBox";
+import ChatInput from "../../components/chatInput/chatInput";
 
 interface MessageProps {
   _id: string;
@@ -42,13 +44,14 @@ const ChatPage: FC = () => {
   }
 
   const groupedMessages: Array<MessageProps[]> = groupMessage(data.messages);
-  return <div>
-    <div>
+  return <div className={styles.chat}>
+    <div className={styles['chat-screen']}>
       {groupedMessages.map(messagesGroup => {
         return <MessageGroup messages={messagesGroup} />;
       })}
       
     </div>
+    <ChatInput/>
   </div>
 }
 

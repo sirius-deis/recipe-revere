@@ -13,10 +13,9 @@ interface MessageProps {
 }
 interface MessageGroupProps {
   messages: Array<MessageProps>;
-  sender: string;
 }
 
-const MessageGroup: FC<MessageGroupProps> = ({messages, sender}) => {
+const MessageGroup: FC<MessageGroupProps> = ({messages}) => {
   return <div className={styles['message-group']}>
     {messages.map(message => <Message key={message._id} {...message}/>)}
   </div>

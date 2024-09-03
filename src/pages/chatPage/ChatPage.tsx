@@ -14,7 +14,6 @@ message: string;
 sender: any
 timestamp: string;
 isRead: boolean;
-isMine: boolean;
 }
 
 const groupMessage = (messages: MessageProps[]): Array<MessageProps[]> => {

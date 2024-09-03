@@ -28,6 +28,7 @@ const ShoppingListSinglePage = lazy(
 const SearchResultsPage = lazy(
   () => import("./pages/searchResultsPage/SearchResultsPage")
 );
+const ChatPage = lazy(() => import("./pages/chatPage/ChatPage"));
 
 function App() {
   return (
@@ -126,6 +127,7 @@ function App() {
                 </Suspense>
               }
             />
+            <Route path="/chat/:userId" element={<Suspense fallback={<Loader/>}> <ChatPage/></Suspense>}/>
           </Route>
 
           <Route

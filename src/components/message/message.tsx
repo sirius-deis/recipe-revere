@@ -1,13 +1,6 @@
 import { FC } from "react";
 import styles from './message.module.css'
-
-interface MessageProps {
-  sender: any;
-  message: string;
-  timestamp: string;
-  isRead?: boolean;
-  onClick?: () => void;
-}
+import { MessageProps } from "../../types/types";
 
 const Message:FC<MessageProps> = ({sender, message, timestamp}) => {
   return <div className={styles['message-container']}>

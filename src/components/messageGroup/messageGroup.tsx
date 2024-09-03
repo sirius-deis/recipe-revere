@@ -2,18 +2,8 @@ import { FC, useContext } from "react"
 import styles from './messageGroup.module.css'
 import Message from "../message/message";
 import { UserContext } from "../../store/userContext";
+import { MessageGroupProps } from "../../types/types";
 
-
-interface MessageProps {
-  _id: string;
-  message: string;
-  sender: {_id: string};
-  timestamp: string;
-  isRead: boolean;
-}
-interface MessageGroupProps {
-  messages: Array<MessageProps>;
-}
 
 const MessageGroup: FC<MessageGroupProps> = ({messages}) => {
   const { user } = useContext(UserContext);

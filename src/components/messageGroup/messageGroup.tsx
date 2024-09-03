@@ -7,7 +7,7 @@ import { UserContext } from "../../store/userContext";
 interface MessageProps {
   _id: string;
   message: string;
-  sender: any
+  sender: {_id: string};
   timestamp: string;
   isRead: boolean;
 }

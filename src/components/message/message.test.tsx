@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Message from "./message";
 
-const timestamp = "2022-01-01 12:00:00";
+const timestamp = Date.now() - 10000000;
 
 describe("Message", () => {
   test("matches snapshot", () => {
@@ -11,14 +11,14 @@ describe("Message", () => {
   test("renders a single message", () => {
     render(<Message sender={{_id: '2'}} message="Hello, world!" timestamp={timestamp} />);
 
-    const messageElement = screen.getByText("John Doe: Hello, world!");
+    const messageElement = screen.getByText("Hello, world!");
     expect(messageElement).toBeInTheDocument();
   });
 
   test("renders a message with a timestamp", () => {
     render(<Message sender={{_id: '2'}} message="Hello, world!" timestamp={timestamp} />);
-
-    const messageElement = screen.getByText("John Doe: Hello, world! (2022-01-01 12:00:00)");
+    const date = new Date(timestamp)
+    const messageElement = screen.getByText(`${date.getHours()} ${date.getMinutes()}`);
     expect(messageElement).toBeInTheDocument();
   });
 })

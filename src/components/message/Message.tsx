@@ -1,18 +1,13 @@
 import { FC } from "react";
 import styles from './Message.module.css'
 import { MessageProps } from "../../types/types";
+import MessageInfo from "../messageInfo/MessageInfo";
 
-const formatTime = (timestamp: number) => {
-  const date = new Date(timestamp);
-  const hours = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  return `${hours}:${minutes}`;
-}
-
-const Message: FC<MessageProps> = ({ sender, message, timestamp }) => {
+const Message: FC<MessageProps> = ({ sender, message, timestamp, isRead = false }) => {
   return <div className={styles['message-container']}>
+
     <span className={styles.message}>{message}</span>
-    <span className={styles.time}>{formatTime(timestamp)}</span>
+    <MessageInfo timestamp={timestamp} isRead={isRead} />
   </div>
 }
 

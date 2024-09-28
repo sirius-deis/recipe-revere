@@ -1,7 +1,7 @@
 export interface MessageProps {
   _id?: string;
   message: string;
-  sender: { _id: string };
+  sender: { _id: string, picture: string };
   timestamp: number;
   isRead?: boolean;
 }

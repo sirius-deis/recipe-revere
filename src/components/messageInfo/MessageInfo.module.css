@@ -1,0 +1,16 @@
+.message-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: var(--additional-200)
+}
+
+.read-status {
+  font-size: 0.8rem;
+}

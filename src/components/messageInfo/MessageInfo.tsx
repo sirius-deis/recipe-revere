@@ -1,12 +1,8 @@
 import { FC } from "react";
+import styles from './MessageInfo.module.css'
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
 import { IoCheckmarkOutline } from "react-icons/io5";
-
-interface IMessageInfo {
-  timestamp: number;
-  isRead: boolean;
-  [x: string]: any;
-}
+import { IMessageInfo } from "../../types/types";
 
 const formatTime = (timestamp: number): string => {
   const date = new Date(timestamp);
@@ -17,9 +13,9 @@ const formatTime = (timestamp: number): string => {
 
 const MessageInfo: FC<IMessageInfo> = ({ timestamp, isRead, isSend }) => {
   return (
-    <div>
-      <span>{formatTime(timestamp)}</span>
-      <span>
+    <div className={styles['message-info']}>
+      <span className={styles.timestamp}>{formatTime(timestamp)}</span>
+      <span className={styles['read-status']}>
         {isRead && <IoCheckmarkDoneOutline />}
         {!isRead && isSend && <IoCheckmarkOutline />}
       </span>

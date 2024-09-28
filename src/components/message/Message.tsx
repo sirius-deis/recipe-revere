@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from './message.module.css'
+import styles from './Message.module.css'
 import { MessageProps } from "../../types/types";
 
 const formatTime = (timestamp: number) => {
@@ -9,10 +9,10 @@ const formatTime = (timestamp: number) => {
   return `${hours}:${minutes}`;
 }
 
-const Message:FC<MessageProps> = ({sender, message, timestamp}) => {
+const Message: FC<MessageProps> = ({ sender, message, timestamp }) => {
   return <div className={styles['message-container']}>
-      <span className={styles.message}>{message}</span>
-      <span className={styles.time}>{formatTime(timestamp)}</span>
+    <span className={styles.message}>{message}</span>
+    <span className={styles.time}>{formatTime(timestamp)}</span>
   </div>
 }
 

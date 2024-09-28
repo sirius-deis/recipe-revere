@@ -55,3 +55,7 @@ a {
 .fs-2 {
   font-size: 2rem;
 }
+
+.hidden {
+  display: none;
+}

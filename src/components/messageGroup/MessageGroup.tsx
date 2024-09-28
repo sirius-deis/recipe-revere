@@ -9,9 +9,11 @@ const MessageGroup: FC<MessageGroupProps> = ({ messages }) => {
   const { user } = useContext(UserContext);
   const sender = messages[0].sender
   const isOwn = sender._id === user?._id;
-  return <div className={`${styles['message-group']} ${isOwn ? styles.mine : ''}`}>
-    {messages.map(message => <Message key={message._id} {...message} />)}
-    <Link to={`users/${sender._id}}`} className={`${!isOwn && 'user-picture'}`}>
+  return <div>
+    <div className={`${styles['message-group']} ${isOwn ? styles.mine : ''}`}>
+      {messages.map(message => <Message key={message._id} {...message} />)}
+    </div>
+    <Link to={`users/${sender._id}}`} className={`${!isOwn ? 'user-picture' : 'hidden'}`}>
       <img src={sender.picture} alt={`user with id ${sender._id}`} />
     </Link>
   </div>

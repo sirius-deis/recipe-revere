@@ -16,8 +16,8 @@ const MessageInfo: FC<IMessageInfo> = ({ timestamp, isRead, isSend }) => {
     <div className={styles['message-info']}>
       <span className={styles.timestamp}>{formatTime(timestamp)}</span>
       <span className={styles['read-status']}>
-        {isRead && <IoCheckmarkDoneOutline />}
-        {!isRead && isSend && <IoCheckmarkOutline />}
+        {isRead && <IoCheckmarkDoneOutline data-testid="read-icon" />}
+        {!isRead && isSend && <IoCheckmarkOutline data-testid="send-icon" />}
       </span>
     </div>
   )

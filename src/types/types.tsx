@@ -4,6 +4,7 @@ export interface MessageProps {
   sender: { _id: string, picture: string };
   timestamp: number;
   isRead?: boolean;
+  type: "text" | "image" | "audio" | "video"
 }
 export interface MessageGroupProps {
   messages: Array<MessageProps>;

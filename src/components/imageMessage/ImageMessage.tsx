@@ -1,4 +1,5 @@
 import { FC } from "react";
+import styles from './ImageMessage.module.css'
 
 interface IImageMessage {
   src: string;
@@ -8,7 +9,7 @@ interface IImageMessage {
 
 const ImageMessage: FC<IImageMessage> = ({ src, desc }) => {
   return (
-    <div>
+    <div className={styles['image-container']}>
       <img src={src} alt={desc} />
     </div>
   )

@@ -3,7 +3,7 @@ import styles from './ImageMessage.module.css'
 
 interface IImageMessage {
   src: string;
-  desc: string;
+  desc?: string;
   [x: string]: any;
 }
 

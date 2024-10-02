@@ -151,9 +151,14 @@ export const GET_USER = gql`
   }
 `;
 
-export const GET_MESSAGES = gql`
-  query GetMessages() {
-    getMessages() {
+export const GET_CHAT = gql`
+  query GetChat($chatId: String) {
+    getChat(chatId: $chatId) {
+      user {
+        _id
+        name
+        lastSeen
+      }
       message {
         _id
         message
@@ -164,7 +169,7 @@ export const GET_MESSAGES = gql`
       }
     }
   }
-`;
+`
 
 
 export const SEND_MESSAGE = gql`

@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { FC } from "react";
 import { useParams } from "react-router-dom";
 import styles from './ChatPage.module.css'
-import { GET_MESSAGES } from "../../queries/queries";
+import { GET_CHAT } from "../../queries/queries";
 import Loader from "../../components/loader/Loader";
 import MessageGroup from "../../components/messageGroup/MessageGroup";
 import ErrorBox from "../../components/errorBox/ErrorBox";
@@ -27,7 +27,7 @@ const groupMessage = (messages: MessageProps[]): Array<MessageProps[]> => {
 
 const ChatPage: FC = () => {
   const { userId } = useParams();
-  const { data, loading, error } = useQuery(GET_MESSAGES, { variables: { userId } });
+  const { data, loading, error } = useQuery(GET_CHAT, { variables: { chatId: userId } });
   if (loading) {
     return <Loader />
   }
@@ -39,10 +39,10 @@ const ChatPage: FC = () => {
   return <div className={styles.chat}>
     <div className={styles['status-bar']}>
       <div className={styles['img-container']}>
-        <img src="" alt="" />
+        <img src={data.user.picture} alt={`${data.user.name} picture`} />
       </div>
-      <h1>Chat with { }</h1>
-      <p>Last seen: { }</p>
+      <h1>Chat with {data.user.name}</h1>
+      {data.user.lastSeen && <p>Last seen: {data.user.lastSeen}</p>}
     </div>
     <div className={styles['chat-screen']}>
       {groupedMessages.map(messagesGroup => {

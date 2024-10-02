@@ -158,6 +158,7 @@ export const GET_CHAT = gql`
         _id
         name
         lastSeen
+        picture
       }
       message {
         _id

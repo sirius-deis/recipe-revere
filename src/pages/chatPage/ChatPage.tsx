@@ -37,6 +37,13 @@ const ChatPage: FC = () => {
 
   const groupedMessages: Array<MessageProps[]> = groupMessage(data.messages);
   return <div className={styles.chat}>
+    <div className={styles['status-bar']}>
+      <div className={styles['img-container']}>
+        <img src="" alt="" />
+      </div>
+      <h1>Chat with { }</h1>
+      <p>Last seen: { }</p>
+    </div>
     <div className={styles['chat-screen']}>
       {groupedMessages.map(messagesGroup => {
         return <MessageGroup messages={messagesGroup} />;

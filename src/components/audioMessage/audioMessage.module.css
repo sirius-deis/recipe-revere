@@ -1,0 +1,13 @@
+.audio-message {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 0.1rem
+}
+
+.audio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}

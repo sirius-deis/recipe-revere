@@ -3,6 +3,7 @@ import { FaPlay } from "react-icons/fa6";
 import { FaPause } from "react-icons/fa6";
 import { AudioVisualizer } from 'react-audio-visualize';
 import Button from "../button/Button";
+import fetchData from "../../utils/fetchData";
 
 interface IAudioMessage {
   src: string;

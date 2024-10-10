@@ -4,6 +4,7 @@ import { FaPause } from "react-icons/fa6";
 import { AudioVisualizer } from 'react-audio-visualize';
 import Button from "../button/Button";
 import fetchData from "../../utils/fetchData";
+import useFetch from "../../hooks/useFetch";
 
 interface IAudioMessage {
   src: string;
@@ -14,6 +15,7 @@ const AudioMessage: FC<IAudioMessage> = ({ src }) => {
   const [isListening, setIsListening] = useState(false);
   const ref = useRef<HTMLAudioElement>(null);
   const visualizerRef = useRef<HTMLCanvasElement>(null);
+  const [audioMessage, isLoading, error] = useFetch(src, {}, "blob");
 
 
   const toggleAudio = () => {
@@ -32,7 +34,7 @@ const AudioMessage: FC<IAudioMessage> = ({ src }) => {
       {isListening ? <FaPlay /> : <FaPause />}
     </Button>
     {
-      src && <AudioVisualizer ref={visualizerRef} blob={null} width={500} height={75} barWidth={1} gap={0} />
+      src && <AudioVisualizer ref={visualizerRef} blob={audioMessage} width={500} height={75} barWidth={1} gap={0} />
     }
   </div>
 }

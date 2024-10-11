@@ -7,8 +7,10 @@ const useFetch = (url: string, options: any, type: "json" | "blob") => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<any>(null);
 
+  let abort;
+
   useEffect(() => {
-    const abortController = new AbortController()
+    const abortController = new AbortController();
     const fetchData = async () => {
       setIsLoading(true)
       try {
@@ -41,10 +43,13 @@ const useFetch = (url: string, options: any, type: "json" | "blob") => {
         setError(error);
       }
     }
+    abort = () => {
+      abortController.abort();
+    }
     fetchData();
     return () => abortController.abort();
   }, [url, options, type])
-  return [data, isLoading, error]
+  return [data, isLoading, error, abort]
 }
 
 export default useFetch;

@@ -13,23 +13,24 @@ interface IAudioMessage {
 
 const AudioMessage: FC<IAudioMessage> = ({ src }) => {
   const [isListening, setIsListening] = useState(false);
-  const ref = useRef<HTMLAudioElement>(null);
   const visualizerRef = useRef<HTMLCanvasElement>(null);
   const [audioMessage, isLoading, error] = useFetch(src, {}, "blob");
+
+  const blobUrl = URL.createObjectURL(audioMessage);
+  const audio = new Audio(blobUrl)
 
 
   const toggleAudio = () => {
     setIsListening((prevState) => !prevState);
     if (isListening) {
-      ref.current?.play();
+      audio.play();
     }
     else {
-      ref.current?.pause();
+      audio.pause();
     }
   };
 
   return <div>
-    <audio src={src} ref={ref}></audio>
     <Button size="sm" rounded onClick={toggleAudio}>
       {isListening ? <FaPlay /> : <FaPause />}
     </Button>

@@ -1,10 +1,11 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { FaPlay } from "react-icons/fa6";
 import { FaPause } from "react-icons/fa6";
 import { AudioVisualizer } from 'react-audio-visualize';
 import { FaDownload, FaStop } from "react-icons/fa6";
 import Button from "../button/Button";
 import useFetch from "../../hooks/useFetch";
+import fetchData from "../../utils/fetchData";
 
 interface IAudioMessage {
   src: string;
@@ -12,11 +13,13 @@ interface IAudioMessage {
 }
 
 const AudioMessage: FC<IAudioMessage> = ({ src }) => {
+  const [audioMessage, setAudioMessage] = useState<Blob>(new Blob());
+  const [shouldBeReFetched, setShouldBeReFetched] = useState(false)
   const [isListening, setIsListening] = useState(false);
   const visualizerRef = useRef<HTMLCanvasElement>(null);
-  const [audioMessage, isLoading, error, abort] = useFetch(src, {}, "blob");
+  const [fetchedAudioMessage, isLoading, error, abort] = useFetch(src, {}, "blob");
 
-  const blobUrl = URL.createObjectURL(audioMessage);
+  const blobUrl = URL.createObjectURL(fetchedAudioMessage);
   const audio = new Audio(blobUrl)
 
 
@@ -32,9 +35,18 @@ const AudioMessage: FC<IAudioMessage> = ({ src }) => {
 
   const downloadAudio = () => {
     if (isLoading) {
-      abort();
+      return abort();
     }
+    setShouldBeReFetched(true)
   }
+
+  useEffect(() => {
+    const refetch = async () => {
+      const response = await fetchData(src, {}, "blob")
+      setAudioMessage(response);
+    }
+    refetch();
+  }, [shouldBeReFetched]);
 
   return <div>
     {

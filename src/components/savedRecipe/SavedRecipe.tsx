@@ -6,10 +6,10 @@ import Panel from "../panel/Panel";
 interface SavedRecipeProps {
   imgUrl: string;
   title: string;
-  id: string;
+  _id: string;
 }
 
-const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, id }) => {
+const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, _id }) => {
   return (
     <Panel centered withShadow>
       <div className={styles["image-container"]}>
@@ -17,7 +17,7 @@ const SavedRecipe: FC<SavedRecipeProps> = ({ imgUrl, title, id }) => {
       </div>
       <h3 className={styles.title}>{title}</h3>
       <Link
-        to={`/recipe/${id}`}
+        to={`/recipe/${_id}`}
         target="_blank"
         rel="noreferrer"
         className={styles.link}

@@ -55,12 +55,12 @@ const ForgetPasswordForm: FC = () => {
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
       {error && isErrorMessageBoxOpen && (
-        <MessageBox closeMessageBox={openErrorMessageBox}>
+        <MessageBox closeMessageBox={openErrorMessageBox} type="error">
           {error.message}
         </MessageBox>
       )}
       {!loading && !error && isInfoMessageBoxOpen && (
-        <MessageBox closeMessageBox={openInfoMessageBox}>{data}</MessageBox>
+        <MessageBox closeMessageBox={openInfoMessageBox} type="info">{data}</MessageBox>
       )}
       <InputWithLabel
         labelText="Email"

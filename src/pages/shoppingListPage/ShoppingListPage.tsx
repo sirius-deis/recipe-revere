@@ -29,13 +29,14 @@ const ShopListPage: FC = () => {
       });
     },
   });
-  if (firstFetch && loading) {
-    return <Loader />;
-  }
 
   useEffect(() => {
     setCurrentPage((currentState) => currentState + 1);
   }, [isIntersecting]);
+
+  if (firstFetch && loading) {
+    return <Loader />;
+  }
 
   return (
     <div>

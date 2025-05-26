@@ -1,5 +1,5 @@
 import { FC, forwardRef } from "react";
-import styles from "./recipePreview.module.css";
+import styles from "./RecipePreview.module.css";
 import Panel from "../panel/Panel";
 import { FaHeart, FaStar } from "react-icons/fa";
 import Button from "../button/Button";

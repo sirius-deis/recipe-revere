@@ -9,7 +9,7 @@ describe("SavedRecipe component", () => {
         <SavedRecipe
           imgUrl="https://spoonacular.com/recipeImages/623856-556x370.jpg"
           title="Spaghetti Bolognese"
-          url="https://spoonacular.com/recipeImages/623856-556x370.jpg"
+          _id="2"
         />
       </BrowserRouter>
     );
@@ -21,7 +21,7 @@ describe("SavedRecipe component", () => {
         <SavedRecipe
           imgUrl="https://spoonacular.com/recipeImages/623856-556x370.jpg"
           title="Spaghetti Bolognese"
-          url="https://spoonacular.com/recipeImages/623856-556x370.jpg"
+          _id="2"
         />
       </BrowserRouter>
     );

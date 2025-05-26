@@ -90,8 +90,8 @@ export const GET_SAVED_RECIPES = gql`
 `;
 
 export const LOGIN = gql`
-  mutation Login($email: String, $password: String) {
-    login(email: $email, password: $password) {
+  mutation Login($userInput: userInput!) {
+    login(input: $userInput) {
       token
       user {
         _id
@@ -105,9 +105,8 @@ export const LOGIN = gql`
 `;
 
 export const REGISTER = gql`
-mutation Register($email: String, $password: String. passwordConfirm: String) {
-  register(email: $email, password: $password, passwordConfirm: $passwordConfirm) {
-  }
+mutation Register($userInput: userInput!) {
+  register(input: $userInput)
 }
 `;
 

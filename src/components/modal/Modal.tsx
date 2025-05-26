@@ -2,15 +2,14 @@ import { FC, PropsWithChildren, useEffect } from "react";
 import { createPortal } from "react-dom";
 import styles from "./Modal.module.css";
 import Panel from "../panel/Panel";
+import Button from "../button/Button";
 
 interface ModalProps {
-  actionBar?: React.ReactNode;
   onClose: () => void;
 }
 
 const Modal: FC<PropsWithChildren & ModalProps> = ({
   children,
-  actionBar,
   onClose,
 }) => {
   useEffect(() => {
@@ -34,13 +33,17 @@ const Modal: FC<PropsWithChildren & ModalProps> = ({
     <>
       <div className={styles.backdrop} onClick={onClose}></div>
       <div className={styles.modal}>
-        <Panel>
+        <Panel centered>
           {children}
-          {actionBar}
         </Panel>
+        <div className={styles["close-button-container"]}>
+          <Button size="sm" bg="main" onClick={onClose}>
+            &#10008;
+          </Button>
+        </div>
       </div>
     </>,
-    document.querySelector("/modal-container")!
+    document.getElementById("modal-container")!
   );
 };
 

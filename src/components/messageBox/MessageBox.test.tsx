@@ -5,7 +5,7 @@ describe("MessageBox component", () => {
   it("should match snapshot", () => {
     const fn = jest.fn();
     const { container } = render(
-      <MessageBox closeMessageBox={fn}>
+      <MessageBox closeMessageBox={fn} type="info">
         <div>Some element</div>
       </MessageBox>
     );
@@ -15,7 +15,7 @@ describe("MessageBox component", () => {
   it("should close the message box", () => {
     const fn = jest.fn();
     render(
-      <MessageBox closeMessageBox={fn}>
+      <MessageBox closeMessageBox={fn} type="info">
         <div>Some element</div>
       </MessageBox>
     );

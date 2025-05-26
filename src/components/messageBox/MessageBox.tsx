@@ -1,27 +1,23 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./MessageBox.module.css";
-import Button from "../button/Button";
-import Panel from "../panel/Panel";
+import Modal from "../modal/Modal";
 
 interface MessageBoxProps {
   closeMessageBox: () => void;
+  type: "error" | "info" | "success";
 }
 
 const MessageBox: FC<PropsWithChildren & MessageBoxProps> = ({
   children,
   closeMessageBox,
+  type
 }) => {
   return (
-    <div className={styles.container}>
-      <Panel direction="horizontal" centered>
+    <Modal onClose={closeMessageBox}>
+      <div className={`${styles.message} ${styles[type]}`}>
         {children}
-        <div className={styles["button-container"]}>
-          <Button size="sm" onClick={closeMessageBox}>
-            &#10008;
-          </Button>
-        </div>
-      </Panel>
-    </div>
+      </div>
+    </Modal>
   );
 };
 

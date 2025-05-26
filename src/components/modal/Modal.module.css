@@ -13,5 +13,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-height: 25rem;
+  min-width: 25rem;
   z-index: 999;
+  background-color: var(--main-50);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.close-button-container {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  background-color: transparent;
 }

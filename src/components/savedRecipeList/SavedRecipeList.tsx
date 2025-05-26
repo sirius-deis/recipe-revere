@@ -33,7 +33,7 @@ const SavedRecipeList: FC<SavedRecipeListProps> = ({
               key={recipe.url}
               imgUrl={recipe.image}
               title={recipe.label}
-              id={recipe.url}
+              _id={recipe.url}
             />
           )
         )}

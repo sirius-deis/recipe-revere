@@ -4,7 +4,7 @@ import InputWithLabel from "../../components/input/InputWithLabel";
 import Button from "../../components/button/Button";
 import Row from "../../components/row/Row";
 import CheckboxWithLabel from "../../components/checkbox/CheckboxWithLabel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   handleChange,
   checkValidity,
@@ -25,10 +25,12 @@ const SignInForm: FC = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
   const { signIn } = useContext(UserContext);
+  const navigate = useNavigate()
   const [login, { data, loading, error }] = useMutation(LOGIN, {
-    onCompleted(data, clientOptions) {
+    onCompleted(data) {
       setToken(data.login.token);
       signIn(data.login.user, data.login.token);
+      navigate("/");
     },
     onError() {
       setIsMessageBoxOpen(true);
@@ -46,8 +48,10 @@ const SignInForm: FC = () => {
     }
     await login({
       variables: {
-        email,
-        password,
+        userInput: {
+          email,
+          password,
+        }
       },
     });
   };
@@ -62,37 +66,41 @@ const SignInForm: FC = () => {
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
       {error && isMessageBoxOpen && (
-        <MessageBox closeMessageBox={openMessageBox}>
+        <MessageBox closeMessageBox={openMessageBox} type="error">
           {error.message}
         </MessageBox>
       )}
-      <InputWithLabel
-        labelText="Email"
-        placeholder="example@email.com"
-        icon="email"
-        value={email}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(setEmail, e)
-        }
-        onBlur={() => checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)}
-        isValid={email.length > 0 && !isEmailValid}
-      />
-      <InputWithLabel
-        labelText="Password"
-        placeholder="************"
-        type="password"
-        icon="password"
-        value={password}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(setPassword, e)
-        }
-        onBlur={() =>
-          checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
-        }
-        isValid={password.length > 0 && !isPasswordValid}
-      />
+      <Row>
+        <InputWithLabel
+          labelText="Email"
+          placeholder="example@email.com"
+          icon="email"
+          value={email}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange(setEmail, e)
+          }
+          onBlur={() => checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)}
+          isValid={email.length > 0 && !isEmailValid}
+        />
+      </Row>
+      <Row>
+        <InputWithLabel
+          labelText="Password"
+          placeholder="************"
+          type="password"
+          icon="password"
+          value={password}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange(setPassword, e)
+          }
+          onBlur={() =>
+            checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
+          }
+          isValid={password.length > 0 && !isPasswordValid}
+        />
+      </Row>
 
-      <Row inlineStyles={{ gap: "2rem" }}>
+      <Row inlineStyles={{ gap: "2rem", marginTop: "1rem" }}>
         <CheckboxWithLabel
           checked={isChecked}
           labelText="Remember me"
@@ -105,9 +113,11 @@ const SignInForm: FC = () => {
           Forgot password?
         </Link>
       </Row>
-      <Button size="lg" bg="main">
-        Sign In
-      </Button>
+      <Row>
+        <Button size="lg" bg="main">
+          Sign In
+        </Button>
+      </Row>
     </form>
   );
 };

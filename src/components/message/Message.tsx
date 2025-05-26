@@ -12,8 +12,8 @@ const Message: FC<MessageProps> = ({ message, timestamp, isRead = false, type, s
     <Panel withBorder>
       <TextMessage message={message} />
       <MessageInfo timestamp={timestamp} isRead={isRead} />
-      {type === types.image && <ImageMessage src={src} />}
-      {type === types.audio && <AudioMessage src={src} />}
+      {type === types.image && <ImageMessage src={src!} />}
+      {type === types.audio && <AudioMessage src={src!} />}
     </Panel>
   </div>
 }

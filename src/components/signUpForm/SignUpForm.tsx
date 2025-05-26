@@ -12,6 +12,7 @@ import Loader from "../loader/Loader";
 import MessageBox from "../messageBox/MessageBox";
 import { useNavigate } from "react-router-dom";
 import { REGISTER } from "../../queries/queries";
+import Row from "../row/Row";
 
 const SignUpForm: FC = () => {
   const [email, setEmail] = useState("");
@@ -33,14 +34,17 @@ const SignUpForm: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (isEmailValid && isPasswordValid && isPasswordConfirmValid) {
+    if (!isEmailValid && !isPasswordValid && !isPasswordConfirmValid) {
       return;
     }
+
     await register({
       variables: {
-        email,
-        password,
-        passwordConfirm,
+        userInput: {
+          email,
+          password,
+          passwordConfirm,
+        }
       },
     });
   };
@@ -55,55 +59,63 @@ const SignUpForm: FC = () => {
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
       {error && isMessageBoxOpen && (
-        <MessageBox closeMessageBox={openMessageBox}>
+        <MessageBox closeMessageBox={openMessageBox} type="error">
           {error.message}
         </MessageBox>
       )}
-      <InputWithLabel
-        labelText="Email"
-        placeholder="example@email.com"
-        icon="email"
-        value={email}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(setEmail, e)
-        }
-        onBlur={() => checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)}
-        isValid={email.length > 0 && !isEmailValid}
-      />
-      <InputWithLabel
-        labelText="Password"
-        placeholder="************"
-        type="password"
-        icon="password"
-        value={password}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(setPassword, e)
-        }
-        onBlur={() =>
-          checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
-        }
-        isValid={password.length > 0 && !isPasswordValid}
-      />
-      <InputWithLabel
-        labelText="Password Confirm"
-        placeholder="************"
-        type="password"
-        icon="password"
-        value={passwordConfirm}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(setPasswordConfirm, e)
-        }
-        onBlur={() =>
-          checkValidity(
-            passwordConfirm,
-            setIsPasswordConfirmValid,
-            6,
-            PASSWORD_REGEXP
-          )
-        }
-        isValid={passwordConfirm.length > 0 && !isPasswordConfirmValid}
-      />
-      <Button>Sign Up</Button>
+      <Row>
+        <InputWithLabel
+          labelText="Email"
+          placeholder="example@email.com"
+          icon="email"
+          value={email}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange(setEmail, e)
+          }
+          onBlur={() => checkValidity(email, setIsEmailValid, 9, EMAIL_REGEXP)}
+          isValid={email.length > 0 && !isEmailValid}
+        />
+      </Row>
+      <Row>
+        <InputWithLabel
+          labelText="Password"
+          placeholder="************"
+          type="password"
+          icon="password"
+          value={password}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange(setPassword, e)
+          }
+          onBlur={() =>
+            checkValidity(password, setIsPasswordValid, 6, PASSWORD_REGEXP)
+          }
+          isValid={password.length > 0 && !isPasswordValid}
+        />
+      </Row>
+      <Row>
+        <InputWithLabel
+          labelText="Password Confirm"
+          placeholder="************"
+          type="password"
+          icon="password"
+          value={passwordConfirm}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange(setPasswordConfirm, e)
+          }
+          onBlur={() =>
+            checkValidity(
+              passwordConfirm,
+              setIsPasswordConfirmValid,
+              6,
+              PASSWORD_REGEXP
+            )
+          }
+          isValid={passwordConfirm.length > 0 && !isPasswordConfirmValid}
+        />
+      </Row>
+      <Row>
+        <Button size="lg" bg="main">Sign Up</Button>
+      </Row>
     </form>
   );
 };

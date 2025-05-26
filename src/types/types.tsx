@@ -9,7 +9,7 @@ export interface MessageProps {
   timestamp: number;
   isRead?: boolean;
   type: types;
-  src: string;
+  src?: string;
 }
 export interface MessageGroupProps {
   messages: Array<MessageProps>;

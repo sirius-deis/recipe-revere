@@ -34,7 +34,7 @@ export const GET_RECIPE = gql`
         review
         rating
       }
-      averageRating
+      avgRating
       amountOfReviews
     }
   }
@@ -74,7 +74,7 @@ export const RECIPE_OF_THE_DAY = gql`
         healthLabels
         totalTime
       }
-      averageRating
+      avgRating
     }
   }
 `;
@@ -118,7 +118,7 @@ export const GET_RECIPES = gql`
         label
         image
       }
-      averageRating
+      avgRating
     }
   }
 `;

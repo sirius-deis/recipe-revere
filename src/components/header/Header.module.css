@@ -54,3 +54,9 @@
 .link.active {
   color: var(--main-700);
 }
+
+.burger {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

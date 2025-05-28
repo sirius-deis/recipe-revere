@@ -126,7 +126,7 @@ const mealType: Cart[] = [
 
 const SearchPage: FC = () => {
   return (
-    <div>
+    <div className="mt-1 d-flex g-1">
       <h1>Search</h1>
       <Search placeholder="Ex.: Veggie Burger" />
       <h2>Filter by</h2>
@@ -140,7 +140,7 @@ const SearchPage: FC = () => {
         <CartList carts={mealType} />
       </Accordion>
       <Accordion title="Calories">
-        <RangeSlider min={1} max={900} onChange={() => {}} />
+        <RangeSlider min={1} max={900} onChange={() => { }} />
       </Accordion>
     </div>
   );

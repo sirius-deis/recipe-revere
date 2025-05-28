@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect } from "react";
+import { FC, useEffect } from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import { Outlet, useNavigate } from "react-router-dom";

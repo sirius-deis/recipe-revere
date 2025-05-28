@@ -17,14 +17,18 @@ const RecipeOfTheDay: FC = () => {
     //TODO: add error img
   }
   return (
-    <RecipePreview
-      id={data.recipe.url}
-      label={data?.recipe.label}
-      image={data?.recipe.image}
-      avgRating={data?.averageRating}
-      dietLabels={data?.recipe.dietLabels}
-      btnTitle="Cook now"
-    />
+    <>
+      {
+        data ? <RecipePreview
+          id={data.recipe.url}
+          label={data?.recipe.label}
+          image={data?.recipe.image}
+          avgRating={data?.averageRating}
+          dietLabels={data?.recipe.dietLabels}
+          btnTitle="Cook now"
+        /> : <div>Something went wrong</div>
+      }
+    </>
   );
 };
 

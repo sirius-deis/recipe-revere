@@ -52,6 +52,10 @@ a {
   margin-top: 3rem;
 }
 
+.gap-1 {
+  gap: 1rem;
+}
+
 .fs-2 {
   font-size: 2rem;
 }

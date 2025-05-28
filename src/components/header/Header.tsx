@@ -2,9 +2,8 @@ import { FC } from "react";
 import { FaHome, FaSearch, FaUserCircle } from "react-icons/fa";
 import { FaListCheck } from "react-icons/fa6";
 import styles from "./Header.module.css";
-import Col from "../column/Col";
 import HamburgerMenu from "../burger/HamburgerMenu";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 
 const paths = [
   {
@@ -33,23 +32,21 @@ const Header: FC = () => {
   const pathname = useLocation().pathname;
 
   return (
-    <header>
-      <Col>
+    <header style={{ position: "relative" }}>
+      <div className={styles.burger}>
         <HamburgerMenu />
-      </Col>
+      </div>
       <nav className={styles["header-bottom"]}>
         <ul className={styles.list}>
           {paths.map((path, i) => (
             <li className={styles.item} key={i}>
-              <a
-                href={path.href}
-                className={`${styles.link} ${
-                  pathname === path.href ? `${styles.active}` : ""
-                }`}
+              <NavLink
+                to={path.href}
+                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
               >
                 {path.icon}
                 {path.title}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>

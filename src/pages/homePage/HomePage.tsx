@@ -19,7 +19,7 @@ import { UserContext } from "../../store/userContext";
 const HomePage: FC = () => {
   const { user } = useContext(UserContext);
   return (
-    <div className={styles.home}>
+    <div className="mt-1 d-flex g-1">
       <div className={styles["home-header"]}>
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>
@@ -30,7 +30,7 @@ const HomePage: FC = () => {
                 <img src={`${user?.pictures![0]}`} alt="user profile" />
               )}
             </div>
-            Hello {user?.name}
+            Hello {user?.name ? user.name : "Guest"}
           </Row>
         </Col>
       </div>
@@ -45,7 +45,7 @@ const HomePage: FC = () => {
         <h2 className={styles.title}>Recipe of the day</h2>
         <RecipeOfTheDay />
       </section>
-      <section className="mt-1">
+      <section className="mt-1 d-flex gap-1">
         <Row inlineStyles={{ justifyContent: "space-between" }}>
           <h2 className={styles.title}>Categories</h2>
           <Link to="/search">See all</Link>

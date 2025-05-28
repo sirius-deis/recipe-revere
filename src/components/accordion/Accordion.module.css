@@ -8,7 +8,7 @@
 }
 
 .accordion::after {
-  content: "\11167;";
+  content: "\11167";
   color: var(--additional-950);
   font-weight: bold;
   float: right;

@@ -1,21 +1,26 @@
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 0.3rem;
+}
+
 .image-container {
   width: 100%;
-  min-height: 25rem;
-  object-fit: contain;
+  height: 25rem;
   position: relative;
   background-color: transparent;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid rgba(2, 6, 23, 0.1);
 }
+
 .img {
   width: 100%;
-  max-height: 20rem;
-  object-fit: contain;
 }
+
 .rating {
   display: flex;
   align-items: center;
@@ -30,11 +35,13 @@
   font-size: 1.2rem;
   box-shadow: 1px 1px 3px 2px rgb(74, 4, 78, 0.05);
 }
+
 .liked {
   position: absolute;
   top: 7px;
   right: 7px;
 }
+
 .desc {
   text-align: left;
 }
@@ -58,8 +65,8 @@
 .tags li:not(:first-child):before {
   content: "·";
   position: absolute;
-  top: 50%;
-  left: -1rem;
+  top: 0.4rem;
+  left: -0.8rem;
   transform: translate(-50%, -50%);
   font-size: 2.5rem;
 }

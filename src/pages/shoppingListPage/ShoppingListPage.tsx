@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { FC, useEffect, useRef, useState } from "react";
 import styles from "./ShoppingListPage.module.css";
 import Loader from "../../components/loader/Loader";

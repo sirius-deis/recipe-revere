@@ -7,7 +7,7 @@ import { RECIPE_OF_THE_DAY } from "../../queries/queries";
 const RecipeOfTheDay: FC = () => {
   const { loading, error, data } = useQuery(RECIPE_OF_THE_DAY, {
     variables: {
-      tags: "RECIPE OF THE DAY",
+      tags: "RECIPE_OF_THE_DAY",
     },
   });
   if (loading) {
@@ -16,15 +16,16 @@ const RecipeOfTheDay: FC = () => {
   if (error) {
     //TODO: add error img
   }
+  const { getRecipe } = data;
   return (
     <>
       {
         data ? <RecipePreview
-          id={data.recipe.url}
-          label={data?.recipe.label}
-          image={data?.recipe.image}
-          avgRating={data?.averageRating}
-          dietLabels={data?.recipe.dietLabels}
+          id={getRecipe.recipe.url}
+          label={getRecipe?.recipe.label}
+          image={getRecipe?.recipe.image}
+          avgRating={getRecipe?.averageRating}
+          dietLabels={getRecipe?.recipe.dietLabels}
           btnTitle="Cook now"
         /> : <div>Something went wrong</div>
       }

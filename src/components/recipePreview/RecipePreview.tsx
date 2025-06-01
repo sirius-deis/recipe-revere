@@ -15,7 +15,7 @@ interface RecipeReviewProps {
   dietLabels?: string[];
   btnTitle: string;
   withHeart?: boolean;
-  direction?: "vertical" | "horizontal";
+  direction?: "vertical" | "horizontal"
 }
 
 const RecipePreview = forwardRef<HTMLDivElement, RecipeReviewProps>(
@@ -28,51 +28,52 @@ const RecipePreview = forwardRef<HTMLDivElement, RecipeReviewProps>(
       dietLabels,
       btnTitle,
       withHeart = true,
-      direction = "vertical",
     },
     ref
   ) => {
     return (
-      <Panel withShadow direction={direction}>
-        <div
-          className={styles["image-container"]}
-          style={{ backgroundImage: `url(${image})` }}
-          ref={ref}
-        >
-          {avgRating && (
-            <div className={styles.rating}>
-              <FaStar />
-              {avgRating}
-            </div>
-          )}
-          {withHeart && (
-            <div className={styles.liked}>
-              <Button bg="icon" size="sm" style={{ padding: "0.8rem" }} rounded>
-                <FaHeart />
-              </Button>
-            </div>
-          )}
-        </div>
-        <div className={styles.desc}>
-          <Row inlineStyles={{ justifyContent: "space-between" }}>
-            <Col inlineStyles={{ gap: "0.5rem" }}>
-              <h3 className={styles.title}>{label}</h3>
-              {dietLabels && (
-                <ul className={styles.tags}>
-                  {dietLabels.map((tag: string) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
-                </ul>
-              )}
-            </Col>
-            <Col>
-              <Link to={`/recipe/${id}`}>
-                <Button bg="action" size="sm">
-                  {btnTitle}
+      <Panel withShadow withBorder>
+        <div className={styles["recipe-container"]}>
+          <div
+            className={styles["image-container"]}
+            style={{ backgroundImage: `url(${image})` }}
+            ref={ref}
+          >
+            {avgRating && (
+              <div className={styles.rating}>
+                <FaStar />
+                {avgRating}
+              </div>
+            )}
+            {withHeart && (
+              <div className={styles.liked}>
+                <Button bg="icon" size="sm" rounded>
+                  <FaHeart />
                 </Button>
-              </Link>
-            </Col>
-          </Row>
+              </div>
+            )}
+          </div>
+          <div className={styles.desc}>
+            <Row inlineStyles={{ justifyContent: "space-between", gap: "0.7rem" }}>
+              <Col inlineStyles={{ gap: "0.5rem", wrap: "wrap", maxWidth: "65%" }}>
+                <h3 className={styles.title}>{label}</h3>
+                {dietLabels && (
+                  <ul className={styles.tags}>
+                    {dietLabels.map((tag: string) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                )}
+              </Col>
+              <Col>
+                <Link to={`/recipe/${id}`}>
+                  <Button bg="action" size="sm">
+                    {btnTitle}
+                  </Button>
+                </Link>
+              </Col>
+            </Row>
+          </div>
         </div>
       </Panel>
     );

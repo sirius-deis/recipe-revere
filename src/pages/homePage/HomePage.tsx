@@ -77,6 +77,9 @@ const HomePage: FC = () => {
           </Button>
         </Row>
       </section>
+      <section className="mt-1 d-flex gap-1">
+
+      </section>
     </div>
   );
 };

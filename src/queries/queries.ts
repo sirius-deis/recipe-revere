@@ -111,8 +111,8 @@ mutation Register($userInput: userInput!) {
 `;
 
 export const GET_RECIPES = gql`
-  query GetRecipes($query: String, $page: Int) {
-    getRecipes(query: $query, page: $page) {
+  query GetRecipes($query: String, $page: Int, $tags: [String]) {
+    getRecipes(query: $query, page: $page, tags: $tags) {
       recipe {
         url
         label

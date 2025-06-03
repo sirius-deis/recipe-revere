@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoOptionsSharp } from "react-icons/io5";
 import {
@@ -15,9 +15,12 @@ import RecipeOfTheDay from "../../components/recipeOfTheDay/RecipeOfTheDay";
 import Row from "../../components/row/Row";
 import Col from "../../components/column/Col";
 import { UserContext } from "../../store/userContext";
+import RecipeList from "../../components/recipeList/RecipeList";
 
 const HomePage: FC = () => {
   const { user } = useContext(UserContext);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   return (
     <div className="mt-1 d-flex g-1">
       <div className={styles["home-header"]}>
@@ -51,25 +54,25 @@ const HomePage: FC = () => {
           <Link to="/search">See all</Link>
         </Row>
         <Row inlineStyles={{ gap: "1rem" }}>
-          <Button bg="icon" size="sm">
+          <Button bg="icon" size="sm" clickHandler={() => setSelectedCategory("Burger")}>
             <Col>
               <FaBurger />
               <span className="fs-2">Burger</span>
             </Col>
           </Button>
-          <Button bg="icon" size="sm">
+          <Button bg="icon" size="sm" clickHandler={() => setSelectedCategory("Vegan")}>
             <Col>
               <FaLeaf />
               <span className="fs-2">Vegan</span>
             </Col>
           </Button>
-          <Button bg="icon" size="sm">
+          <Button bg="icon" size="sm" clickHandler={() => setSelectedCategory("Desserts")}>
             <Col>
               <FaCookieBite />
               <span className="fs-2">Desserts</span>
             </Col>
           </Button>
-          <Button bg="icon" size="sm">
+          <Button bg="icon" size="sm" clickHandler={() => setSelectedCategory("Seafood")}>
             <Col>
               <FaFishFins />
               <span className="fs-2">Seafood</span>
@@ -77,9 +80,7 @@ const HomePage: FC = () => {
           </Button>
         </Row>
       </section>
-      <section className="mt-1 d-flex gap-1">
-
-      </section>
+      <RecipeList colN={2} tags={[selectedCategory]} />
     </div>
   );
 };

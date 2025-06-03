@@ -6,7 +6,7 @@ interface ColumnListProps {
   numberOfColumns?: number
 }
 
-const ColumnList: FC<ColumnListProps> = ({ items, numberOfColumns }) => {
+const ColumnList: FC<ColumnListProps> = ({ items = [], numberOfColumns }) => {
   const columnCount = Math.min(numberOfColumns || 999, 3)
   return <div className={styles['column-list']} style={{ gridTemplateColumns: `repeat(${columnCount}, 1fr)` }}>
     {items.map((item, index) => (

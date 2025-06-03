@@ -18,7 +18,7 @@ const RootLayout: FC = () => {
   return (
     <>
       <Header />
-      <main className="main">
+      <main className="main mt-1 d-flex g-1">
         <Outlet />
       </main>
       <Footer />

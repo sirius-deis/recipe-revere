@@ -80,7 +80,7 @@ function App() {
             />
             <Route path="/home" element={<Navigate to="/" />} />
             <Route
-              path="/profile/:userId"
+              path="/profile/:userId?"
               element={
                 <Suspense fallback={<Loader />}>
                   <ProfilePage />
@@ -127,7 +127,7 @@ function App() {
                 </Suspense>
               }
             />
-            <Route path="/chat/:userId" element={<Suspense fallback={<Loader/>}> <ChatPage/></Suspense>}/>
+            <Route path="/chat/:userId" element={<Suspense fallback={<Loader />}> <ChatPage /></Suspense>} />
           </Route>
 
           <Route

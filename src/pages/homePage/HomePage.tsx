@@ -22,7 +22,7 @@ const HomePage: FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
-    <div className="mt-1 d-flex g-1">
+    <div>
       <div className={styles["home-header"]}>
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>

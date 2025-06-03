@@ -3,6 +3,7 @@ import { FC } from "react";
 import { GET_RECIPES } from "../../queries/queries";
 import ColumnList from "../columnList/columnList";
 import Loader from "../loader/Loader";
+import ErrorBox from "../errorBox/ErrorBox";
 
 interface RecipeListProps {
   colN?: number;
@@ -21,7 +22,7 @@ const RecipeList: FC<RecipeListProps> = ({ colN = 1, query, page = 1, tags }) =>
   }
 
   if (error) {
-    //TODO: add error handling
+    return <ErrorBox message={error.message} />;
   }
 
   return <section>

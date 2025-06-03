@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren, createContext, useReducer } from "react";
 import { getToken } from "../utils/store";
-import { Token } from "graphql";
 
 export interface IUser {
   _id: string | undefined;
@@ -22,9 +21,9 @@ const INIT_STATE: IInitState = {
 
 export const UserContext = createContext({
   ...INIT_STATE,
-  signIn: (user: IUser, token: string) => {},
-  signOut: () => {},
-  resetPassword: () => {},
+  signIn: (user: IUser, token: string) => { },
+  signOut: () => { },
+  resetPassword: () => { },
 });
 
 export const USER_ACTIONS = {

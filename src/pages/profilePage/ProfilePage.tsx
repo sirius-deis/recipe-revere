@@ -1,23 +1,29 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Profile from "../../components/profile/Profile";
 import { useQuery } from "@apollo/client";
 import { GET_USER } from "../../queries/queries";
 import Loader from "../../components/loader/Loader";
 import ErrorBox from "../../components/errorBox/ErrorBox";
+import { UserContext } from "../../store/userContext";
+import Panel from "../../components/panel/Panel";
 
 const ProfilePage: FC = () => {
-  const { userId } = useParams();
+  let { userId } = useParams();
+  const { user } = useContext(UserContext);
+  if (!userId) {
+    userId = user?._id
+  }
   const { data, loading, error } = useQuery(GET_USER, {
-    variables: { id: userId },
+    variables: { userId },
   });
   if (loading) {
     return <Loader />;
   }
   if (error) {
-    return <ErrorBox message={error.message} />;
+    return <Panel centered withBorder withShadow><ErrorBox message={error.message} /></Panel>;
   }
-  return <Profile user={data.user} />;
+  return <div><Profile user={data.user} /></div>;
 };
 
 export default ProfilePage;

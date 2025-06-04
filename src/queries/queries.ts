@@ -150,6 +150,15 @@ export const GET_USER = gql`
   }
 `;
 
+export const ME = gql`
+  query Me {
+    _id
+    name
+    pictures
+    friends
+  }
+`;
+
 export const GET_CHAT = gql`
   query GetChat($chatId: String) {
     getChat(chatId: $chatId) {

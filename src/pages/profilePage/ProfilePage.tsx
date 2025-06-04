@@ -11,19 +11,21 @@ import Panel from "../../components/panel/Panel";
 const ProfilePage: FC = () => {
   let { userId } = useParams();
   const { user } = useContext(UserContext);
-  if (!userId) {
+  if (!userId || user?._id === userId) {
     userId = user?._id
   }
   const { data, loading, error } = useQuery(GET_USER, {
     variables: { userId },
+    skip: !!user && user._id === userId
   });
+  console.log(data, user)
   if (loading) {
     return <Loader />;
   }
   if (error) {
     return <Panel centered withBorder withShadow><ErrorBox message={error.message} /></Panel>;
   }
-  return <div><Profile user={data.user} /></div>;
+  return <div><Profile user={data ? data.getUser.user : user} /></div>;
 };
 
 export default ProfilePage;

@@ -129,7 +129,7 @@ const SearchPage: FC = () => {
     <div className="mt-1 d-flex g-1">
       <h1>Search</h1>
       <Search placeholder="Ex.: Veggie Burger" />
-      <h2>Filter by</h2>
+      <h2 className="mt-1">Filter by</h2>
       <Accordion title="Categories">
         <CartList carts={categories} />
       </Accordion>

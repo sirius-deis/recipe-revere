@@ -18,7 +18,6 @@ const ProfilePage: FC = () => {
     variables: { userId },
     skip: !!user && user._id === userId
   });
-  console.log(data, user)
   if (loading) {
     return <Loader />;
   }

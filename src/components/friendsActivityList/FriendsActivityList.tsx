@@ -47,6 +47,10 @@ const FriendsActivityList: FC = () => {
     return <ErrorBox message={error.message} />;
   }
 
+  if (friendsActivity.length === 0) {
+    return <p>No friends activity yet</p>
+  }
+
   return (
     <section>
       <List borderBottom>

@@ -21,7 +21,7 @@ const Accordion: FC<PropsWithChildren & AccordionProps> = ({
       onClick={clickHandler}
       data-testid="accordion"
     >
-      <button className={styles.accordion}>{title}</button>
+      <button className={`${styles.accordion} text-left`}>{title}</button>
       <div className={styles.panel}>{children}</div>
     </section>
   );

@@ -14,6 +14,10 @@ const SavedRecipeList = () => {
   if (error) {
     return <ErrorBox message={error.message} />;
   }
+
+  if (data.recipes.length === 0) {
+    return <p>No saved recipes yet</p>
+  }
   return (
     <section>
       <List direction="horizontal">

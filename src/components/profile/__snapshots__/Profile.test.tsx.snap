@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile component should match snapshot 1`] = `
+<div>
+  <div
+    class="profile"
+  >
+    <h1
+      class="text-left"
+    >
+      My Profile
+    </h1>
+    <div
+      class="profile-header"
+    >
+      <div
+        class="col"
+      >
+        <div
+          class="row"
+          style="gap: 1rem;"
+        >
+          <div
+            class="image-container"
+          >
+            <img
+              alt="user profile"
+              data-testid="img"
+              src="https://example.com/profile.jpg"
+            />
+          </div>
+        </div>
+        <div
+          class="row"
+        >
+          <h2>
+            John Doe
+          </h2>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div
+        class="row"
+        style="justify-content: space-between;"
+      >
+        <div
+          class="col"
+        >
+          <h2>
+            Saved recently
+          </h2>
+        </div>
+        <div
+          class="col"
+        >
+          <a
+            href="/saved"
+          >
+            See all
+          </a>
+        </div>
+      </div>
+      <div>
+        SavedRecipeList
+      </div>
+    </section>
+    <section>
+      <h2
+        class="text-left"
+      >
+        Friends activity
+      </h2>
+      <div>
+        FriendsActivityList
+      </div>
+    </section>
+  </div>
+</div>
+`;

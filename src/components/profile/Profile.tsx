@@ -10,7 +10,7 @@ import FriendsActivityList from "../friendsActivityList/FriendsActivityList";
 interface ProfileProps {
   user: {
     _id: string;
-    name: string;
+    name: string | undefined;
     isActive: boolean;
     isBlocked: boolean;
     pictures: string[];
@@ -25,10 +25,10 @@ const Profile: FC<ProfileProps> = ({ user }) => {
         <Col>
           <Row inlineStyles={{ gap: "1rem" }}>
             <div className={styles["image-container"]}>
-              {user?.pictures ? (
+              {user?.pictures.length === 0 ? (
                 <FaUserSecret className={styles["user-icon"]} />
               ) : (
-                <img src={`${user?.pictures![0]}`} alt="user profile" />
+                <img data-testid="img" src={`${user?.pictures![0]}`} alt="user profile" />
               )}
             </div>
           </Row>

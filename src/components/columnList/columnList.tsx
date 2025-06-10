@@ -6,11 +6,11 @@ interface ColumnListProps {
   numberOfColumns?: number
 }
 
-const ColumnList: FC<ColumnListProps> = ({ items = [], numberOfColumns }) => {
+const ColumnList: FC<ColumnListProps> = ({ items, numberOfColumns }) => {
   const columnCount = Math.min(numberOfColumns || 999, 3)
-  return <div className={styles['column-list']} style={{ gridTemplateColumns: `repeat(${columnCount}, 1fr)` }}>
+  return <div className={styles['column-list']} role="list" style={{ gridTemplateColumns: `repeat(${columnCount}, 1fr)` }}>
     {items.map((item, index) => (
-      <div key={index} className={styles['list-item']}>{item}</div>
+      <div key={index} role="list-item" className={styles['list-item']}>{item}</div>
     ))}
   </div>
 }

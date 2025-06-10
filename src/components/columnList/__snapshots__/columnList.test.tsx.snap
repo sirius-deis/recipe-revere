@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColumnList component should match snapshot 1`] = `
+<div>
+  <div
+    class="column-list"
+    role="list"
+    style="grid-template-columns: repeat(3, 1fr);"
+  >
+    <div
+      class="list-item"
+      role="list-item"
+    >
+      <div>
+        item 1
+      </div>
+    </div>
+    <div
+      class="list-item"
+      role="list-item"
+    >
+      <div>
+        item 2
+      </div>
+    </div>
+    <div
+      class="list-item"
+      role="list-item"
+    >
+      <div>
+        item 3
+      </div>
+    </div>
+    <div
+      class="list-item"
+      role="list-item"
+    >
+      <div>
+        item 4
+      </div>
+    </div>
+  </div>
+</div>
+`;

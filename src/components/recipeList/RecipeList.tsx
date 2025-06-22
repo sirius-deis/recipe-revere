@@ -4,6 +4,7 @@ import { GET_RECIPES } from "../../queries/queries";
 import ColumnList from "../columnList/columnList";
 import Loader from "../loader/Loader";
 import ErrorBox from "../errorBox/ErrorBox";
+import RecipePreview from "../recipePreview/RecipePreview";
 
 interface RecipeListProps {
   colN?: number;
@@ -25,8 +26,10 @@ const RecipeList: FC<RecipeListProps> = ({ colN = 1, query, page = 1, tags }) =>
     return <ErrorBox message={error.message} />;
   }
 
+  const dataToRender = data?.getRecipes.map((item: any) => <RecipePreview {...item}></RecipePreview>)
+
   return <section>
-    <ColumnList items={data?.getRecipes} numberOfColumns={colN} />
+    <ColumnList items={dataToRender} numberOfColumns={colN} />
   </section>
 }
 

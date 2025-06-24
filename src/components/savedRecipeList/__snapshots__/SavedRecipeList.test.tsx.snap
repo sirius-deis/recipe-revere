@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedRecipeList should match snapshot 1`] = `
+<div>
+  <section>
+    <ul
+      class="list horizontal"
+    >
+      <li
+        class="list-item"
+      >
+        <div
+          class="panel shadowed centered vertical"
+          data-testid="panel"
+        >
+          <div
+            class="image-container"
+          >
+            <img
+              alt="Recipe 1"
+              class="img"
+              src="img1.jpg"
+            />
+          </div>
+          <h3
+            class="title"
+          >
+            Recipe 1
+          </h3>
+          <a
+            class="link"
+            href="/recipe/1"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Details
+          </a>
+        </div>
+      </li>
+      <li
+        class="list-item"
+      >
+        <div
+          class="panel shadowed centered vertical"
+          data-testid="panel"
+        >
+          <div
+            class="image-container"
+          >
+            <img
+              alt="Recipe 2"
+              class="img"
+              src="img2.jpg"
+            />
+          </div>
+          <h3
+            class="title"
+          >
+            Recipe 2
+          </h3>
+          <a
+            class="link"
+            href="/recipe/2"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Details
+          </a>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+`;

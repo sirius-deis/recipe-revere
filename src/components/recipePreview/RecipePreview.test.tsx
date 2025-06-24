@@ -3,11 +3,13 @@ import { BrowserRouter } from "react-router-dom";
 import RecipePreview from "./RecipePreview";
 
 const dummy = {
-  id: "id",
-  label: "label",
-  image: "image",
+  recipe: {
+    id: "id",
+    label: "label",
+    image: "image",
+    dietLabels: ["dietLabel 1", "dietLabel 2", "dietLabel 3"],
+  },
   avgRating: 1,
-  dietLabels: ["dietLabel 1", "dietLabel 2", "dietLabel 3"],
   btnTitle: "Click",
 };
 
@@ -26,15 +28,15 @@ describe("RecipePreview component", () => {
         <RecipePreview {...dummy} />
       </BrowserRouter>
     );
-    expect(screen.getByText(dummy.label)).toBeInTheDocument();
+    expect(screen.getByText(dummy.recipe.label)).toBeInTheDocument();
     expect(screen.getByText(dummy.avgRating)).toBeInTheDocument();
-    expect(screen.getByText(dummy.dietLabels[0])).toBeInTheDocument();
-    expect(screen.getByText(dummy.dietLabels[1])).toBeInTheDocument();
-    expect(screen.getByText(dummy.dietLabels[2])).toBeInTheDocument();
+    expect(screen.getByText(dummy.recipe.dietLabels[0])).toBeInTheDocument();
+    expect(screen.getByText(dummy.recipe.dietLabels[1])).toBeInTheDocument();
+    expect(screen.getByText(dummy.recipe.dietLabels[2])).toBeInTheDocument();
     expect(screen.getByText(dummy.btnTitle)).toBeInTheDocument();
     expect(screen.getByRole("link")).toHaveAttribute(
       "href",
-      `/recipe/${dummy.id}`
+      `/recipe/${dummy.recipe.id}`
     );
   });
 });

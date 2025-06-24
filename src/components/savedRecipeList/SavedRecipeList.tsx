@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { useQuery } from "@apollo/client";
 import Loader from "../loader/Loader";
 import SavedRecipe from "../savedRecipe/SavedRecipe";

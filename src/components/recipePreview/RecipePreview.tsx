@@ -8,11 +8,13 @@ import Col from "../column/Col";
 import { Link } from "react-router-dom";
 
 interface RecipeReviewProps {
-  id: string;
-  label: string;
-  image: string;
+  recipe: {
+    id: string;
+    label: string;
+    image: string;
+    dietLabels?: string[]
+  };
   avgRating?: number;
-  dietLabels?: string[];
   btnTitle: string;
   withHeart?: boolean;
   direction?: "vertical" | "horizontal"
@@ -21,11 +23,13 @@ interface RecipeReviewProps {
 const RecipePreview = forwardRef<HTMLDivElement, RecipeReviewProps>(
   (
     {
-      id,
-      label,
-      image,
+      recipe: {
+        id,
+        label,
+        image,
+        dietLabels,
+      },
       avgRating,
-      dietLabels,
       btnTitle,
       withHeart = true,
     },
@@ -38,6 +42,7 @@ const RecipePreview = forwardRef<HTMLDivElement, RecipeReviewProps>(
             className={styles["image-container"]}
             style={{ backgroundImage: `url(${image})` }}
             ref={ref}
+            data-testid="img"
           >
             {avgRating && (
               <div className={styles.rating}>

@@ -54,9 +54,9 @@ describe("RecipeList component", () => {
     render(<Router><RecipeList /></Router>)
     expect(screen.getByText("Recipe 1")).toBeInTheDocument()
     expect(screen.getByText("Recipe 2")).toBeInTheDocument()
-    const images = screen.getAllByRole("img");
+    const images = screen.getAllByTestId("img");
     expect(images.length).toBe(2);
-    expect(images[0]).toHaveAttribute("src", "img1.jpg");
-    expect(images[1]).toHaveAttribute("src", "img2.jpg");
+    expect(images[0]).toHaveStyle(`backgroundImage: url(${data.getRecipes[0].recipe.image})`)
+    expect(images[1]).toHaveStyle(`backgroundImage: url(${data.getRecipes[1].recipe.image})`)
   })
 })

@@ -53,27 +53,28 @@ const FriendsActivityList: FC = () => {
 
   return (
     <section>
-      <List borderBottom>
-        {friendsActivity.map(
-          (
-            { _id, user: { _id: userId, name, pictures }, activity, date },
-            index
-          ) => {
-            return (
-              <FriendsActivity
-                key={_id}
-                _id={userId}
-                name={name}
-                picture={pictures[0]}
-                activity={activity}
-                time={date}
-                ref={friendsActivity.length - 1 <= index ? null : ref}
-              />
-            );
-          }
-        )}
-      </List>
-      {loading && !firstFetch.current && <Loader />}
+      {
+        friendsActivity.length && <List borderBottom>
+          {friendsActivity.map(
+            (
+              { _id, user: { _id: userId, name, pictures }, activity, date },
+              index
+            ) => {
+              return (
+                <FriendsActivity
+                  key={_id}
+                  _id={userId}
+                  name={name}
+                  picture={pictures[0]}
+                  activity={activity}
+                  time={date}
+                  ref={friendsActivity.length - 1 <= index ? null : ref}
+                />
+              );
+            }
+          )}
+        </List>
+      }
     </section>
   );
 };

@@ -44,5 +44,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirius-deis/recipe-revere.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sirius-deis/recipe-revere/issues"
+  },
+  "homepage": "https://github.com/sirius-deis/recipe-revere#readme"
 }

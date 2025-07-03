@@ -1,7 +1,7 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { MockedProvider } from '@apollo/client/testing';
-import ForgetPasswordForm from "./ForgetPassword";
-import { FORGET_PASSWORD } from "../../queries/queries";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter, BrowserRouter as Router } from "react-router-dom";
+import SignInForm from "./SignInForm";
+
 
 jest.mock("@apollo/client", () => ({
   ...jest.requireActual("@apollo/client"),
@@ -12,20 +12,21 @@ import { useMutation } from "@apollo/client";
 
 jest.mock("../loader/Loader", () => () => <div>Loading...</div>)
 
-describe("ForgetPasswordForm", () => {
+describe("SignInForm", () => {
   it("should match snapshot", () => {
     (useMutation as jest.Mock).mockReturnValue([jest.fn(), {
       loading: false,
       error: null
     }])
-    const { container } = render(<ForgetPasswordForm />)
+    const { container } = render(<BrowserRouter><SignInForm /></BrowserRouter>)
     expect(container).toMatchSnapshot()
   })
+
   it("should render loading state", () => {
     (useMutation as jest.Mock).mockReturnValue([jest.fn(), {
       loading: true
     }])
-    render(<ForgetPasswordForm />)
+    render(<BrowserRouter><SignInForm /></BrowserRouter>)
     expect(screen.getByText("Loading...")).toBeInTheDocument()
   })
-})
+});

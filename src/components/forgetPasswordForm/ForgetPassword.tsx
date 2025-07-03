@@ -39,13 +39,13 @@ const ForgetPasswordForm: FC = () => {
     });
   };
 
-  const openErrorMessageBox = () => {
+  const toggleErrorMessageBox = () => {
     setIsErrorMessageBoxOpen((prevState: boolean) => {
       return !prevState;
     });
   };
 
-  const openInfoMessageBox = () => {
+  const toggleInfoMessageBox = () => {
     setIsInfoMessageBoxOpen((prevState: boolean) => {
       return !prevState;
     });
@@ -55,12 +55,12 @@ const ForgetPasswordForm: FC = () => {
     <form onSubmit={handleSubmit}>
       {loading && <Loader />}
       {error && isErrorMessageBoxOpen && (
-        <MessageBox closeMessageBox={openErrorMessageBox} type="error">
+        <MessageBox closeMessageBox={toggleErrorMessageBox} type="error">
           {error.message}
         </MessageBox>
       )}
       {!loading && !error && isInfoMessageBoxOpen && (
-        <MessageBox closeMessageBox={openInfoMessageBox} type="info">{data}</MessageBox>
+        <MessageBox closeMessageBox={toggleInfoMessageBox} type="info">{data}</MessageBox>
       )}
       <InputWithLabel
         labelText="Email"
